@@ -41,7 +41,9 @@ working; ≥4 league matches booked; 10 per-algorithm PRDs written; CI green.
   - [x] 0.1.3.c [D] - Coverage config with `fail_under = 85` | DoD: Suite fails below threshold, not just warns. (X §6.2)
 - [x] 0.1.4 [D] - Create `.gitignore` excluding `.env`, `credentials.json`, `token.json`, `*.pem`, `*.key`, `client_secret*.json` | DoD: `git status` shows no secrets before the first commit. (M#39, M#40)
 - [x] 0.1.5 [D] - Create `.env-example` with placeholders for `GMAIL_CREDENTIALS_PATH`, `GMAIL_TOKEN_PATH`, `GROQ_API_KEY`, `OLLAMA_BASE_URL`, `NGROK_AUTHTOKEN` | DoD: Committed; real `.env` absent from the repo. (X §7.4)
-- [ ] 0.1.6 [D] - Add Itay as collaborator on both repos | DoD: Itay can push to both.
+- [X] 0.1.6 [D] - Add Itay as collaborator on both repos | DoD: Itay can push to both.
+- [ ] 0.1.11 🧑 [D] - Grant the `workflow` token scope so `.github/workflows/` can be pushed | DoD: `gh auth refresh -h github.com -s workflow` (or an SSH remote, or a PAT with `workflow`); `publish.py` completes without a rejected push.
+- [x] 0.1.12 [D] - Add `.gitattributes` pinning LF | DoD: Prevents a CRLF/LF mismatch from breaking the byte-identical shared-config handshake between teams on different operating systems. See CONTRADICTIONS C-004. (M#11)
 - [x] 0.1.7 [D] - Write `scripts/check_file_size.py` | DoD: Bloating a file to 151 LOC makes it exit 1; removing one line makes it exit 0. **Verified both directions.** Logic lives in `core/shared/loc_counter.py`; the script is a thin CLI.
   - [x] 0.1.7.a [D] - Walk `core/`, `police/`, `thief/`, `tests/`, `scripts/` for `*.py` | DoD: `__pycache__` and `.venv` excluded.
   - [x] 0.1.7.b [D] - Count lines that are neither blank nor pure comment | DoD: A 200-line file of comments passes; 151 lines of code fails.

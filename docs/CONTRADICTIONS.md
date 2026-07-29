@@ -45,6 +45,18 @@ This file is that record. Each entry is also summarised in the README of both re
 
 ---
 
+## C-004 — Line endings and the byte-identical config requirement
+
+| | |
+|---|---|
+| **Where** | M#11 (shared config must be byte-identical on both sides) vs. cross-platform Git defaults |
+| **The problem** | Not a contradiction in the book, but a trap it does not mention. Git on Windows checks files out with CRLF by default; on macOS and Linux with LF. Two teams on different platforms would hold configs that are semantically identical but **byte-different**, so `config_sha256` would not match and the handshake would refuse the match before the first move. |
+| **Our choice** | Pin LF for all text files via `.gitattributes` (`* text=auto eol=lf`), published to both repositories. |
+| **Why** | M#11 is enforced on bytes, not meaning. The failure would appear only when playing an opponent on a different operating system — the worst possible moment to discover it. |
+| **Effect** | `.gitattributes` is in `SHARED_PATHS` and unit-tested. Opponents on any platform hash the same bytes. Also silences Git's CRLF warnings on Windows. |
+
+---
+
 ## Template for future entries
 
 ```markdown

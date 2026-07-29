@@ -60,6 +60,12 @@ def test_match_artefacts_are_published() -> None:
     assert "results" in SHARED_PATHS
 
 
+def test_line_ending_policy_is_published() -> None:
+    """`.gitattributes` pins LF so the shared config hashes identically on both
+    peers' machines. Without it a CRLF checkout breaks the handshake. (M#11)"""
+    assert ".gitattributes" in SHARED_PATHS
+
+
 def test_shared_paths_contain_no_role_packages() -> None:
     """The shared set is genuinely role-neutral."""
     assert not {"police", "thief", "config"} & set(SHARED_PATHS)

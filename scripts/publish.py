@@ -17,31 +17,26 @@ Usage::
 Each target must already be a clone of the corresponding GitHub repository,
 sitting beside this working tree. The secret scan runs before anything is
 staged; a hit aborts the publish for every role.
+
+The push is attempted on every run, including when there is nothing new to
+commit, so that a run which committed but failed to push can simply be repeated.
 """
 
 from __future__ import annotations
 
 import argparse
 import shutil
-import subprocess
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
+from core.shared.git_ops import GitCommandError, has_pending_changes, run_git  # noqa: E402
 from core.shared.publish_spec import ROLES, RoleSpec  # noqa: E402
 from core.shared.secret_scanner import scan_tracked  # noqa: E402
 
 __all__ = ["main"]
-
-
-def _run(command: list[str], cwd: Path, dry_run: bool) -> None:
-    """Run *command* in *cwd*, or print it when dry-running."""
-    if dry_run:
-        print(f"    [dry-run] {' '.join(command)}")
-        return
-    subprocess.run(command, cwd=cwd, check=True)
 
 
 def _scan_secrets() -> None:
@@ -62,10 +57,10 @@ def _sync_tree(spec: RoleSpec, target: Path, dry_run: bool) -> None:
         source = ROOT / relative
         if not source.exists():
             continue
-        destination = target / relative
         print(f"    {relative}")
         if dry_run:
             continue
+        destination = target / relative
         if source.is_dir():
             shutil.rmtree(destination, ignore_errors=True)
             shutil.copytree(source, destination, ignore=shutil.ignore_patterns(*spec.ignore))
@@ -73,11 +68,11 @@ def _sync_tree(spec: RoleSpec, target: Path, dry_run: bool) -> None:
             destination.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(source, destination)
 
-    readme_source = ROOT / spec.readme
-    if readme_source.exists():
+    readme = ROOT / spec.readme
+    if readme.exists():
         print(f"    {spec.readme} -> README.md")
         if not dry_run:
-            shutil.copy2(readme_source, target / "README.md")
+            shutil.copy2(readme, target / "README.md")
 
     for relative in spec.forbidden:
         stale = target / relative
@@ -91,20 +86,20 @@ def _publish_role(spec: RoleSpec, target: Path, message: str, dry_run: bool) -> 
     """Sync, commit and push a single role repository."""
     print(f"\n== {spec.name} -> {target}")
     if not (target / ".git").is_dir():
-        raise SystemExit(f"{target} is not a git clone. Clone the repo there first.")
+        raise SystemExit(f"{target} is not a git clone. Clone the repository there first.")
 
     _sync_tree(spec, target, dry_run)
-    _run(["git", "add", "-A"], target, dry_run)
+    run_git(["add", "-A"], target, dry_run)
 
-    status = subprocess.run(
-        ["git", "status", "--porcelain"], cwd=target, capture_output=True, text=True
-    )
-    if not dry_run and not status.stdout.strip():
-        print("    nothing to commit")
-        return
+    if dry_run or has_pending_changes(target):
+        run_git(["commit", "-m", message], target, dry_run)
+    else:
+        print("    nothing new to commit")
 
-    _run(["git", "commit", "-m", message], target, dry_run)
-    _run(["git", "push", "origin", "HEAD"], target, dry_run)
+    # Always attempt the push, even with nothing new to commit: an earlier run
+    # may have committed and then failed to push (expired token, no network).
+    print(f"    pushing to {spec.repo_dir}")
+    run_git(["push", "origin", "HEAD"], target, dry_run)
 
 
 def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
@@ -119,7 +114,7 @@ def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
 
 
 def main(argv: list[str] | None = None) -> int:
-    """Publish the selected roles. Returns 0 on success."""
+    """Publish the selected roles. Returns 0 on success, 1 on a git failure."""
     args = _parse_args(argv)
     _scan_secrets()
     if args.scan_only:
@@ -127,11 +122,16 @@ def main(argv: list[str] | None = None) -> int:
     if not args.message:
         raise SystemExit("--message is required (except with --scan-only).")
 
-    selected = [s for s in ROLES if args.role in (s.name, "both")]
+    selected = [spec for spec in ROLES if args.role in (spec.name, "both")]
     for spec in selected:
-        _publish_role(spec, args.parent / spec.repo_dir, args.message, args.dry_run)
+        try:
+            _publish_role(spec, args.parent / spec.repo_dir, args.message, args.dry_run)
+        except GitCommandError as error:
+            print(f"\nFAILED: {error}")
+            print("\nFix the above, then re-run this command. Work already committed is kept.")
+            return 1
 
-    print("\nDone." if not args.dry_run else "\nDry run complete - nothing was changed.")
+    print("\nDry run complete - nothing was changed." if args.dry_run else "\nDone.")
     return 0
 
 

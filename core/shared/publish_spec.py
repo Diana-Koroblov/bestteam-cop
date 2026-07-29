@@ -28,6 +28,7 @@ SHARED_PATHS: tuple[str, ...] = (
     "pyproject.toml",
     "uv.lock",
     ".gitignore",
+    ".gitattributes",
     ".env-example",
     ".pre-commit-config.yaml",
     ".github",
