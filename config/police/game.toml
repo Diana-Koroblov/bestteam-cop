@@ -1,0 +1,84 @@
+# Private, local-only settings for the COP peer.
+#
+# This file is NOT part of the negotiated contract and is NOT hashed for the
+# M#11 digest exchange. Anything the opponent must agree to belongs in
+# game.json instead.
+#
+# game.json is layered on top of this file at load time, so a value here can
+# fill a gap but can never override something both teams agreed on.
+#
+# Secrets never live here. API keys and OAuth material go in .env
+# (see .env-example) and credentials.json stays outside the repository.
+
+version = "1.00"
+
+[identity]
+team_name = "bestteam"
+role = "cop"
+# Free-text, sent in the handshake. Keep it boring; it is public.
+contact_label = "bestteam-cop"
+
+[game]
+# Local run settings only. The negotiated physics — grid size, move set,
+# barrier count, scoring — deliberately do NOT appear here. Mirroring them
+# would create a second copy that a local edit could quietly desynchronise
+# while the shared digest still matched.
+seed = 20260812
+self_play_opponent = "thief"
+auto_advance = false
+step_delay_sec = 0.0
+
+[network]
+# Diana's reserved free ngrok domain. Static, so no per-match URL exchange.
+# Itay overrides this locally with his own domain; it is never negotiated.
+public_domain = "customs-countdown-uncork.ngrok-free.dev"
+listen_host = "127.0.0.1"
+listen_port = 8081
+
+[strategy]
+# See docs/PRD_strategy_advanced.md. These are ours alone; the opponent must
+# never learn them, and nothing here may alter the rules of the game.
+search_depth = 3
+belief_prior = "uniform"
+# Barriers are spent late, when the thief's exit count is small enough for a
+# single wall to be lethal. Below this turn we herd rather than seal.
+barrier_hold_until_turn = 8
+# Refuse any barrier that would disconnect us from the thief's belief mass.
+require_connectivity_to_target = true
+# Cap on how many opponent traits we will profile, to stay unexploitable.
+max_profiled_traits = 4
+
+[trash_talk]
+enabled = true
+# Truth is cheap and buys credibility; we lie only when the lie is decisive.
+# See PRD_strategy_advanced.md §4.3.
+default_truthfulness = "truthful"
+max_words = 15
+# Never fabricated, under any policy: capture claims, barrier placements,
+# scent fields, game counts. Those are audited and score 0 for both teams.
+never_fabricate = ["capture", "barriers", "scent", "game_count"]
+
+[llm]
+# Per-machine choice, see ADR-003. Diana: groq (no local GPU). Itay: ollama.
+# The actual key is read from GROQ_API_KEY in .env, never from this file.
+provider = "groq"
+model = "llama-3.3-70b-versatile"
+# When the provider is unreachable the agent falls back to deterministic
+# templates rather than forfeiting the turn on a watchdog timeout.
+allow_template_fallback = true
+max_output_tokens = 200
+
+[email]
+# League reporting via the Gmail API, send-only scope (M#30).
+enabled = true
+sender = "dianakoroblov27@gmail.com"
+send_on_series_end = true
+
+[ui]
+enabled = true
+cell_pixels = 64
+show_belief_heatmap = true
+
+[logging]
+level = "INFO"
+results_dir = "results"
