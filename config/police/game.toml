@@ -48,9 +48,34 @@ search_depth = 3
 belief_prior = "uniform"
 # Barriers are spent late, when the thief's exit count is small enough for a
 # single wall to be lethal. Below this turn we herd rather than seal.
+#
+# SUPPRESSIVE ONLY. PRD_strategy_advanced A1.11 forbids transitions driven by
+# turn number, so this key can hold us in HERD and can never by itself cause a
+# placement; a measured ORBITER lifts it, because A1.12 needs barriers spent
+# EARLIER against a thief that circles. See CONTRADICTIONS C-015. Measured
+# across 16 openings the floor is currently inert — same captures, steps and
+# barriers at 0 as at 8 — so it is kept as cheap insurance, not as a plan.
 barrier_hold_until_turn = 8
 # Refuse any barrier that would disconnect us from the thief's belief mass.
+# Enforced in police/barrier_policy.py as a mass comparison rather than a
+# geometric test, and judged on the mass that SURVIVES the placement: a wall
+# that seals the thief's last exit strands a thief that is no longer there.
 require_connectivity_to_target = true
+# Phase thresholds (police/phases.py). All measured state, never the clock.
+# Entropy of a uniform 7x7 is ~5.6 bits, so 3.5 is roughly "the mass has
+# collapsed into about a dozen cells".
+confident_bits = 3.5
+seal_exits = 3
+squeeze_cells = 12
+# Evaluation weights (police/evaluation.py). Separation dwarfs the rest on
+# purpose: stranding the thief is not a weak position, it is a lost sub-game.
+weight_separation = 400.0
+weight_shared_region = 0.6
+weight_proximity = 2.0
+weight_endgame = 60.0
+weight_cycle = 12.0
+weight_reach = 1.5
+weight_diagonal = 2.0
 # Cap on how many opponent traits we will profile, to stay unexploitable.
 max_profiled_traits = 4
 
@@ -110,6 +135,9 @@ timeout_sec = 8
 # League reporting via the Gmail API, send-only scope (M#30).
 enabled = true
 sender = "dianakoroblov27@gmail.com"
+# M#51. From config, never a literal in code: the test suite must not be able
+# to mail the lecturer, and a changed address is a config edit not a release.
+recipient = "rmisegal+uoh26finalgame@gmail.com"
 send_on_series_end = true
 
 [ui]
