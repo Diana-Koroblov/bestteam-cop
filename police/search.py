@@ -35,7 +35,7 @@ from core.domain.board import Board, Position
 from core.domain.brain_base import Observation
 from police.evaluation import CAPTURE_VALUE, CopWeights, evaluate
 
-__all__ = ["best_move", "expectimax", "options"]
+__all__ = ["best_move", "scored_moves", "expectimax", "options"]
 
 # Depth used when nothing configures one. 3 plies is ~125 leaves on a 5-way
 # branch and completes in milliseconds, which is comfortably inside the 30 s
@@ -125,6 +125,39 @@ def expectimax(
     )
 
 
+def scored_moves(
+    observation: Observation,
+    weights: CopWeights,
+    depth: int = DEFAULT_DEPTH,
+    belief: dict[Position, float] | None = None,
+) -> list[tuple[float, Direction]]:
+    """Return every legal action with its value, in the fixed `options` order.
+
+    Args:
+        belief: Overrides the observation's own posterior. The brain passes the
+            belief **after** the opponent's hint has been folded in (8.3.4), so
+            the search reads the same distribution the brain believes rather
+            than the pre-verbal one. `None` keeps the observation's.
+
+    Every candidate, not just the winner, because the near-tie draw in
+    `core/domain/tiebreak.py` needs to see the runners-up — and it must see them
+    on the same scale, from the same arithmetic, or it would be choosing between
+    values that were never comparable.
+    """
+    posterior = observation.belief if belief is None else belief
+    return [
+        (
+            _value_of(
+                destination, posterior, observation.barriers, observation.board, depth, weights
+            ),
+            direction,
+        )
+        for direction, destination in options(
+            observation.own_position, observation.barriers, observation.board
+        )
+    ]
+
+
 def best_move(
     observation: Observation, weights: CopWeights, depth: int = DEFAULT_DEPTH
 ) -> tuple[Direction, float]:
@@ -132,21 +165,13 @@ def best_move(
 
     Ties break on the fixed ordering from `options` rather than on whichever
     float happened to compare larger, so two peers replaying one log reach the
-    same move. Near-ties are broken deliberately and unexploitably elsewhere
+    same move. Near-ties are broken deliberately and unexploitably in the brain
     (TODO 8.3.1); a *search* that wobbled would make the log unverifiable, which
     is a different and much worse problem.
     """
-    scored = [
-        (
-            _value_of(
-                destination, observation.belief, observation.barriers, observation.board, depth, weights
-            ),
-            index,
-            direction,
-        )
-        for index, (direction, destination) in enumerate(
-            options(observation.own_position, observation.barriers, observation.board)
-        )
+    ranked = [
+        (value, -index, direction)
+        for index, (value, direction) in enumerate(scored_moves(observation, weights, depth))
     ]
-    value, _, direction = max(scored, key=lambda entry: (entry[0], -entry[1]))
+    value, _, direction = max(ranked, key=lambda entry: (entry[0], entry[1]))
     return direction, value
