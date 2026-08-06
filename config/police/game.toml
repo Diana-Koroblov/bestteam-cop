@@ -109,11 +109,13 @@ tie_epsilon = 0.5
 # Whether the brain may lie at all (A3.9). False pins every turn to saying
 # nothing directional, and is the ablation's control arm.
 #
-# ON FOR THE COP: MEASURED, ADOPTED. Over 48 openings against our own advanced
-# thief, giving only the cop a verbal layer moves the thief from 40/48
-# survivals to 32/48 — eight sub-games, the largest single effect measured in
-# phase 8. A3.10 explains it: the lie's job is herding, and the cop is the role
-# that herds.
+# ON FOR THE COP: MEASURED, ADOPTED, RE-MEASURED. Leave-one-out from the
+# shipped config over 48 openings against our own advanced thief: removing the
+# verbal layer drops the cop from 8/48 captures to 2/48 — three quarters of
+# everything phase 8.3 is worth, and the largest single effect in phase 8.
+# A3.10 explains it: the lie's job is herding, and the cop is the role that
+# herds. Figures re-measured 06/08 after the 4.1.6 scent-timing fix; the
+# decision was the same before it.
 bluff_enabled = true
 # Information value at or below which the truth is free (A3.7, A3.8). Measured
 # as 1 - how plainly our own scent field already announces the direction we are
