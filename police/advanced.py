@@ -117,6 +117,15 @@ class AdvancedCop(BrainBase):
         """
         self.verbal.profile.for_opponent(team)
 
+    def restart_sub_game(self, sub_game: int) -> None:
+        """Bank the profile and drop the board state (TODO 9.5).
+
+        Nothing else needs clearing: `self.phase` is recomputed from scratch by
+        `classify` on every turn, and the barrier quota belongs to the
+        `BarrierManager` the driver builds per sub-game rather than to us.
+        """
+        self.verbal.restart(sub_game)
+
     def _pick_move(self, observation: Observation) -> Decision:
         """Return the best step. Present because `BrainBase` requires it.
 
