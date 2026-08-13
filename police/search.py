@@ -39,7 +39,7 @@ __all__ = ["best_move", "scored_moves", "expectimax", "options"]
 
 # Depth used when nothing configures one. 3 plies is ~125 leaves on a 5-way
 # branch and completes in milliseconds, which is comfortably inside the 30 s
-# step deadline (A1.3) even on Diana's machine.
+# step deadline (A1.3) on any machine we would play from.
 DEFAULT_DEPTH = 3
 
 
