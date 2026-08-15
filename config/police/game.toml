@@ -105,7 +105,21 @@ require_connectivity_to_target = true
 # Entropy of a uniform 7x7 is ~5.6 bits, so 3.5 is roughly "the mass has
 # collapsed into about a dozen cells".
 confident_bits = 3.5
-seal_exits = 3
+# 4, not 3, and the reason is a deadlock found by measurement (5 self-play games,
+# 175 turns, every one classified HERD, 0 of 14 barriers ever spent).
+#
+# On an empty 7x7 the thief's exit count is 4 in the interior, 3 on an edge and 2
+# in a corner. At 3 the cop may only build once the thief is ALREADY on an edge —
+# but the only thing that reduces a thief's exits is a wall, and walls are only
+# placed outside HERD. So the cop waited for a confinement it was never allowed
+# to create, and the thief strolled the full 35 steps.
+#
+# The old value rode on the comment below — that a greedy fleer corners itself
+# against the board's own edges. Against `thief.advanced:AdvancedThief` it never
+# did once in 175 turns, because avoiding corners is exactly what a good thief
+# does. `strict` still lowers this to 3 against a measured greedy fleer, so the
+# original caution survives where it is actually earned.
+seal_exits = 4
 squeeze_cells = 12
 # Evaluation weights (police/evaluation.py). Separation dwarfs the rest on
 # purpose: stranding the thief is not a weak position, it is a lost sub-game.
