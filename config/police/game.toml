@@ -127,8 +127,27 @@ weight_separation = 400.0
 weight_shared_region = 0.6
 weight_proximity = 2.0
 weight_endgame = 60.0
+# 60, not 12, and measured rather than guessed. With 12 the Cop reached SEAL 35
+# times in 5 games, `best_barrier` returned a legal wall all 35 times — and only
+# 5 were built. Placing costs the turn (a placement moves as STAY) and its payoff
+# lands 4+ moves out, past the 3-ply horizon, so expectimax compared a wall worth
+# nothing it could see against a step that closed distance now. The step won 30
+# times out of 35.
+#
+# Cycle removal is not one heuristic among several: every sub-game so far ended
+# `thief survived 35 of 35`, which is precisely the signature this term names —
+# "a region the Thief can circle is a region it survives in for all 35 steps
+# however small it is" (police/barrier_policy.py). Breaking the cycle IS the
+# Cop's win condition, so it is priced alongside `endgame` rather than an order
+# of magnitude below it.
 weight_cycle = 12.0
-weight_reach = 1.5
+# 12, not 1.5. Raising `weight_cycle` first was the obvious move and it changed
+# nothing, because `cycle` multiplies a BOOLEAN — it pays only for the wall that
+# breaks the region's last cycle, which no single wall on an open 7x7 can do. So
+# walls 1..n-1 earn zero and only the last collects, and the Cop never starts an
+# investment whose whole return sits at the end. `reach` is the term that pays
+# per cell removed, so it is the one that can reward the first wall at all.
+weight_reach = 40.0
 weight_diagonal = 2.0
 # Cap on how many opponent traits we will profile, to stay unexploitable.
 # Enforced: `core/domain/opponent_profile.TRAITS` is compared against this value
