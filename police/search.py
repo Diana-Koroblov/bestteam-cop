@@ -33,7 +33,8 @@ from core.domain.actions import Direction
 from core.domain.belief import mask, predict
 from core.domain.board import Board, Position
 from core.domain.brain_base import Observation
-from police.evaluation import CAPTURE_VALUE, CopWeights, evaluate
+from core.domain.connectivity import reachable
+from police.evaluation import CAPTURE_VALUE, ISOLATION_FLOOR, CopWeights, evaluate
 
 __all__ = ["best_move", "scored_moves", "expectimax", "options"]
 
@@ -90,7 +91,16 @@ def _value_of(
     ahead = expectimax(
         destination, predict(survivors, board, barriers), barriers, board, depth - 1, weights
     )
-    return caught * CAPTURE_VALUE + (1.0 - caught) * ahead
+    blended = caught * CAPTURE_VALUE + (1.0 - caught) * ahead
+    # 🐛 18/08: `evaluate`'s own isolation term cannot reach this decision — it
+    # only prices the `ahead` branch, which a high `caught` (belief, not fact)
+    # drowns to almost nothing. Stepping into a 2-cell pocket the Thief had
+    # already left still blended to ~990 here, because 98%+ of the blend was
+    # "we probably just captured" and isolation only ever discounted the other
+    # 2%. Applied to the full blend instead: a capture claim from stale belief
+    # is not worth more just because it is more confident.
+    isolated = ISOLATION_FLOOR - len(reachable(destination, barriers, board))
+    return blended - weights.isolation * max(0, isolated)
 
 
 def expectimax(

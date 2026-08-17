@@ -39,6 +39,12 @@ __all__ = ["CopWeights", "evaluate", "separation_mass", "endgame_mass"]
 # the terminal reward has to dominate every positional term combined.
 CAPTURE_VALUE = 1000.0
 
+# A component this small is a dead end, not a hunting ground (see
+# `CopWeights.isolation`). 8 is well above the 2-3 cell pockets a self-trap
+# actually produces and well below the ~40+ cells a legitimate late-game seal
+# still leaves on a 7x7 board, so it should not fire on ordinary play.
+ISOLATION_FLOOR = 8
+
 
 @dataclass(frozen=True)
 class CopWeights:
@@ -60,6 +66,17 @@ class CopWeights:
         diagonal: Reward per anchored corner a placement sits against (A1.8).
             Also placement-only, and deliberately modest — it is a prior on
             cuts, not a measurement.
+        isolation: Penalty per cell short of `ISOLATION_FLOOR` in the Cop's own
+            reachable component, independent of belief (18/08). `separation`
+            already penalises mass *believed* to be stranded, but that is only
+            as good as the belief: seen live, 2/48 openings against the
+            advanced Thief, where the Thief had already left a pocket the
+            filter still rated 98%+ likely. Stepping into that pocket then
+            scored as a near-certain capture with nothing stranded, because
+            nothing was believed to be outside it — and the Cop walled itself
+            into a dead end the real Thief had never been trapped in. This
+            term does not trust belief at all: a small component costs the
+            same whether belief is right or wrong, which is the point.
     """
 
     separation: float = 400.0
@@ -69,6 +86,7 @@ class CopWeights:
     cycle: float = 12.0
     reach: float = 1.5
     diagonal: float = 2.0
+    isolation: float = 100.0
 
     @classmethod
     def from_config(cls, config: Any) -> CopWeights:
@@ -85,7 +103,8 @@ class CopWeights:
         read = {
             field: float(config.get(f"strategy.weight_{field}", getattr(defaults, field)))
             for field in (
-                "separation", "shared_region", "proximity", "endgame", "cycle", "reach", "diagonal"
+                "separation", "shared_region", "proximity", "endgame", "cycle", "reach",
+                "diagonal", "isolation",
             )
         }
         return cls(**read)
@@ -209,4 +228,5 @@ def evaluate(
         - weights.proximity * _expected_distance(cop, belief, barriers, board)
         + weights.endgame * endgame_mass(cop, belief, barriers, board)
         - weights.cycle * _cycle_mass(belief, barriers, board)
+        - weights.isolation * max(0, ISOLATION_FLOOR - len(component))
     )

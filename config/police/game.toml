@@ -156,6 +156,17 @@ weight_cycle = 12.0
 # per cell removed, so it is the one that can reward the first wall at all.
 weight_reach = 40.0
 weight_diagonal = 2.0
+# 18/08, measured against the advanced Thief, 2/48 openings and the shape
+# reproduced by hand in tests/unit/test_cop_barrier_policy.py and
+# test_cop_evaluation.py. `separation` only prices believed-stranded mass, so
+# when belief is confidently WRONG about a shrinking pocket, walling ourselves
+# into it scores as a near-certain capture because nothing reads as stranded.
+# This term does not consult belief at all: any reachable component under
+# `ISOLATION_FLOOR` (8 cells) costs the same whether the Thief turns out to
+# really be there or not. Confirmed on the full 48-opening benchmark: 6/48
+# self-separations to 0/48, zero regression on the matchups that already
+# worked (docs/KNOWN_ISSUES.md has the full trace).
+weight_isolation = 100.0
 # Cap on how many opponent traits we will profile, to stay unexploitable.
 # Enforced: `core/domain/opponent_profile.TRAITS` is compared against this value
 # by a test, so a fifth trait cannot be added without the cap being raised on
