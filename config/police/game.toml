@@ -32,11 +32,66 @@ role = "cop"
 # Free-text, sent in the handshake. Keep it boring; it is public.
 contact_label = "bestteam-cop"
 
+# --- C-00x pairing terms: agreed in the thread, NOT contract keys ------------
+# These six values used to live in the shared `game.json`. imreeyal's counted
+# checklist (item 9) is that the FILED config artefact must be the shared
+# contract in its 9-key shape, and that our C-00x mechanism choices bind as
+# **pairing terms agreed in writing** rather than as keys inside that file. They
+# were right, and their file never carried them: our contract was theirs plus
+# these, which is why our canonical digest read 17606f14 against their cca1243e
+# over content that differed in no rule at all.
+#
+# ⚠️ **THEY ARE HERE, NOT DELETED, AND THE DIFFERENCE IS THE WHOLE POINT.**
+# Private config is the base and `game.json` is the overlay (config_manager
+# §"merged with the shared file on top"), so a key absent from the contract is
+# still resolved from here. Deleting them outright does three things, all bad:
+#
+#   * `core/domain/rules.py` calls `config.require()` on all three `capture`
+#     keys — a missing key raises, and a peer that cannot build its rules engine
+#     is a technical loss worth 0 to BOTH teams;
+#   * `pheromones.decay_model` is read as `get(..., "multiplicative")` in
+#     `core/crypto/scent_model.py` and `core/compat/session.py`. Absent, it
+#     silently becomes the model we did **not** agree — blurring our own belief
+#     filter exactly as it was blurred before 16/08, and changing the
+#     `scent_model_sha256` we seal into every step-0 declaration;
+#   * `seal_scent_digest` and `seal_barrier_cell` are read as `get(..., False)`,
+#     so absent they silently stop sealing and our commitment shape changes
+#     under an opponent auditing against the old one.
+#
+# Changing any value here changes what we PLAY without changing the digest we
+# publish. That is exactly the desynchronisation the `[game]` comment below
+# warns about, so treat these as frozen by the thread, not as local preferences.
+#
+# `version` is NOT repeated here: it is already declared at the top of this file,
+# which is where `load_config` now falls back to when the 9-key contract omits it.
+
+[capture]
+# N15 / C-006b, N14 / C-006a, N16 / C-006c. Appendix F defines no capture table
+# at all, which is why these are pairing terms rather than contract keys.
+resolution = "after_moves"
+stay_counts_as_move = false
+swap_is_capture = false
+
+[movement_and_barriers]
+# N20 / C-018. Presence, not value, is the signal: a turn without a barrier
+# hashes byte-identically whether or not either peer implements this.
+seal_barrier_cell = true
+
+[pheromones]
+# N13b / C-007. SUBTRACTIVE is what we agreed with imreeyal and what is bound by
+# scent_model_sha256 81ebee59 in every step-0 declaration — a digest THIS KEY
+# feeds, so it is not an independent pin on itself.
+decay_model = "subtractive"
+# N13 / C-005 and N13c / C-008.
+field_includes_current_turn = true
+seal_scent_digest = true
+
 [game]
 # Local run settings only. The negotiated physics — grid size, move set,
 # barrier count, scoring — deliberately do NOT appear here. Mirroring them
 # would create a second copy that a local edit could quietly desynchronise
-# while the shared digest still matched.
+# while the shared digest still matched. The block above is the one deliberate
+# exception, and it is documented there.
 seed = 20260812
 self_play_opponent = "thief"
 auto_advance = false
@@ -91,6 +146,33 @@ sub_game_patience_sec = 240
 # loader falls back to `police.brain:PoliceBrain`, the baseline — which lost all
 # six sub-games of the 08/08 self-rehearsal without ever making a capture.
 police_class = "police.advanced:AdvancedCop"
+# ⛔ **DEPTH 5 MEASURED AND NOT ADOPTED — the value below stays 3.** The sweep
+# is real and is kept because it cost an hour to produce, but depth 5 FAILS our
+# own integration suite: `tests/integration/test_match_driver.py` and
+# `test_series_runner.py` both go red, almost certainly on the deadlines those
+# tests drive real match loops against, since a depth-5 move is ~16x a depth-3
+# one. Adopting it needs that understood and fixed first, not a config edit.
+# Patch preserved out of tree; re-measure before taking it.
+#
+# The sweep, for whoever picks this up — 48 mirrored openings against our own advanced
+# thief, one arm per depth, everything else at the shipped configuration:
+#
+#     depth 3 (was)   17/48 captures   320 walls    80 s
+#     depth 4         15/48 captures   303 walls   324 s   <- WORSE than 3
+#     depth 5         26/48 captures   331 walls  1295 s
+#
+# **Depth is not monotonic here, and 4 is the proof.** Anyone raising this by
+# intuition would have stopped at 4, lost two captures and paid four times the
+# compute for it. Re-measure rather than interpolate before changing it again.
+#
+# Affordable: 1295 s over 48 sub-games is ~27 s per sub-game, ~0.9 s per turn
+# against the 30 s step deadline (A1.3) — and a cop turn is ~6 searches, because
+# `barrier_policy` values every candidate placement with this same expectimax.
+# Depth 6 measured 1.07 s for a *single* search in isolation, so ~6 s a turn,
+# which is where the deadline starts to matter. 5 is the last comfortable rung.
+#
+# Private (Appendix F Table 22): not negotiated, not in the shared digest, and
+# the opponent never learns it.
 search_depth = 3
 belief_prior = "uniform"
 # Barriers are spent late, when the thief's exit count is small enough for a
