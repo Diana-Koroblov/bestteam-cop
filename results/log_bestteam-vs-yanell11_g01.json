@@ -1,0 +1,1363 @@
+{
+  "code_version": "1.00",
+  "config_sha256": "86108a7a5d651d31039eadb5fe973a1165ea4d6c5ebe4e4dae903e7a42e6ed64",
+  "created_utc": "2026-08-22T12:33:10+00:00",
+  "game_id": "bestteam-vs-yanell11",
+  "live_commits": {
+    "yanell11": {
+      "1": "c958ff62df335dfe2a1bd274a2d3ed7ae1b6e31550e0ce8768eb227419ba3c75",
+      "10": "2f8748852a81769140a40b84d2f98b3e7c3dc85eb5ad4211b97c4d48c45bf21b",
+      "11": "b4c034fca9550aade81c3427389d24d15b65cfa178eda7105fa9ba8ae108bbcd",
+      "12": "75b447d60c6016d9e6feda737d542c929432a318af05dcee0bef34ff43bd642b",
+      "13": "80ec6216404dce52d6815cb1684a8e70d541daf41768f7580f3ec011a2ceebef",
+      "14": "e5f1b29e91af9eae14e8699a7ea8e664851059cb3f48afaa8f8209d5f6b04de2",
+      "15": "478179bb2d9f2d545fd804d605a973f88bd587a304192c4a59efa1c4dd668c82",
+      "16": "36cce0bbb093ce94ca84d21367194dd04776444c26b01a23dd21d562b05c8ff1",
+      "17": "8fb9eb8056dc7819888138bc1a8e07b4ff984980a08300cda3cd82cb1300b118",
+      "18": "c6164fc20741405b3921da619ac7db8e7bc0c345783fd1735bb32f26e0ad6411",
+      "19": "0dab3958516bcd14c742091e7e735d1644f335903e3518f8a16a5cbf61b0688d",
+      "2": "2fb48d4a1ba15c3cb471ce8375d867850d1d51cd573d198e76d9f55e5e3ca355",
+      "20": "8827c0c6c96ebca28ee03ae07e1809dea20beb978b5a4aa751a5ec699bf86eac",
+      "21": "14a746916c65f028217202393e4646bf3bb6fd9cb358a2751f1060a011e91e42",
+      "22": "a25029d3f03ee4626a3758f7e47c87cbbf50aba6c34582f661c0c73c3f5fdbd0",
+      "23": "e930658412af6250680f60620de4162443777abe42374c2a6982a671104321ff",
+      "24": "f8be0cc132068d8655fe56ad830c5f537b153d7a86f11660eeead4c79d9ce850",
+      "25": "51d14daa9278dbc3f8d99aa1a6d634c8e287630344a2fb7589906479077a2e82",
+      "26": "a55f07a4ecec1d7b1102889839531e39ae74a99ce6ab6e8b4041d24e0686acd9",
+      "27": "d1c84f6c6e1689b7d26aa3f384813d189b7c595d41b2766f9d63a1997575f0ff",
+      "28": "143d449cbfa8ed32c6fa840a0b87fa44e35ed670f4b524d7e6ec7fa7f6c91551",
+      "29": "471597fa144c39a776de2d27a1d18ddc0fed7b8711fe1ee24ca46c3a01bc5fc1",
+      "3": "3cc22d2352678fece173bb5035430e91eac1bdb80891e19ae26f15e9c3a0b8e2",
+      "30": "29630246f6798c62d94932559bc3c48970cd4fa614928f2d77d53a4686e66a90",
+      "31": "ec8178334d33fda544ad7c6c2d425a2c1f7f91fd1a3d420b18f6aa1a42b898ce",
+      "32": "86720d056c92666e5a8e031c1cfb88065d016858e840f651182ae9edf955298d",
+      "33": "18c54431916fc761a699d4b4137dd6a2c065a76c814afada243e4dbc13fc881f",
+      "34": "6b866810cb16225cad45ad440187b507665bea83149cf9346156cab037333513",
+      "35": "211c04af2085a75ce870af4f7e876e6854089e9016e28c767062716d22f058a0",
+      "4": "bbd4c31a2cc15b401e28e39a2d12702746e84b1b167cfe712a78188bb2204b17",
+      "5": "19685e0cf08a2e59b6a086202f178e543a25ccec37b86af0238ed5399e734629",
+      "6": "d08889bd7e7ac0ae897d36644b84c1dc1839d2ab003757cdce23a510ffcbeaa4",
+      "7": "40395c0cfa79d76bdee602df150a1f452adc062a8015107a9cc7e7b2c2a0d46d",
+      "8": "4dc57761655b6442f5d70d3f39885a1edced3dd7a89562b7df73061410385584",
+      "9": "624c660cebfd87432b8496b1d46f4f5e2d43f4f0ca2bb8c91bdb5b91a89bf91e"
+    }
+  },
+  "outcome": "survival",
+  "protocol": "reference",
+  "records": {
+    "bestteam": [
+      {
+        "commit": "2c9bca462524ac21caa27eefa660091f27b911624ac339dd452385e832c8abdd",
+        "nonce": "cdd35a7decae13107d106f6de19227bf",
+        "payload": {
+          "github_commit": "74f7ddd8abd89fdcb86335c70906282241c01fe2",
+          "hint": "The southern side suits me better today.",
+          "intent": "truth",
+          "move": "MOVE:S",
+          "position": [
+            1,
+            0
+          ],
+          "role": "police",
+          "state": "grid=7x7;self=[1, 0];barriers=[]",
+          "step": 1,
+          "sub_game": 1,
+          "verdict": "moved"
+        }
+      },
+      {
+        "commit": "92dbd89b2b1a213277b7a0fcfea233f500456a3c7cf5bb6be607027b476edd26",
+        "nonce": "5e7c415238d9cc447650ad26f5cefd12",
+        "payload": {
+          "hint": "I drift north while you guess at shadows.",
+          "intent": "lie",
+          "move": "MOVE:S",
+          "position": [
+            2,
+            0
+          ],
+          "role": "police",
+          "state": "grid=7x7;self=[2, 0];barriers=[]",
+          "step": 2,
+          "sub_game": 1,
+          "verdict": "moved"
+        }
+      },
+      {
+        "commit": "e9a71c7c639698b4f816c98e6605253d61dae7ac66a7f99e1fcaf8db003f5c9b",
+        "nonce": "6b9ddb5498d7cbcf19e83b8eaacdc661",
+        "payload": {
+          "hint": "I lean east, where your trail runs thin.",
+          "intent": "truth",
+          "move": "MOVE:E",
+          "position": [
+            2,
+            1
+          ],
+          "role": "police",
+          "state": "grid=7x7;self=[2, 1];barriers=[]",
+          "step": 3,
+          "sub_game": 1,
+          "verdict": "moved"
+        }
+      },
+      {
+        "commit": "2239147c135ea593ee84c8af0c67a602867a43f4cc136427752b89b914c6c0a5",
+        "nonce": "a5b2f731880b97ee238ace2c0695005f",
+        "payload": {
+          "hint": "I lean east, where your trail runs thin.",
+          "intent": "truth",
+          "move": "MOVE:E",
+          "position": [
+            2,
+            2
+          ],
+          "role": "police",
+          "state": "grid=7x7;self=[2, 2];barriers=[]",
+          "step": 4,
+          "sub_game": 1,
+          "verdict": "moved"
+        }
+      },
+      {
+        "commit": "35afd20123c7b3e6dbf6384c60fda3f0316d38bb2202eda578a17eb3e18d4875",
+        "nonce": "b722b51616f01bd86cba8323c37aca67",
+        "payload": {
+          "hint": "Drifting west while you read the wrong scent.",
+          "intent": "lie",
+          "move": "MOVE:E",
+          "position": [
+            2,
+            3
+          ],
+          "role": "police",
+          "state": "grid=7x7;self=[2, 3];barriers=[]",
+          "step": 5,
+          "sub_game": 1,
+          "verdict": "moved"
+        }
+      },
+      {
+        "commit": "da2ce7e41e082d2f9440deb0cb29766033cfc9c0a060d7714399b0e448a7ce14",
+        "nonce": "09b98efa54c4d854ff5afe68a9c02473",
+        "payload": {
+          "hint": "The northern edge is calling me. Try to keep up.",
+          "intent": "lie",
+          "move": "MOVE:S",
+          "position": [
+            3,
+            3
+          ],
+          "role": "police",
+          "state": "grid=7x7;self=[3, 3];barriers=[]",
+          "step": 6,
+          "sub_game": 1,
+          "verdict": "moved"
+        }
+      },
+      {
+        "commit": "3adbb6364804178da4f9c94d9dbe9cd4a759976815299471b81af531020ca4de",
+        "nonce": "55ce98599acf2c88e917b872dbd0506e",
+        "payload": {
+          "hint": "Eastward now. The far side is friendlier.",
+          "intent": "truth",
+          "move": "MOVE:E",
+          "position": [
+            3,
+            4
+          ],
+          "role": "police",
+          "state": "grid=7x7;self=[3, 4];barriers=[]",
+          "step": 7,
+          "sub_game": 1,
+          "verdict": "moved"
+        }
+      },
+      {
+        "commit": "cd2dd340163a0b400e7e6f8606ef74e610a61caa4204173620b1b613672734cb",
+        "nonce": "9715eddead9eb169b1e21e5bb65ee770",
+        "payload": {
+          "hint": "Nothing you have read this turn was worth reading.",
+          "intent": "truth",
+          "move": "MOVE:S",
+          "position": [
+            4,
+            4
+          ],
+          "role": "police",
+          "state": "grid=7x7;self=[4, 4];barriers=[]",
+          "step": 8,
+          "sub_game": 1,
+          "verdict": "moved"
+        }
+      },
+      {
+        "commit": "cfd97f9e4b4d8a465775be62af394c0836e88a2ca61e0d40a318b25ef18cc5a2",
+        "nonce": "2609842c5c51591be1b84bf85c6affc3",
+        "payload": {
+          "hint": "I am somewhere you have not thought to look.",
+          "intent": "truth",
+          "move": "MOVE:W",
+          "position": [
+            4,
+            3
+          ],
+          "role": "police",
+          "state": "grid=7x7;self=[4, 3];barriers=[]",
+          "step": 9,
+          "sub_game": 1,
+          "verdict": "moved"
+        }
+      },
+      {
+        "commit": "73033f4955a0ae1c392f1b72e113e81a4040bf7675b27954f2b11ca2b00830d9",
+        "nonce": "b0f422f03ab5e93c1f1f6f1f675baa12",
+        "payload": {
+          "hint": "You are chasing a rumour, not an agent.",
+          "intent": "truth",
+          "move": "MOVE:W",
+          "position": [
+            4,
+            2
+          ],
+          "role": "police",
+          "state": "grid=7x7;self=[4, 2];barriers=[]",
+          "step": 10,
+          "sub_game": 1,
+          "verdict": "moved"
+        }
+      },
+      {
+        "commit": "ad79cf25ac92b5ea87ca21fb6ac809646298a6132f549f9ada0c457453e33572",
+        "nonce": "c7b31c436fb822e9c1fd57439b931744",
+        "payload": {
+          "hint": "Nothing you have read this turn was worth reading.",
+          "intent": "truth",
+          "move": "MOVE:E",
+          "position": [
+            4,
+            3
+          ],
+          "role": "police",
+          "state": "grid=7x7;self=[4, 3];barriers=[]",
+          "step": 11,
+          "sub_game": 1,
+          "verdict": "moved"
+        }
+      },
+      {
+        "commit": "8d5d5ab1e12b2af7edc5cc62192e322c7db6c2a8e29ed2138308d635dc0487cf",
+        "nonce": "e2caed9b7ef6a051c38cb8eed3ec26f8",
+        "payload": {
+          "hint": "Nothing you have read this turn was worth reading.",
+          "intent": "truth",
+          "move": "MOVE:N",
+          "position": [
+            3,
+            3
+          ],
+          "role": "police",
+          "state": "grid=7x7;self=[3, 3];barriers=[]",
+          "step": 12,
+          "sub_game": 1,
+          "verdict": "moved"
+        }
+      },
+      {
+        "commit": "3f8c56bb67d68f9985fc4c510e69f2a819df55353c8cf0f4c6a98a3d98104f38",
+        "nonce": "9a303e1616e895e3766a773924dbe53b",
+        "payload": {
+          "hint": "Nothing you have read this turn was worth reading.",
+          "intent": "truth",
+          "move": "MOVE:W",
+          "position": [
+            3,
+            2
+          ],
+          "role": "police",
+          "state": "grid=7x7;self=[3, 2];barriers=[]",
+          "step": 13,
+          "sub_game": 1,
+          "verdict": "moved"
+        }
+      },
+      {
+        "commit": "c05760d0b9ff4b71a22181fdaf858c310c37780001b8e858d1bbd30a1737fd5c",
+        "nonce": "e2ce7a38fcdc44693955894a09dc094d",
+        "payload": {
+          "hint": "You are chasing a rumour, not an agent.",
+          "intent": "truth",
+          "move": "MOVE:N",
+          "position": [
+            2,
+            2
+          ],
+          "role": "police",
+          "state": "grid=7x7;self=[2, 2];barriers=[]",
+          "step": 14,
+          "sub_game": 1,
+          "verdict": "moved"
+        }
+      },
+      {
+        "commit": "a156f6ac4bb9bedf68b8d8d21c76e4afb132b91f552b326e0b1cc1dc820f2542",
+        "nonce": "47dafa91e1f2385312d0906885c7872a",
+        "payload": {
+          "hint": "I am somewhere you have not thought to look.",
+          "intent": "truth",
+          "move": "MOVE:N",
+          "position": [
+            1,
+            2
+          ],
+          "role": "police",
+          "state": "grid=7x7;self=[1, 2];barriers=[]",
+          "step": 15,
+          "sub_game": 1,
+          "verdict": "moved"
+        }
+      },
+      {
+        "commit": "c1d5c28256326f72fad321be04ded97aa5cf979654e5e1a21cb6fc1b3cbec07b",
+        "nonce": "2b4afd8a455238e9dac8f78495af7f5c",
+        "payload": {
+          "hint": "Nothing you have read this turn was worth reading.",
+          "intent": "truth",
+          "move": "MOVE:S",
+          "position": [
+            2,
+            2
+          ],
+          "role": "police",
+          "state": "grid=7x7;self=[2, 2];barriers=[]",
+          "step": 16,
+          "sub_game": 1,
+          "verdict": "moved"
+        }
+      },
+      {
+        "commit": "7c0c49f41a52870efdfb5080c5cdf045eb49731dfcd528d8ee8c02341019e80c",
+        "nonce": "bce8aa8340edd60b1159791624e163b7",
+        "payload": {
+          "hint": "Nothing you have read this turn was worth reading.",
+          "intent": "truth",
+          "move": "MOVE:E",
+          "position": [
+            2,
+            3
+          ],
+          "role": "police",
+          "state": "grid=7x7;self=[2, 3];barriers=[]",
+          "step": 17,
+          "sub_game": 1,
+          "verdict": "moved"
+        }
+      },
+      {
+        "commit": "f29013bbba9cc8ee225700762a4bffaf9620391badb8f6d08092d39cc12f2e22",
+        "nonce": "ebba99f47ce8a0d97b6020690883569e",
+        "payload": {
+          "hint": "Nothing you have read this turn was worth reading.",
+          "intent": "truth",
+          "move": "MOVE:W",
+          "position": [
+            2,
+            2
+          ],
+          "role": "police",
+          "state": "grid=7x7;self=[2, 2];barriers=[]",
+          "step": 18,
+          "sub_game": 1,
+          "verdict": "moved"
+        }
+      },
+      {
+        "commit": "c0679db00aad4c11926428692339e117b761a3092ae6ba82bd27d5cd13f7aa5f",
+        "nonce": "aba024e352c68c98a6781c732e537dd6",
+        "payload": {
+          "hint": "Nothing you have read this turn was worth reading.",
+          "intent": "truth",
+          "move": "MOVE:E",
+          "position": [
+            2,
+            3
+          ],
+          "role": "police",
+          "state": "grid=7x7;self=[2, 3];barriers=[]",
+          "step": 19,
+          "sub_game": 1,
+          "verdict": "moved"
+        }
+      },
+      {
+        "commit": "faa742b6466116fddaf1b5fcd312ca563f3316a0014282e2da69018a73932ffe",
+        "nonce": "d3175b742c5b6ba545fb865cd7497ffd",
+        "payload": {
+          "hint": "Nothing you have read this turn was worth reading.",
+          "intent": "truth",
+          "move": "MOVE:S",
+          "position": [
+            3,
+            3
+          ],
+          "role": "police",
+          "state": "grid=7x7;self=[3, 3];barriers=[]",
+          "step": 20,
+          "sub_game": 1,
+          "verdict": "moved"
+        }
+      },
+      {
+        "commit": "e398eda676a0e349afc636d801cc0d3e7e62c41691cc16a4a29fc23783ab3ec7",
+        "nonce": "e102c4460748bb4d60349d6220828e17",
+        "payload": {
+          "hint": "I am somewhere you have not thought to look.",
+          "intent": "truth",
+          "move": "MOVE:E",
+          "position": [
+            3,
+            4
+          ],
+          "role": "police",
+          "state": "grid=7x7;self=[3, 4];barriers=[]",
+          "step": 21,
+          "sub_game": 1,
+          "verdict": "moved"
+        }
+      },
+      {
+        "commit": "dda88ec4322cabd2b609e2dcacebdeaefb4da5f2670f125e781d42a04b5d40b7",
+        "nonce": "ea5781796a5a82079edd0394c5edbede",
+        "payload": {
+          "hint": "I am somewhere you have not thought to look.",
+          "intent": "truth",
+          "move": "MOVE:S",
+          "position": [
+            4,
+            4
+          ],
+          "role": "police",
+          "state": "grid=7x7;self=[4, 4];barriers=[]",
+          "step": 22,
+          "sub_game": 1,
+          "verdict": "moved"
+        }
+      },
+      {
+        "commit": "a99d1769ab2e24d129cef1c8725a395b26a0d32fd37955743be08840d7c961b3",
+        "nonce": "9cf4537b9a893e49cbf768ecdd5e3987",
+        "payload": {
+          "hint": "You are chasing a rumour, not an agent.",
+          "intent": "truth",
+          "move": "MOVE:W",
+          "position": [
+            4,
+            3
+          ],
+          "role": "police",
+          "state": "grid=7x7;self=[4, 3];barriers=[]",
+          "step": 23,
+          "sub_game": 1,
+          "verdict": "moved"
+        }
+      },
+      {
+        "commit": "45eea1fc16b4aa03dcab3c4459b51a5571ad9caa711e18aced2d0493566dd076",
+        "nonce": "a7bb917e0565045be1637f7fb965f480",
+        "payload": {
+          "hint": "You are chasing a rumour, not an agent.",
+          "intent": "truth",
+          "move": "MOVE:W",
+          "position": [
+            4,
+            2
+          ],
+          "role": "police",
+          "state": "grid=7x7;self=[4, 2];barriers=[]",
+          "step": 24,
+          "sub_game": 1,
+          "verdict": "moved"
+        }
+      },
+      {
+        "commit": "8993a36334d99b0b179179a2ebada4dee11931301eb3da6e60db12f10c3d56ef",
+        "nonce": "f2b534bf491b8b50d31472917b81da4c",
+        "payload": {
+          "hint": "Nothing you have read this turn was worth reading.",
+          "intent": "truth",
+          "move": "MOVE:E",
+          "position": [
+            4,
+            3
+          ],
+          "role": "police",
+          "state": "grid=7x7;self=[4, 3];barriers=[]",
+          "step": 25,
+          "sub_game": 1,
+          "verdict": "moved"
+        }
+      },
+      {
+        "commit": "bd55cea8b013ac6d510c549f771f63a48079505b75d13a61fca3058ba7adcf45",
+        "nonce": "54a04b4c64cde402b99e1df20c8d9874",
+        "payload": {
+          "hint": "I am somewhere you have not thought to look.",
+          "intent": "truth",
+          "move": "MOVE:N",
+          "position": [
+            3,
+            3
+          ],
+          "role": "police",
+          "state": "grid=7x7;self=[3, 3];barriers=[]",
+          "step": 26,
+          "sub_game": 1,
+          "verdict": "moved"
+        }
+      },
+      {
+        "commit": "e9ea726fc1ee2da807eb3878370cbd54850896eb0e1fdfcc1fef4278d1e35d8c",
+        "nonce": "11bcf956bbe3e7c561b8afecec302bf7",
+        "payload": {
+          "hint": "You are chasing a rumour, not an agent.",
+          "intent": "truth",
+          "move": "MOVE:N",
+          "position": [
+            2,
+            3
+          ],
+          "role": "police",
+          "state": "grid=7x7;self=[2, 3];barriers=[]",
+          "step": 27,
+          "sub_game": 1,
+          "verdict": "moved"
+        }
+      },
+      {
+        "commit": "c56ee5c78735adfa7536aa66a75f703ed01a44dca89ed2ef47c4e7389418f10f",
+        "nonce": "661e45b2e0b640d6a9ca4c60d256de1a",
+        "payload": {
+          "hint": "You are chasing a rumour, not an agent.",
+          "intent": "truth",
+          "move": "MOVE:W",
+          "position": [
+            2,
+            2
+          ],
+          "role": "police",
+          "state": "grid=7x7;self=[2, 2];barriers=[]",
+          "step": 28,
+          "sub_game": 1,
+          "verdict": "moved"
+        }
+      },
+      {
+        "commit": "1e5d783ea60bda81a3c834a9e57133f91a6b143a59561c2a9a76f04bf078b639",
+        "nonce": "cd1a43cb2944b5b5225762d947a43df1",
+        "payload": {
+          "hint": "Nothing you have read this turn was worth reading.",
+          "intent": "truth",
+          "move": "MOVE:W",
+          "position": [
+            2,
+            1
+          ],
+          "role": "police",
+          "state": "grid=7x7;self=[2, 1];barriers=[]",
+          "step": 29,
+          "sub_game": 1,
+          "verdict": "moved"
+        }
+      },
+      {
+        "commit": "00c084173724e3714322cce27b3ebf458893fd1192106b3ac534f258662669aa",
+        "nonce": "9b71090582ff7fb2a87ac407de8cd9f5",
+        "payload": {
+          "hint": "You are chasing a rumour, not an agent.",
+          "intent": "truth",
+          "move": "MOVE:E",
+          "position": [
+            2,
+            2
+          ],
+          "role": "police",
+          "state": "grid=7x7;self=[2, 2];barriers=[]",
+          "step": 30,
+          "sub_game": 1,
+          "verdict": "moved"
+        }
+      },
+      {
+        "commit": "ba36f9e357e9de1c4e43ca0676d2350de9525a0f00bfe9a0bd1eca061d580d40",
+        "nonce": "e2a6b4dc1305a5925a7dc176e1cebd3d",
+        "payload": {
+          "hint": "I am somewhere you have not thought to look.",
+          "intent": "truth",
+          "move": "MOVE:S",
+          "position": [
+            3,
+            2
+          ],
+          "role": "police",
+          "state": "grid=7x7;self=[3, 2];barriers=[]",
+          "step": 31,
+          "sub_game": 1,
+          "verdict": "moved"
+        }
+      },
+      {
+        "commit": "88ff4146f4e5a90c8c124f0e2f872434b80a2023c500e991258901a1943db897",
+        "nonce": "edf363006ca2e24c57c12904a6e9ca94",
+        "payload": {
+          "hint": "I am somewhere you have not thought to look.",
+          "intent": "truth",
+          "move": "MOVE:S",
+          "position": [
+            4,
+            2
+          ],
+          "role": "police",
+          "state": "grid=7x7;self=[4, 2];barriers=[]",
+          "step": 32,
+          "sub_game": 1,
+          "verdict": "moved"
+        }
+      },
+      {
+        "commit": "50469b5412e487603dcc8382a330aa435ba875095c6b2de88ac827310e45eb7a",
+        "nonce": "5012a04115cba4e32b15a40eefbf569f",
+        "payload": {
+          "hint": "You are chasing a rumour, not an agent.",
+          "intent": "truth",
+          "move": "MOVE:N",
+          "position": [
+            3,
+            2
+          ],
+          "role": "police",
+          "state": "grid=7x7;self=[3, 2];barriers=[]",
+          "step": 33,
+          "sub_game": 1,
+          "verdict": "moved"
+        }
+      },
+      {
+        "commit": "f3550c37dd92308868064de9d1584d38b06ba16de64d435cd7d1e0482139da99",
+        "nonce": "77767ee27ae8454f63969ea7961e5322",
+        "payload": {
+          "hint": "You are chasing a rumour, not an agent.",
+          "intent": "truth",
+          "move": "MOVE:E",
+          "position": [
+            3,
+            3
+          ],
+          "role": "police",
+          "state": "grid=7x7;self=[3, 3];barriers=[]",
+          "step": 34,
+          "sub_game": 1,
+          "verdict": "moved"
+        }
+      }
+    ],
+    "yanell11": [
+      {
+        "commit": "799b49b95b8028a44f67db5901aceda9d564ee00e224a6c450943f9c04d27af3",
+        "nonce": "0fcaa926feb86c4ad58ae20446fcd38a",
+        "payload": {
+          "code_version": "1.00",
+          "github_commit": "cda33cdadaf0185c44e95244196dd3fbc0198c4d",
+          "group_name": "YANELL11",
+          "model": "claude-haiku-4-5",
+          "spec": {
+            "cpu_cores": 8,
+            "cpu_mhz": 0.0,
+            "gpu": "none detected",
+            "machine": "arm64",
+            "os": "Darwin 24.6.0",
+            "python": "3.13.13",
+            "ram_gb": 16.0
+          },
+          "step": 0,
+          "sub_game_number": 1,
+          "token_budget": 200000,
+          "type": "system_spec"
+        }
+      },
+      {
+        "commit": "c958ff62df335dfe2a1bd274a2d3ed7ae1b6e31550e0ce8768eb227419ba3c75",
+        "nonce": "8427b7dcc68b469e13035435e8c10d77",
+        "payload": {
+          "hint": "You will find only my shadow east of Mount Carmel.",
+          "intent": "lie",
+          "move": "move:STAY",
+          "position": [
+            3,
+            3
+          ],
+          "role": "thief",
+          "state": "grid=7x7;self=[3, 3];barriers=[]",
+          "step": 1,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "type": "turn"
+        }
+      },
+      {
+        "commit": "2fb48d4a1ba15c3cb471ce8375d867850d1d51cd573d198e76d9f55e5e3ca355",
+        "nonce": "7bfefe8cdb2604c40fa37a5c906cc0a2",
+        "payload": {
+          "hint": "Heading west, the German Colony covers my tracks.",
+          "intent": "lie",
+          "move": "move:E",
+          "position": [
+            3,
+            4
+          ],
+          "role": "thief",
+          "state": "grid=7x7;self=[3, 4];barriers=[]",
+          "step": 2,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "type": "turn"
+        }
+      },
+      {
+        "commit": "3cc22d2352678fece173bb5035430e91eac1bdb80891e19ae26f15e9c3a0b8e2",
+        "nonce": "8addfac21838fadac235110c96a40377",
+        "payload": {
+          "hint": "I drifted east near the port while you hesitated.",
+          "intent": "lie",
+          "move": "move:W",
+          "position": [
+            3,
+            3
+          ],
+          "role": "thief",
+          "state": "grid=7x7;self=[3, 3];barriers=[]",
+          "step": 3,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "type": "turn"
+        }
+      },
+      {
+        "commit": "bbd4c31a2cc15b401e28e39a2d12702746e84b1b167cfe712a78188bb2204b17",
+        "nonce": "807703f01f8dae7f3e73c1a0017193f8",
+        "payload": {
+          "hint": "Look west, somewhere around Wadi Nisnas - or not.",
+          "intent": "lie",
+          "move": "move:E",
+          "position": [
+            3,
+            4
+          ],
+          "role": "thief",
+          "state": "grid=7x7;self=[3, 4];barriers=[]",
+          "step": 4,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "type": "turn"
+        }
+      },
+      {
+        "commit": "19685e0cf08a2e59b6a086202f178e543a25ccec37b86af0238ed5399e734629",
+        "nonce": "dccef24a2ade2aea94584b72a0d87fba",
+        "payload": {
+          "hint": "Slipping north past the Louis Promenade, try to keep up.",
+          "intent": "lie",
+          "move": "move:S",
+          "position": [
+            4,
+            4
+          ],
+          "role": "thief",
+          "state": "grid=7x7;self=[4, 4];barriers=[]",
+          "step": 5,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "type": "turn"
+        }
+      },
+      {
+        "commit": "d08889bd7e7ac0ae897d36644b84c1dc1839d2ab003757cdce23a510ffcbeaa4",
+        "nonce": "904c3782058d5309ac3388b7cce1839e",
+        "payload": {
+          "hint": "You will find only my shadow east of the Bahá'í Gardens.",
+          "intent": "lie",
+          "move": "move:W",
+          "position": [
+            4,
+            3
+          ],
+          "role": "thief",
+          "state": "grid=7x7;self=[4, 3];barriers=[]",
+          "step": 6,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "type": "turn"
+        }
+      },
+      {
+        "commit": "40395c0cfa79d76bdee602df150a1f452adc062a8015107a9cc7e7b2c2a0d46d",
+        "nonce": "b32bebda79a5c8390d0b7b4169ab7252",
+        "payload": {
+          "hint": "Heading north, Mount Carmel covers my tracks.",
+          "intent": "lie",
+          "move": "move:S",
+          "position": [
+            5,
+            3
+          ],
+          "role": "thief",
+          "state": "grid=7x7;self=[5, 3];barriers=[]",
+          "step": 7,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "type": "turn"
+        }
+      },
+      {
+        "commit": "4dc57761655b6442f5d70d3f39885a1edced3dd7a89562b7df73061410385584",
+        "nonce": "b02f853795769e19d74aa0957ab3cf4a",
+        "payload": {
+          "hint": "I drifted east near the German Colony while you hesitated.",
+          "intent": "lie",
+          "move": "move:W",
+          "position": [
+            5,
+            2
+          ],
+          "role": "thief",
+          "state": "grid=7x7;self=[5, 2];barriers=[]",
+          "step": 8,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "type": "turn"
+        }
+      },
+      {
+        "commit": "624c660cebfd87432b8496b1d46f4f5e2d43f4f0ca2bb8c91bdb5b91a89bf91e",
+        "nonce": "3110d9755da447d232657cae67768528",
+        "payload": {
+          "hint": "Look south, somewhere around the port - or not.",
+          "intent": "lie",
+          "move": "move:N",
+          "position": [
+            4,
+            2
+          ],
+          "role": "thief",
+          "state": "grid=7x7;self=[4, 2];barriers=[]",
+          "step": 9,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "type": "turn"
+        }
+      },
+      {
+        "commit": "2f8748852a81769140a40b84d2f98b3e7c3dc85eb5ad4211b97c4d48c45bf21b",
+        "nonce": "c57f8fa3ed85fa4cdf0a372446bbb82f",
+        "payload": {
+          "hint": "Slipping south past Wadi Nisnas, try to keep up.",
+          "intent": "lie",
+          "move": "move:N",
+          "position": [
+            3,
+            2
+          ],
+          "role": "thief",
+          "state": "grid=7x7;self=[3, 2];barriers=[]",
+          "step": 10,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "type": "turn"
+        }
+      },
+      {
+        "commit": "b4c034fca9550aade81c3427389d24d15b65cfa178eda7105fa9ba8ae108bbcd",
+        "nonce": "53addf42e2df67586749c880197e15fb",
+        "payload": {
+          "hint": "Somewhere between the Louis Promenade and nowhere, good luck.",
+          "intent": "truth",
+          "move": "move:N",
+          "position": [
+            2,
+            2
+          ],
+          "role": "thief",
+          "state": "grid=7x7;self=[2, 2];barriers=[]",
+          "step": 11,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "type": "turn"
+        }
+      },
+      {
+        "commit": "75b447d60c6016d9e6feda737d542c929432a318af05dcee0bef34ff43bd642b",
+        "nonce": "fc772bdfbccb22c10c8880761f909e07",
+        "payload": {
+          "hint": "the Bahá'í Gardens keeps my secrets better than you keep pace.",
+          "intent": "truth",
+          "move": "move:N",
+          "position": [
+            1,
+            2
+          ],
+          "role": "thief",
+          "state": "grid=7x7;self=[1, 2];barriers=[]",
+          "step": 12,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "type": "turn"
+        }
+      },
+      {
+        "commit": "80ec6216404dce52d6815cb1684a8e70d541daf41768f7580f3ec011a2ceebef",
+        "nonce": "0ee7196679dd5d824e59b5f6550f6071",
+        "payload": {
+          "hint": "I drifted east near Mount Carmel while you hesitated.",
+          "intent": "lie",
+          "move": "move:W",
+          "position": [
+            1,
+            1
+          ],
+          "role": "thief",
+          "state": "grid=7x7;self=[1, 1];barriers=[]",
+          "step": 13,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "type": "turn"
+        }
+      },
+      {
+        "commit": "e5f1b29e91af9eae14e8699a7ea8e664851059cb3f48afaa8f8209d5f6b04de2",
+        "nonce": "0060be06d8f51250973f223d8157ce9d",
+        "payload": {
+          "hint": "Look west, somewhere around the German Colony - or not.",
+          "intent": "lie",
+          "move": "move:E",
+          "position": [
+            1,
+            2
+          ],
+          "role": "thief",
+          "state": "grid=7x7;self=[1, 2];barriers=[]",
+          "step": 14,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "type": "turn"
+        }
+      },
+      {
+        "commit": "478179bb2d9f2d545fd804d605a973f88bd587a304192c4a59efa1c4dd668c82",
+        "nonce": "a42ec4d86ea27c12aca1f710e9d360dd",
+        "payload": {
+          "hint": "Slipping west past the port, try to keep up.",
+          "intent": "lie",
+          "move": "move:E",
+          "position": [
+            1,
+            3
+          ],
+          "role": "thief",
+          "state": "grid=7x7;self=[1, 3];barriers=[]",
+          "step": 15,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "type": "turn"
+        }
+      },
+      {
+        "commit": "36cce0bbb093ce94ca84d21367194dd04776444c26b01a23dd21d562b05c8ff1",
+        "nonce": "9f3b0ba3e6d7c7b6f2ef96cd6ab26652",
+        "payload": {
+          "hint": "Somewhere between Wadi Nisnas and nowhere, good luck.",
+          "intent": "truth",
+          "move": "move:S",
+          "position": [
+            2,
+            3
+          ],
+          "role": "thief",
+          "state": "grid=7x7;self=[2, 3];barriers=[]",
+          "step": 16,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "type": "turn"
+        }
+      },
+      {
+        "commit": "8fb9eb8056dc7819888138bc1a8e07b4ff984980a08300cda3cd82cb1300b118",
+        "nonce": "1f7b9ac625da33000eb9b07b0e7b3f83",
+        "payload": {
+          "hint": "the Louis Promenade keeps my secrets better than you keep pace.",
+          "intent": "truth",
+          "move": "move:E",
+          "position": [
+            2,
+            4
+          ],
+          "role": "thief",
+          "state": "grid=7x7;self=[2, 4];barriers=[]",
+          "step": 17,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "type": "turn"
+        }
+      },
+      {
+        "commit": "c6164fc20741405b3921da619ac7db8e7bc0c345783fd1735bb32f26e0ad6411",
+        "nonce": "b538143621575e3f30b13f3132ba4f66",
+        "payload": {
+          "hint": "Every alley near the Bahá'í Gardens tells a different story about me.",
+          "intent": "truth",
+          "move": "move:S",
+          "position": [
+            3,
+            4
+          ],
+          "role": "thief",
+          "state": "grid=7x7;self=[3, 4];barriers=[]",
+          "step": 18,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "type": "turn"
+        }
+      },
+      {
+        "commit": "0dab3958516bcd14c742091e7e735d1644f335903e3518f8a16a5cbf61b0688d",
+        "nonce": "c4a00458fef8d2dbbcd9e62516961dd9",
+        "payload": {
+          "hint": "I could be watching you from Mount Carmel at this very moment.",
+          "intent": "truth",
+          "move": "move:S",
+          "position": [
+            4,
+            4
+          ],
+          "role": "thief",
+          "state": "grid=7x7;self=[4, 4];barriers=[]",
+          "step": 19,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "type": "turn"
+        }
+      },
+      {
+        "commit": "8827c0c6c96ebca28ee03ae07e1809dea20beb978b5a4aa751a5ec699bf86eac",
+        "nonce": "b6848621dc7065fe319058e303b5ed73",
+        "payload": {
+          "hint": "Slipping east past the German Colony, try to keep up.",
+          "intent": "lie",
+          "move": "move:W",
+          "position": [
+            4,
+            3
+          ],
+          "role": "thief",
+          "state": "grid=7x7;self=[4, 3];barriers=[]",
+          "step": 20,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "type": "turn"
+        }
+      },
+      {
+        "commit": "14a746916c65f028217202393e4646bf3bb6fd9cb358a2751f1060a011e91e42",
+        "nonce": "95af5c6a049eaab96f50b9818edbf49e",
+        "payload": {
+          "hint": "You will find only my shadow north of the port.",
+          "intent": "lie",
+          "move": "move:S",
+          "position": [
+            5,
+            3
+          ],
+          "role": "thief",
+          "state": "grid=7x7;self=[5, 3];barriers=[]",
+          "step": 21,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "type": "turn"
+        }
+      },
+      {
+        "commit": "a25029d3f03ee4626a3758f7e47c87cbbf50aba6c34582f661c0c73c3f5fdbd0",
+        "nonce": "014a72d3fc7c92221ea45ca0f0eba7be",
+        "payload": {
+          "hint": "Heading east, Wadi Nisnas covers my tracks.",
+          "intent": "lie",
+          "move": "move:W",
+          "position": [
+            5,
+            2
+          ],
+          "role": "thief",
+          "state": "grid=7x7;self=[5, 2];barriers=[]",
+          "step": 22,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "type": "turn"
+        }
+      },
+      {
+        "commit": "e930658412af6250680f60620de4162443777abe42374c2a6982a671104321ff",
+        "nonce": "a0366c766590a2b53616dfb8ba4d38e2",
+        "payload": {
+          "hint": "I drifted south near the Louis Promenade while you hesitated.",
+          "intent": "lie",
+          "move": "move:N",
+          "position": [
+            4,
+            2
+          ],
+          "role": "thief",
+          "state": "grid=7x7;self=[4, 2];barriers=[]",
+          "step": 23,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "type": "turn"
+        }
+      },
+      {
+        "commit": "f8be0cc132068d8655fe56ad830c5f537b153d7a86f11660eeead4c79d9ce850",
+        "nonce": "eb1e8e0848a3300470a99658c05bcb49",
+        "payload": {
+          "hint": "Look south, somewhere around the Bahá'í Gardens - or not.",
+          "intent": "lie",
+          "move": "move:N",
+          "position": [
+            3,
+            2
+          ],
+          "role": "thief",
+          "state": "grid=7x7;self=[3, 2];barriers=[]",
+          "step": 24,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "type": "turn"
+        }
+      },
+      {
+        "commit": "51d14daa9278dbc3f8d99aa1a6d634c8e287630344a2fb7589906479077a2e82",
+        "nonce": "46e4db22104cc50cd2158cba1c124bfd",
+        "payload": {
+          "hint": "The city hides me well, ask Mount Carmel if you doubt it.",
+          "intent": "truth",
+          "move": "move:N",
+          "position": [
+            2,
+            2
+          ],
+          "role": "thief",
+          "state": "grid=7x7;self=[2, 2];barriers=[]",
+          "step": 25,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "type": "turn"
+        }
+      },
+      {
+        "commit": "a55f07a4ecec1d7b1102889839531e39ae74a99ce6ab6e8b4041d24e0686acd9",
+        "nonce": "7d78e71490c97e24039e9851ef502ab0",
+        "payload": {
+          "hint": "Somewhere between the German Colony and nowhere, good luck.",
+          "intent": "truth",
+          "move": "move:N",
+          "position": [
+            1,
+            2
+          ],
+          "role": "thief",
+          "state": "grid=7x7;self=[1, 2];barriers=[]",
+          "step": 26,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "type": "turn"
+        }
+      },
+      {
+        "commit": "d1c84f6c6e1689b7d26aa3f384813d189b7c595d41b2766f9d63a1997575f0ff",
+        "nonce": "0a9874bfc6f1948b1fa58288229f78e2",
+        "payload": {
+          "hint": "Heading east, the port covers my tracks.",
+          "intent": "lie",
+          "move": "move:W",
+          "position": [
+            1,
+            1
+          ],
+          "role": "thief",
+          "state": "grid=7x7;self=[1, 1];barriers=[]",
+          "step": 27,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "type": "turn"
+        }
+      },
+      {
+        "commit": "143d449cbfa8ed32c6fa840a0b87fa44e35ed670f4b524d7e6ec7fa7f6c91551",
+        "nonce": "a0b21264504ab99767f1a12418a764bb",
+        "payload": {
+          "hint": "I drifted north near Wadi Nisnas while you hesitated.",
+          "intent": "lie",
+          "move": "move:S",
+          "position": [
+            2,
+            1
+          ],
+          "role": "thief",
+          "state": "grid=7x7;self=[2, 1];barriers=[]",
+          "step": 28,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "type": "turn"
+        }
+      },
+      {
+        "commit": "471597fa144c39a776de2d27a1d18ddc0fed7b8711fe1ee24ca46c3a01bc5fc1",
+        "nonce": "bdbc1d6c8e22ffa1d58039ee04b72180",
+        "payload": {
+          "hint": "Look north, somewhere around the Louis Promenade - or not.",
+          "intent": "lie",
+          "move": "move:S",
+          "position": [
+            3,
+            1
+          ],
+          "role": "thief",
+          "state": "grid=7x7;self=[3, 1];barriers=[]",
+          "step": 29,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "type": "turn"
+        }
+      },
+      {
+        "commit": "29630246f6798c62d94932559bc3c48970cd4fa614928f2d77d53a4686e66a90",
+        "nonce": "1026dd22783afa93b7b743ea658ddd89",
+        "payload": {
+          "hint": "The city hides me well, ask the Bahá'í Gardens if you doubt it.",
+          "intent": "truth",
+          "move": "move:E",
+          "position": [
+            3,
+            2
+          ],
+          "role": "thief",
+          "state": "grid=7x7;self=[3, 2];barriers=[]",
+          "step": 30,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "type": "turn"
+        }
+      },
+      {
+        "commit": "ec8178334d33fda544ad7c6c2d425a2c1f7f91fd1a3d420b18f6aa1a42b898ce",
+        "nonce": "fc0bf625c2aed20f84b0d3e8e9707ff0",
+        "payload": {
+          "hint": "Somewhere between Mount Carmel and nowhere, good luck.",
+          "intent": "truth",
+          "move": "move:S",
+          "position": [
+            4,
+            2
+          ],
+          "role": "thief",
+          "state": "grid=7x7;self=[4, 2];barriers=[]",
+          "step": 31,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "type": "turn"
+        }
+      },
+      {
+        "commit": "86720d056c92666e5a8e031c1cfb88065d016858e840f651182ae9edf955298d",
+        "nonce": "c4d905d82b8c66b01d199174b8dc662e",
+        "payload": {
+          "hint": "the German Colony keeps my secrets better than you keep pace.",
+          "intent": "truth",
+          "move": "move:E",
+          "position": [
+            4,
+            3
+          ],
+          "role": "thief",
+          "state": "grid=7x7;self=[4, 3];barriers=[]",
+          "step": 32,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "type": "turn"
+        }
+      },
+      {
+        "commit": "18c54431916fc761a699d4b4137dd6a2c065a76c814afada243e4dbc13fc881f",
+        "nonce": "f6e37a2f329effc50ebc8e23d75a2fb9",
+        "payload": {
+          "hint": "Every alley near the port tells a different story about me.",
+          "intent": "truth",
+          "move": "move:E",
+          "position": [
+            4,
+            4
+          ],
+          "role": "thief",
+          "state": "grid=7x7;self=[4, 4];barriers=[]",
+          "step": 33,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "type": "turn"
+        }
+      },
+      {
+        "commit": "6b866810cb16225cad45ad440187b507665bea83149cf9346156cab037333513",
+        "nonce": "fd22483abb73652991c274dd592a785f",
+        "payload": {
+          "hint": "I could be watching you from Wadi Nisnas at this very moment.",
+          "intent": "truth",
+          "move": "move:N",
+          "position": [
+            3,
+            4
+          ],
+          "role": "thief",
+          "state": "grid=7x7;self=[3, 4];barriers=[]",
+          "step": 34,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "type": "turn"
+        }
+      },
+      {
+        "commit": "211c04af2085a75ce870af4f7e876e6854089e9016e28c767062716d22f058a0",
+        "nonce": "1f60e71966d0865c685333b8bffd3e56",
+        "payload": {
+          "hint": "The city hides me well, ask the Louis Promenade if you doubt it.",
+          "intent": "truth",
+          "move": "move:E",
+          "position": [
+            3,
+            5
+          ],
+          "role": "thief",
+          "state": "grid=7x7;self=[3, 5];barriers=[]",
+          "step": 35,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "type": "turn"
+        }
+      }
+    ]
+  },
+  "roles": {
+    "bestteam": "police",
+    "yanell11": "thief"
+  },
+  "step_count": {
+    "bestteam": 34,
+    "yanell11": 36
+  },
+  "sub_game": 1
+}
