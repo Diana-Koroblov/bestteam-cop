@@ -27,7 +27,7 @@ import logging
 from pathlib import Path
 from typing import Any
 
-from core.compat import closing
+from core.compat import closing, wire
 from core.compat.mailbox import Inboxes, build_reference_tools
 from core.compat.session import HandshakeError, ReferenceSession, reconnect
 from core.compat.turn_wait import TURN_WAIT_SECONDS, await_agreement, push_audit
@@ -182,7 +182,7 @@ async def _series(
             # that had just succeeded.
             await reconnect(sdk, args.opponent)
             session.client = sdk.opponent
-            declared = dict(theirs.get("identity") or {})
+            declared = wire.peer_identity(theirs)
             their_group = str(declared.get("group_id", "")) or their_group
             their_identity = declared or their_identity
             print("".join(f"    ! {note}\n" for note in session.warnings), end="")

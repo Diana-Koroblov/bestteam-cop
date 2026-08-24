@@ -16,7 +16,7 @@ from dataclasses import asdict, dataclass, field
 from typing import Any
 
 __all__ = ["TurnMessage", "AuditPayload", "terms_from_config", "terms_diff", "REFERENCE_TERMS",
-           "SCENT_MODEL_SHA256"]
+           "SCENT_MODEL_SHA256", "peer_identity"]
 
 # The reference ships this in `pheromones` and our `game.json` has never had it,
 # because nothing in our own physics reads a floor on the centre intensity. It
@@ -49,6 +49,31 @@ SCENT_MODEL_SHA256 = {
 # Our own `Role.value` is "cop"; the reference vocabulary is "police". Translated
 # only at the wire boundary so every other module keeps using ours (M#3).
 _WIRE_ROLE = {"cop": "police", "thief": "thief"}
+
+
+def peer_identity(message: dict) -> dict:
+    """Return the peer's identity block, filled from top-level mirrors it lacks.
+
+    The nested ``identity`` block is the base; a peer that also mirrors a
+    value at the message root (the same pattern our own ``sender``/
+    ``group_id``/``games_played``/``step0_commit`` use) fills a gap the
+    nested block left rather than being read as the peer never having said
+    anything at all. Reading the nested block alone missed every one of these
+    mirrors on the way in, even after we started sending our own on the way
+    out (yanell11, 24/08).
+    """
+    identity = dict(message.get("identity") or {})
+    if not identity.get("github_commit"):
+        commit = message.get("step0_commit")
+        if commit:
+            identity["github_commit"] = commit
+    if identity.get("counted_games_played") is None:
+        count = message.get("counted_games_played", message.get("games_played"))
+        if isinstance(count, int) and not isinstance(count, bool):
+            identity["counted_games_played"] = count
+        elif isinstance(count, str) and count.strip().lstrip("-").isdigit():
+            identity["counted_games_played"] = int(count)
+    return identity
 
 
 def wire_role(role_value: str) -> str:

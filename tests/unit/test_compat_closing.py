@@ -148,6 +148,39 @@ class TestTheRowStillGoes:
         assert rows[0]["score"] == {"bestteam": 20, "yanell11": 5}
         assert rows[0]["audit"] == {"log_verified": True, "tampered": False}
 
+    def test_a_wire_declared_commit_outranks_a_standing_operator_override(
+        self, tmp_path: Path
+    ) -> None:
+        """🐛 --their-commit used to win unconditionally, so a value typed once
+        and left on the command line permanently outranked whatever the peer
+        actually declared on a later launch (yanell11, 24/08)."""
+        rows: list[dict] = []
+        written: list[Path] = []
+        close_sub_game(
+            sdk=_SDK(), args=argparse.Namespace(out=str(tmp_path), their_commit="c" * 40),
+            session=_Session(), number=1, result="capture",
+            verdict={"passed": True, "received": True}, started="2026-08-17T12:00:00+00:00",
+            ended="2026-08-17T12:05:00+00:00", their_group="yanell11",
+            their_identity={"github_commit": "b" * 40}, our_identity={"github_commit": "a" * 40},
+            rows=rows, written=written,
+        )
+        assert rows[0]["github_commit"]["yanell11"] == "b" * 40
+
+    def test_the_operator_override_is_still_the_fallback(self, tmp_path: Path) -> None:
+        """A peer whose block is genuinely absent still gets the operator's
+        correction - the override is a fallback now, not gone."""
+        rows: list[dict] = []
+        written: list[Path] = []
+        close_sub_game(
+            sdk=_SDK(), args=argparse.Namespace(out=str(tmp_path), their_commit="c" * 40),
+            session=_Session(), number=1, result="capture",
+            verdict={"passed": True, "received": True}, started="2026-08-17T12:00:00+00:00",
+            ended="2026-08-17T12:05:00+00:00", their_group="yanell11",
+            their_identity={}, our_identity={"github_commit": "a" * 40},
+            rows=rows, written=written,
+        )
+        assert rows[0]["github_commit"]["yanell11"] == "c" * 40
+
     def test_an_unwritable_directory_costs_the_files_and_not_the_row(self, tmp_path: Path) -> None:
         """The result is what must survive; a lost log is reported, never raised."""
         blocker = tmp_path / "taken"

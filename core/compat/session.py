@@ -170,9 +170,13 @@ class ReferenceSession:
         uid = league_report.game_uid(terms, ours_id, theirs_id, label) if theirs_id else ""
         model = str(self.config.get("pheromones.decay_model", "multiplicative"))
         return {
-            "sender": ours_id,
-            "group_id": ours_id,
+            "sender": ours_id, "group_id": ours_id,
+            # Both spellings, same value: yanell11's reader looked for
+            # `counted_games_played` at the root while we only ever mirrored
+            # `games_played` there, and each side's file showed the other's
+            # count as null though both sent a real integer (24/08).
             "games_played": self.identity.get("counted_games_played", 0),
+            "counted_games_played": self.identity.get("counted_games_played", 0),
             "step0_commit": self.identity.get("github_commit", ""),
             "terms": terms,
             "nonce": nonce,

@@ -55,6 +55,17 @@ def test_agreement_message_carries_the_new_pairing_fields() -> None:
     assert terms == terms_from_config(session.config)
 
 
+def test_agreement_message_mirrors_the_count_under_both_spellings() -> None:
+    """yanell11, 24/08: their reader looked for `counted_games_played` at the
+    root, ours only ever mirrored `games_played` - each side's file showed
+    the other's count as null though both sent a real integer."""
+    session = _session(Role.COP, sub_game=1)
+    session.identity["counted_games_played"] = 3
+    message, _terms = session.agreement_message()
+    assert message["games_played"] == 3
+    assert message["counted_games_played"] == 3
+
+
 def test_agreement_message_mirrors_the_commit_at_the_top_level() -> None:
     """yanell11, 24/08: a fallback for their reader if the sealed Step-0
     record does not carry one - same top-level-mirror pattern as group_id."""

@@ -10,7 +10,7 @@ from __future__ import annotations
 import pytest
 
 from core.compat import sealing
-from core.compat.wire import TurnMessage, wire_role
+from core.compat.wire import TurnMessage, peer_identity, wire_role
 
 PAYLOAD = {"step": 3, "move": "N", "position": [1, 2]}
 
@@ -76,3 +76,29 @@ def test_audit_records_without_live_tracking_still_only_checks_self_consistency(
     sealed = sealing.seal(PAYLOAD)
     record = {"payload": PAYLOAD, **sealed}
     assert sealing.audit_records([record])["passed"]
+
+
+def test_peer_identity_fills_a_gap_the_nested_block_left() -> None:
+    """yanell11, 24/08: reading only `message["identity"]` missed every
+    top-level mirror a peer sends, even after we started sending our own."""
+    message = {"identity": {"group_id": "yanell11"}, "step0_commit": "c" * 40,
+               "games_played": 3}
+    identity = peer_identity(message)
+    assert identity["group_id"] == "yanell11"
+    assert identity["github_commit"] == "c" * 40
+    assert identity["counted_games_played"] == 3
+
+
+def test_peer_identity_prefers_the_nested_block_when_both_are_present() -> None:
+    message = {"identity": {"github_commit": "nested" + "a" * 34}, "step0_commit": "top" * 13}
+    assert peer_identity(message)["github_commit"] == "nested" + "a" * 34
+
+
+def test_peer_identity_accepts_a_numeric_string_count() -> None:
+    """A peer that stringifies the integer must not read as unclaimed."""
+    assert peer_identity({"games_played": "3"})["counted_games_played"] == 3
+
+
+def test_peer_identity_leaves_a_boolean_count_unclaimed() -> None:
+    """`True` is an `int` in Python; reading it as 1 would invent a claim."""
+    assert "counted_games_played" not in peer_identity({"games_played": True})

@@ -215,13 +215,10 @@ def build_result(
     # invented top-level key there was once an unexplained diff against
     # another team's artefact (imreeyal, 16/08) — but yanell11's own counted
     # reports carry this block too (24/08), so omitting it is now the
-    # unexplained diff. Both shapes state the one thing their own kind of
-    # artefact most needs to say about itself: why it does, or does not, count.
-    result["league"] = {
-        "authority": "book App. E rule 52 - one counted series per pairing",
-        "counted": counted,
-        "reason": "counted" if counted else "friendly",
-    }
+    # unexplained diff. `authority` dropped for the same reason on 24/08 —
+    # theirs carries only `counted`/`reason`, and a third key we invented is
+    # again exactly the kind of visible difference this block exists to avoid.
+    result["league"] = {"counted": counted, "reason": "counted" if counted else "friendly"}
     return result
 
 

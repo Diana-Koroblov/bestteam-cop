@@ -66,9 +66,16 @@ def close_sub_game(
     goes in them.
 
     Both commits come from the blocks the two peers actually exchanged, so a
-    filed row can never name code a declaration did not. ``--their-commit``
-    still wins when given: it is the operator correcting a peer whose own block
-    was wrong or absent.
+    filed row can never name code a declaration did not.
+
+    🐛 **``--their-commit`` used to win unconditionally.** A one-time operator
+    correction, typed once and left on the command line, then permanently
+    outranked whatever the peer actually declared on later launches — the
+    exact "a typed commit outranked a sealed one" bug this project has already
+    fixed once (imreeyal), reintroduced here in its own shape. The wire value
+    now wins whenever the peer supplies one; ``--their-commit`` is the
+    fallback for a peer whose own block is wrong or absent, not a standing
+    override (yanell11, 24/08).
     """
     group = their_group or "opponent"
     label = str(getattr(args, "series_label", "") or "")
@@ -76,7 +83,7 @@ def close_sub_game(
         sdk=sdk, session=session, number=number, raw_result=result, verdict=verdict,
         started=started, ended=ended, their_group=group,
         their_commit=str(
-            getattr(args, "their_commit", "") or their_identity.get("github_commit", "") or ""
+            their_identity.get("github_commit", "") or getattr(args, "their_commit", "") or ""
         ),
         our_commit=str(our_identity.get("github_commit", "") or ""), label=label,
     ))

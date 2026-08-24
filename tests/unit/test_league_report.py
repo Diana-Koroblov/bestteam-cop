@@ -164,10 +164,7 @@ def test_a_friendly_never_claims_the_diversity_reward_even_when_won() -> None:
     assert result["final_result"]["diversity_reward_applied"] == {
         "bestteam": False, "imreeyal": False,
     }
-    assert result["league"] == {
-        "authority": "book App. E rule 52 - one counted series per pairing",
-        "counted": False, "reason": "friendly",
-    }
+    assert result["league"] == {"counted": False, "reason": "friendly"}
 
 
 def test_a_counted_series_also_carries_a_league_block_now() -> None:
@@ -180,10 +177,7 @@ def test_a_counted_series_also_carries_a_league_block_now() -> None:
         game_uid_value="uid-1", timezone="Asia/Jerusalem",
         repos={}, games_played={"bestteam": 1, "imreeyal": None}, first_meeting=True,
     )
-    assert result["league"] == {
-        "authority": "book App. E rule 52 - one counted series per pairing",
-        "counted": True, "reason": "counted",
-    }
+    assert result["league"] == {"counted": True, "reason": "counted"}
     assert result["schema_version"] == "1.1"
     assert "_schema" not in result
 
