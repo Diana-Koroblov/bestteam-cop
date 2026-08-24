@@ -113,6 +113,36 @@ uv run python scripts/scan_secrets.py      # no API keys or private keys
 uv run pytest                              # coverage >= 85%
 ```
 
+## Screenshots
+
+**Belief heatmap — the Live GUI.** The Cop's view of the board: the belief heatmap painted
+first, then barriers, then our own marker, so nothing important is buried. The peak cell is
+outlined rather than recoloured, so it is findable at a glance without misrepresenting its
+intensity relative to its neighbours. This peer draws only what it actually knows (M#8).
+
+![Belief heatmap as drawn by the Live GUI](docs/evidence/m7-live-gui-belief.png)
+
+**`Verified OK` — the Replay App.** Any saved log can be re-hashed step by step against its
+commitments. The verdict carries in the exit code as well as the window, so it works headless:
+
+```bash
+uv run python -m core replay results/log_<game_id>_g01.json --headless
+# Verified OK - 35 steps re-hashed, no mismatch
+```
+
+![Replay App reporting Verified OK on a saved log](docs/evidence/m7-replay-verified-ok.png)
+
+**Belief convergence, animated.** The same posterior over a whole sub-game — green ring the
+Thief's true cell, blue square the Cop. Watch the mass settle onto the Thief's *trail* rather
+than the Thief: the ridge is loudest where it has been most often, not where it is now, which is
+why the peak is a poor point estimate and why `police/phases.py` weighs the whole belief instead.
+
+![Belief posterior evolving across one sub-game](results/belief_convergence.gif)
+
+A full walk-through of both stills, plus the edge-case catalogue, is in
+[the research report](docs/RESEARCH-REPORT-Performance-Analysis.md#5-screenshots), and the figures
+are reproduced from scratch by [the analysis notebook](notebooks/results_analysis.ipynb).
+
 ## Reference implementation — reverse engineering
 
 Before writing our own agent we analysed the course's reference simulator

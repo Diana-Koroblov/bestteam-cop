@@ -11,8 +11,15 @@ from __future__ import annotations
 import json
 
 from core.compat import sealing
-from core.compat.match_log import build_sub_game_log, verify_sub_game_log
+from core.compat.match_log import (
+    audit_result,
+    build_sub_game_log,
+    our_group,
+    our_records,
+    verify_sub_game_log,
+)
 from core.report.artefacts import write
+from core.report.replay import ReplaySession
 
 OURS, THEIRS = "bestteam", "yanell11"
 
@@ -98,3 +105,49 @@ class TestShape:
 
     def test_roles_name_both_sides_in_wire_vocabulary(self) -> None:
         assert _log()["roles"] == {OURS: "police", THEIRS: "thief"}
+
+
+class TestTheReplayAppCanOpenIt:
+    """M#20 for the reference path: the four counted matches were CLI-only,
+    watchable live nowhere and replayable nowhere, because the Replay App knew
+    one log shape. It now dispatches — and must dispatch to the *right*
+    verifier, since the native one recomputes a different digest per row and
+    would call two honest teams forgers.
+    """
+
+    def test_our_side_is_the_one_live_commits_does_not_name(self) -> None:
+        """We never saw our own commits cross a wire, so that column names theirs."""
+        assert our_group(_log()) == OURS
+        assert [r["payload"]["step"] for r in our_records(_log())] == [1, 2]
+
+    def test_a_reference_log_verifies_through_the_replay_session(self) -> None:
+        """The headless verdict and the exit code the DoD is actually read from."""
+        session = ReplaySession(payload=_log())
+        assert session.is_reference
+        assert session.result.passed
+        assert session.describe().startswith("Verified OK")
+
+    def test_both_sides_are_counted_not_just_ours(self) -> None:
+        """A reference log holds the whole exchange, not one role's view of it."""
+        assert audit_result(_log()).checked == 4
+
+    def test_the_cursor_walks_our_own_payloads(self) -> None:
+        """The viewer reads `step`/`state`/`move` straight off the sealed payload."""
+        session = ReplaySession(payload=_log())
+        assert session.total == 2
+        assert session.current()["move"] == "S"
+        assert session.step_ok(0)
+
+    def test_a_tampered_reference_log_is_refused(self) -> None:
+        """The property the whole dispatch exists to preserve."""
+        log = _log()
+        log["records"][OURS][0]["payload"]["move"] = "N"
+        session = ReplaySession(payload=log)
+        assert not session.result.passed
+        assert not session.step_ok(0)
+        assert OURS in session.describe()
+
+    def test_a_native_log_still_takes_the_native_path(self) -> None:
+        """The dispatch must not capture the shape it was not written for."""
+        session = ReplaySession(payload={"steps": [], "role": "police"})
+        assert not session.is_reference

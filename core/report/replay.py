@@ -70,6 +70,10 @@ class ReplaySession:
         from core.report.match_log import verify_log
 
         try:
+            if self.is_reference:
+                from core.compat.match_log import audit_result
+
+                return audit_result(self.payload)
             return verify_log(self.payload)
         except (KeyError, TypeError, AttributeError) as error:
             raise ReplayError(
@@ -77,8 +81,35 @@ class ReplaySession:
             ) from error
 
     @property
+    def is_reference(self) -> bool:
+        """Whether this log was sealed under the reference protocol, not the native one.
+
+        The two hash different things — natively `STEP_FIELDS` through
+        `crypto/canonical.py`, on the reference path the whole payload through
+        `compat/sealing.py` — so every verification path here has to ask before
+        picking a verifier. Feeding one to the other does not fail loudly: it
+        recomputes a different digest for every row and calls an honest
+        opponent a forger.
+
+        Keyed on the `records`/`steps` split rather than the `protocol` field,
+        because that field only appeared on 17/08 and the logs filed before it
+        still have to open.
+        """
+        return "steps" not in self.payload and "records" in self.payload
+
+    @property
     def steps(self) -> list[dict[str, Any]]:
-        """Every recorded step, in play order."""
+        """Every recorded step, in play order.
+
+        A reference log stores `{payload, nonce, commit}` per turn rather than a
+        flat step, and it stores both sides. The cursor walks **our own**
+        payloads: they already carry `step`, `state`, `move`, `intent` and
+        `hint` under those names, so the viewer reads them unchanged.
+        """
+        if self.is_reference:
+            from core.compat.match_log import our_records
+
+            return [dict(record.get("payload") or {}) for record in our_records(self.payload)]
         return list(self.payload.get("steps", []))
 
     @property
@@ -118,6 +149,10 @@ class ReplaySession:
         """
         if not 0 <= index < self.total:
             return False
+        if self.is_reference:
+            from core.compat.match_log import record_ok
+
+            return record_ok(self.payload, index)
         step = self.steps[index]
         return verify(
             step["claimed_digest"],
@@ -152,6 +187,10 @@ class ReplaySession:
 
     def audit_records(self) -> list:
         """The parsed step records, for anything that wants them directly."""
+        if self.is_reference:
+            from core.compat.match_log import our_records
+
+            return our_records(self.payload)
         return records(self.payload)
 
 

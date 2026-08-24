@@ -37,7 +37,7 @@ defects. C-006a is a clarification the rulebook itself supplies. Three entries �
 | **A. Genuine gaps** — the rulebook does not define the behaviour anywhere | C-005, C-006b, C-006c, C-010, C-011, C-013, C-018 | **Must be settled in the pre-match agreement.** Every one appears in `PRD_negotiation.md`. |
 | **B. Resolved by the rulebook** — looked ambiguous, settled on a closer reading | C-006a | Implemented as read. Flag kept only because an opponent may arrive with the other reading. |
 | **C. Reference-implementation defects** — the book is unambiguous, the reference diverges | C-001, C-007, C-009, C-008 | **Watch items.** Most opponents will build on the reference and inherit these. Detect at the handshake. |
-| **D. Gaps outside the game rules** — engineering and process | C-002, C-004, C-014, C-015 | Our own decisions, recorded for the reviewer. |
+| **D. Gaps outside the game rules** — engineering and process | C-002, C-004, C-014, C-015, C-016, C-017, C-019 | Our own decisions, recorded for the reviewer. |
 
 ---
 

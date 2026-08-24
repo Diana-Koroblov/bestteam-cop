@@ -6,6 +6,20 @@ or forget something real is still open.
 
 ## Fixed
 
+- **The Replay App could not open a league log (24/08).** Every counted match
+  runs `protocol=reference`, and `ReplaySession` knew only the native shape, so
+  all four opened as `FAILED - empty log, nothing to verify` (M#20). The data
+  was never missing — `core/compat/match_log.verify_sub_game_log` already
+  verified them — the viewer simply never called it. Fixed by dispatching on
+  the log's shape (`is_reference`) in `verify_all`, `steps`, `step_ok` and
+  `audit_records`. **Not** by writing native `steps` into reference logs: the
+  two protocols hash different things, and feeding one to the other recomputes
+  a different digest per row and reports forgery against two honest teams.
+  All twelve sub-games of the imreeyal and vibecode series now re-verify off
+  disk, both sides of each (`docs/evidence/replay-counted-matches.txt`), and a
+  tampered record is still refused — including one rewritten *and re-sealed*,
+  which only the `live_commits` binding catches.
+
 - **Silent audit-push failure (17/08).** `core/cli_compat.py`'s outbound
   `submit_audit` call was wrapped in `contextlib.suppress(PeerError)` with no
   retry and no error message. A stale connection (the peer that just won can
@@ -50,6 +64,17 @@ or forget something real is still open.
   open, see below.
 
 ## Open — does NOT block a match from running, affects whether we win
+
+- **`--gui` does nothing during a league match (24/08).** The Live GUI is
+  driven by the native turn loop's `play_with_window` (`core/cli_gui.py`),
+  which moves the match off the main thread so Tk can own it. The reference
+  path never got that treatment, so `core/cli_compat.py` refuses the flag and
+  says so rather than opening nothing quietly. Since every counted match is
+  reference-protocol, **no league match has ever been watchable live** — the
+  belief-map captures in `docs/evidence/` all come from native self-play, which
+  is what M#8/Ch. 9.4 actually ask for, so this costs nothing at submission.
+  Fixing it means mirroring `play_with_window` for the compat loop; the
+  threading is the fiddly part. Logged rather than attempted on deadline day.
 
 - **The advanced Cop still never captures the advanced Thief, 0/48 openings**
   (`test_the_competitive_cell_is_reported_and_not_gated` and

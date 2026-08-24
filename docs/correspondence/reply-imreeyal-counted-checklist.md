@@ -1,0 +1,190 @@
+# Reply to imreeyal — the ten counted confirmations, two corrections and one defect we found in ourselves
+
+Subject: bestteam ↔ imreeyal — ten confirms, artefacts line owed now paid (14), heads
+RE-DECLARED per item 5, and one real defect found in our league counters before it filed
+
+Hi imreeyal —
+
+Thank you for the verdict, and for the checklist. Ten answers below, one line apiece as
+asked, then the substantiation for the three that are not a plain "confirmed". Two of
+those are corrections to us, one is a correction to the framing in item 9.
+
+**Artefacts line owed, paid first: `artefacts: 14 file(s)`** — 1 declaration + 6 config +
+6 log + 1 result, for `bestteam-vs-imreeyal` / `ffad01a2-4965-be0b-c708-3cdbedd7373a`.
+That closes the window from our side.
+
+---
+
+## The ten, one line each
+
+1. **CONFIRMED.** Recipient is already the lecturer alone — `rmisegal+uoh26finalgame@gmail.com`
+   in both role configs, no redirect at you, no `.env` override; we will state it in the pre-T
+   exchange and expect yours to match.
+2. **CONFIRMED.** One counted per pairing, permanent, whatever the score — no rematch, no run-it-back.
+3. **CORRECTED — the defect was ours and is now fixed.** Our `counted_games_played = 0` is
+   truthful and derived, but `games_played_including_this` filed the *before* count and would
+   have printed bestteam 0 / imreeyal 6 against your 7 / 1; now before+1, pinned by tests, and
+   in the heads below.
+4. **CONFIRMED.** Diversity is already derived, not claimed, and not modest — gated on
+   `counted AND first_meeting AND winner == group`, so a win of yours prints imreeyal true.
+5. **RE-DECLARED, and this line is that re-declaration.** The posted pair is superseded — the
+   two letters and the item 3 fix landed after settlement — so the frozen heads are now
+   cop `2b672f24…` / thief `5d2f6e01…` on `origin/itay`, and nothing lands after this line.
+6. **CONFIRMED, and it is worse than you flagged** — not only the same `game_id` and filenames,
+   the `game_uid` is identical too; archiving before T and running the counted into an empty `--out`.
+7. **CONFIRMED.** Our OAuth app is published to production, so the seven-day Testing expiry
+   does not apply, and reports left cleanly on the 16th and 17th; we will still run a live
+   send inside the hour before T and post the result, because the rule 35 cost is asymmetric.
+8. **CONFIRMED.** Exactly tonight's shape, with items 3 and 4's league fields as the only deltas.
+9. **CONFIRMED on substance, CORRECTED on mechanism.** All four kinds with the 30-second check,
+   and our filed config already *is* the shared contract with zero extra keys — but `17606f14` is
+   a canonical digest, not a digest of an extended file, and a raw-byte sha cannot match between
+   two teams; please tell us what `4e0510ed` is over.
+10. **CONFIRMED.** T protocol identical: doors up five early and held, all four curl-checked, identity
+    probe by initialize-then-dial-what-it-says, 406 by T+30s or kill-and-rename in writing, no
+    debugging inside the window, stray-process check after; alternating, bestteam cop on odds, your
+    thief opens g01, terms `a284082d` / `81ebee59` / `229ae648` / `020947da` unchanged.
+
+---
+
+## Item 3 — we found this by checking rather than by answering, and it would have filed
+
+Your lesson from the other pairing is the right lesson and we were about to be the next
+example of it, by a different mechanism than theirs. Ours is not a stale constant. It is
+an off-by-one hiding behind a correct-sounding field name.
+
+Our identity block declares `counted_games_played = 0`, and that is honest: it is read
+from `docs/LEAGUE_LOG.md`, which has zero counted rows, and the reader refuses when the
+table and its stated total disagree. No complaint there.
+
+But the *result* field is `games_played_including_this`, and we populate it with the
+number that excludes this one. Our filed 2200 artefact says so in as many words:
+
+    games_played_including_this   {"bestteam": 0, "imreeyal": 6}
+
+Against your 7 / 1 that is a visible disagreement on a league line, in front of the
+grader, which is exactly the shape item 4 warns about. No test pinned the field, so
+nothing would have caught it.
+
+Fixed: each side's declaration plus one, gated on the series being counted, since a
+friendly changes nobody's total and over-declaring is the direction M#38 disqualifies for.
+Pinned by five tests — including the one where a peer sends `true` rather than a number,
+because `bool` is an `int` in Python and reading that as 1 would invent a claim you never
+made.
+
+One ordering consequence we will hold to, because it is the other way this field goes
+wrong: **the LEAGUE_LOG row gets added after the filing, not before.** Adding it first
+would flip `first_meeting_between_groups` to false and take the +10 with it.
+
+## Item 5 — the heads moved, and this is the re-declaration before arming
+
+Full pair, frozen now, both on `origin/itay` and both verified against the remote rather
+than against our local clones:
+
+    cop    2b672f24e610a229d21abeb3e9f4cd4afc81b828   (bestteam-cop,   origin/itay)
+    thief  5d2f6e01d6e0dddbdd3acfd1bd2e09a9948ca7cc   (bestteam-thief, origin/itay)
+
+Two things landed after your PASS and after the results were agreed: the two letters as
+documentation, and the item 3 fix above. We are not claiming the first as compliant with
+the letter of the promise — the promise said settled *and re-declared*, and we did the
+settled half then and are doing the re-declared half now, in the thread, before arming,
+which is the procedure item 5 specifies. The second is deliberate: we would rather declare
+a corrected counter than freeze a broken one into the counted.
+
+**These are the heads that will play.** We had a private strategy change staged — a
+`[strategy] search_depth` value, which under Appendix F Table 22 is not negotiated and
+alters no rule — and we have deliberately **not** taken it. It failed our own integration
+suite while we were validating it, and we are not putting a change into a counted series
+that our own gates have not cleared. It stays out until after this match. We mention it
+only so that "nothing lands after this line" is a statement you can hold us to rather than
+one we quietly qualified.
+
+The earlier pairs `6bec686a` / `f4e113a9`, `6adee601` / `6c431269` and `d72b1f76` /
+`11f616e2` all still resolve and still descend correctly if you want to re-verify the
+friendly series against any of them.
+
+## Item 7 — verified, and we will re-verify anyway
+
+Our OAuth app is published to production, so the seven-day refresh-token expiry that
+applies to apps left in Testing status does not apply to us. That was a deliberate setup
+step rather than luck, and it is why reporting has not broken mid-project.
+
+One detail worth stating, because it looks alarming from the outside and is not: our
+stored token file reads `expiry: 2026-08-08T17:07:12Z` and has not been rewritten since.
+That is by design — the sender refreshes credentials in memory on every send and does not
+persist the new access token back to disk, so a stale-looking token file is the normal
+steady state here, not a symptom. The reports that left on the 16th and 17th, which you
+have already cross-diffed, are the evidence that the path works.
+
+We will still run a live send to ourselves inside the hour before T and post the result.
+Not because we doubt it, but because the cost of being wrong is rule 35 with both teams
+zeroed, and that asymmetry justifies a thirty-second check. The
+stop-and-agree-never-silent-resend rule stands.
+
+## Item 9 — the substance is agreed, the comparison method is not
+
+We agree completely on what must be filed: the shared `game.json`, the private C-00x
+flags staying in private config. We checked rather than asserted, and our filed artefact
+already satisfies it — the embedded `shared_config` has **zero** keys beyond the
+agreement, and its digest equals the digest of our live `config/*/game.json` exactly.
+
+Where we think the framing is off: `17606f14` is not "over our extended file". It is the
+**canonical** digest — sorted keys, fixed separators — of precisely the shared contract.
+The raw bytes of our copy hash to `01d3e9fe`, and that number is not meaningful to
+compare, because two teams holding byte-identical *content* will still differ on raw sha
+over key order, indentation and trailing newline. That is the whole reason the protocol
+hashes canonically everywhere else.
+
+So `4e0510ed` and `17606f14` disagreeing is not yet evidence of a content difference.
+Could you tell us what `4e0510ed` is computed over — raw file bytes, or canonical? If
+raw, we would rather compare canonical digests of the shared contract and settle it in
+one line before T than discover at settlement that we were comparing two different
+questions.
+
+**One thing we are volunteering because it bears on the digit above.** Auditing for this
+letter we found our local `outbox/` pack was stale — it was the nis-yar1 pack from the
+13th, still carrying `multiplicative` decay and `swap_is_capture: true`, neither of which
+is what we agreed with you. It was never sent to you and never filed; it is a gitignored
+scratch directory that does not exist in either published repository. We have regenerated
+it from the live contract regardless, because a wrong file in a directory named outbox is
+exactly what gets picked up by the wrong hand at T.
+
+The useful by-product is a freshly computed digit for item 9. Our regenerated pack, our
+live `config/*/game.json` and the `shared_config` embedded in every filed artefact now all
+canonicalise to the same value:
+
+    config_sha256 (canonical)  17606f14dbbac0fce870f7e88282c23d95e34fa05c91f5d8e5ebe54976ed96a0
+
+That is one contract expressed three ways and hashing identically, which is the property
+worth checking. If your `4e0510ed` is a canonical digest over the same agreed contract and
+still disagrees, then we have a real content difference and would rather find it now than
+at settlement.
+
+## Item 6 — the collision is on the uid too
+
+You flagged `game_id` and filenames. Checking it, `game_uid` repeats as well: all three
+windows — the 16th, tonight's friendly and tonight's 2200 — carry
+`ffad01a2-4965-be0b-c708-3cdbedd7373a`. It is derived from the pairing, not from the
+series, so the counted will carry it too unless one of us changes something.
+
+Archiving and a fresh empty `--out` fixes the Frankenstein risk you actually named, and
+we are doing both regardless. But if a grader sees a counted result sharing a uid with
+three friendlies, we would rather have decided that on purpose. Happy either way — say
+which you prefer and we will match it:
+
+- **leave it** — uid identifies the pairing, and the archive plus fresh `--out` carries the load; or
+- **make it per-series** — both sides derive the uid with the series date mixed in, agreed in one line before T.
+
+---
+
+Ten confirmations above, artefacts line paid, heads re-declared and frozen at
+`2b672f24…` / `5d2f6e01…` with the item 3 fix already in them. Outstanding from us before
+T: the live mail verification, and nothing else. Outstanding from you: what `4e0510ed` is
+computed over, and your preference on item 6's uid.
+
+Lock the T whenever you are ready — the sooner the better from our side, and we will not
+move anything again without a line here first.
+
+— bestteam
+   Itay Malich, Diana Koroblov
+   itay.malich2@gmail.com
