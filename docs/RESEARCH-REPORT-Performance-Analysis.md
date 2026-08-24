@@ -76,24 +76,28 @@ guide's own instruction.
 ## 5. Screenshots — human step required, not automatable
 
 The M7 milestone screenshots already exist and are real (`docs/evidence/m7-live-gui.png`,
-`m7-live-gui-belief.png`, `m7-replay-verified-ok.png`), captured 13/08. What is still open for a
-complete Phase 10 edge-case catalogue is a small set of **failure-mode** screenshots, which by
-their nature require a human watching a live window at the moment of the failure — there is no
-way to fabricate these honestly:
+`m7-live-gui-belief.png`, `m7-replay-verified-ok.png`), captured 13/08.
 
-- Opponent disconnect mid-series (kill the peer process, screenshot the GUI's status line)
-- A malformed hint (already exercised by `tests/unit/test_*hint*`, but not visually captured)
-- A tunnel drop mid-protocol (this actually happened live during the najamjad warm-up, 24/08 —
-  see `docs/correspondence/reply-najamjad-warmup1-findings.md` for the log evidence; a live
-  screenshot of the GUI at that moment was not taken because the match was running headless)
-- An LLM provider timeout (trivial to force: set `[llm] timeout_sec` very low for one local run)
-- A hash mismatch (force by editing one byte of a committed payload before reveal, in a scratch run)
+**Opponent disconnect — captured 24/08.** A local two-process drill (`--allow-local-head`, both
+roles on `localhost`, no tunnel), one side interrupted mid-series:
 
-**Guide for capturing these**, since I cannot drive your screen: run
-`uv run python -m core play --role cop --protocol reference --gui ...` locally (see
-`docs/MATCHDAY.md` for the exact flags), trigger each failure deliberately, and save a screenshot
-of the GUI + terminal at the moment of the resulting technical loss. Five short clips, not a
-production shoot.
+- `docs/evidence/edge-case-disconnect-gui.png` — the surviving side's Live GUI, frozen on "YOUR
+  TURN" at step 13, the moment the peer stopped answering.
+- `docs/evidence/edge-case-disconnect-terminal.png` — the interrupted side's own terminal,
+  showing the real error and the resulting clean, persisted `TECHNICAL_LOSS` for each of its
+  remaining sub-games: `opponent unreachable: 'receive_reveal' failed: RuntimeError: cannot
+  schedule new futures after shutdown`. Both peers correctly declared the working-tree head
+  DIRTY too, since this was a deliberate local drill rather than a real match.
+
+The remaining three edge cases were assessed and deliberately not pursued today — P2/P3, and not
+worth the remaining time against the deadline:
+
+- A tunnel drop mid-protocol **already has real evidence**, from an actual opponent rather than a
+  staged drill: see `docs/correspondence/reply-najamjad-warmup1-findings.md`, 24/08.
+- An LLM provider timeout and a malformed hint were scoped (the timeout demo needs a real
+  provider — `template`, this project's default, spends no tokens and cannot time out by
+  construction, so the demo only means something on a machine running `ollama`) but not captured.
+- A hash mismatch was not attempted; it needs a scratch run with a deliberately corrupted payload.
 
 ## 6. Parameter sensitivity study
 
