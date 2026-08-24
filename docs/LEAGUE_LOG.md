@@ -22,9 +22,9 @@ declaration disqualifies the whole project (M#38).
 | # | Date | Opponent team | Our role | Sub-games | Our score | Their score | Audit | Our report sent | Theirs confirmed | Commit hash | Config file |
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | 1 | 2026-08-18 | imreeyal | alternating, cop on odds | 6/6 | 40 | 60 | ☑ | ☑ | ☑ | cop 22e41379 / thief 67e859b6 | config_bestteam-vs-imreeyal_g01-06.json (cca1243e) |
-| 2 | 2026-08-19 | vibecode | alternating, cop on odds | 6/6 | 30 | 90 | ☑ | ☑ | ☐ | cop 6f5a7ed1 / thief a671fe05 | config_bestteam-vs-vibecode_g01-06.json (d16427a2) |
+| 2 | 2026-08-19 | vibecode | alternating, cop on odds | 6/6 | 30 | 90 | ☑ | ☑ | ☑ | cop 6f5a7ed1 / thief a671fe05 | config_bestteam-vs-vibecode_g01-06.json (d16427a2) |
 | 3 | 2026-08-19 | nis-yar1 | alternating, cop on odds | 6/6 | 30 | 90 | ☑ | ☑ | ☑ | cop 1c0e06e8 / thief 5e0e673c | config_bestteam-vs-nis-yar1_g01-06.json |
-| 4 | 2026-08-24 | yanell11 | alternating, cop on odds | 6/6 | 30 | 90 | ☑ | ☑ | ☐ | cop 5b8d1478 / thief 8fec0672 | game_id bestteam-vs-yanell11-counted-1, uid 12ce5257-60ce-184b-cef4-9f627aa572bd |
+| 4 | 2026-08-24 | yanell11 | alternating, cop on odds | 6/6 | 30 | 90 | ☑ | ☑ | ☑ | cop 5b8d1478 / thief 8fec0672 | game_id bestteam-vs-yanell11-counted-1, uid 12ce5257-60ce-184b-cef4-9f627aa572bd |
 | 5 | | | | /6 | | | ☐ | ☐ | ☐ | | |
 | 6 | | | | /6 | | | ☐ | ☐ | ☐ | | |
 | 7 | | | | /6 | | | ☐ | ☐ | ☐ | | |

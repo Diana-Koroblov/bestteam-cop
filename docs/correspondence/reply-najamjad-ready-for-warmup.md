@@ -15,16 +15,17 @@ Both your answers noted and confirmed on our side:
     scent           A1 subtractive_chebyshev_v1 - already our active config
     games_played    this series files games_played_including_this 9/5
 
-Our endpoint is unchanged: itinerary-single-overjoyed.ngrok-free.dev is still
-our thief door, live. We'll bring both our processes up and send you both
-doors fresh right before - your own note in section 10 about a stale URL
-looking identical to a broken one applies to us too.
+Both our processes are up right now, doors live as of this message (sending
+fresh per your own section 10 note about a stale URL looking identical to a
+broken one):
+
+    cop    https://customs-countdown-uncork.ngrok-free.dev/mcp
+    thief  https://itinerary-single-overjoyed.ngrok-free.dev/mcp
 
 We open as cop, you as thief, per your section 1 - no objection, matches
 what we already had configured.
 
-Ready to bring our two processes up for the warm-up whenever you are. Say
-the word and we'll launch.
+Go ahead whenever you're ready - we're listening.
 
 - bestteam
   Itay Malich, Diana Koroblov

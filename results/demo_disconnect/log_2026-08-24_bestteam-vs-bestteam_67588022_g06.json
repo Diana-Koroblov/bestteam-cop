@@ -1,0 +1,12 @@
+{
+  "code_version": "1.00",
+  "config_sha256": "2684e9ff5eeae5fb0141fe7c801abfa5215e392a465dc85050c21b9151025357",
+  "created_utc": "2026-08-24T12:19:05+00:00",
+  "game_id": "2026-08-24_bestteam-vs-bestteam_67588022",
+  "outcome": "opponent unreachable: 'connect' failed: RuntimeError: Client failed to connect: cannot schedule new futures after shutdown",
+  "role": "thief",
+  "step_count": 0,
+  "steps": [],
+  "sub_game": 6,
+  "unverifiable_steps": []
+}

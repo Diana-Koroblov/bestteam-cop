@@ -1,0 +1,58 @@
+{
+  "param": "pheromones.pheromone_decay",
+  "generated_utc": "2026-08-24T11:35:44.802920+00:00",
+  "cop": "police.advanced:AdvancedCop",
+  "thief": "thief.advanced:AdvancedThief",
+  "rows": [
+    {
+      "param": "pheromones.pheromone_decay",
+      "value": 0.05,
+      "games": 25,
+      "cop_win_rate": 0.0,
+      "mean_steps": 35.0,
+      "mean_barriers_placed": 0.0,
+      "cop_points": 125,
+      "thief_points": 250
+    },
+    {
+      "param": "pheromones.pheromone_decay",
+      "value": 0.1,
+      "games": 25,
+      "cop_win_rate": 0.0,
+      "mean_steps": 35.0,
+      "mean_barriers_placed": 0.0,
+      "cop_points": 125,
+      "thief_points": 250
+    },
+    {
+      "param": "pheromones.pheromone_decay",
+      "value": 0.2,
+      "games": 25,
+      "cop_win_rate": 0.0,
+      "mean_steps": 35.0,
+      "mean_barriers_placed": 0.0,
+      "cop_points": 125,
+      "thief_points": 250
+    },
+    {
+      "param": "pheromones.pheromone_decay",
+      "value": 0.3,
+      "games": 25,
+      "cop_win_rate": 0.0,
+      "mean_steps": 35.0,
+      "mean_barriers_placed": 0.0,
+      "cop_points": 125,
+      "thief_points": 250
+    },
+    {
+      "param": "pheromones.pheromone_decay",
+      "value": 0.4,
+      "games": 25,
+      "cop_win_rate": 0.0,
+      "mean_steps": 35.0,
+      "mean_barriers_placed": 0.0,
+      "cop_points": 125,
+      "thief_points": 250
+    }
+  ]
+}

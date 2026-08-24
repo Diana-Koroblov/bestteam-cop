@@ -1,0 +1,105 @@
+{
+  "code_version": "1.00",
+  "created_utc": "2026-08-24T12:20:14+00:00",
+  "game_id": "2026-08-24_bestteam-vs-bestteam_67588022",
+  "github_commit": "1953a780cc35ca51fe2452595fad5bffc23d4f79-dirty",
+  "repositories": {
+    "ours_cop": "https://github.com/Diana-Koroblov/bestteam-cop",
+    "ours_thief": "https://github.com/Diana-Koroblov/bestteam-thief",
+    "theirs_cop": "https://github.com/Diana-Koroblov/bestteam-cop",
+    "theirs_thief": "https://github.com/Diana-Koroblov/bestteam-thief"
+  },
+  "series": {
+    "our_league_points": 0,
+    "our_points": 0,
+    "their_league_points": 0,
+    "their_points": 0,
+    "verdict": "TECHNICAL_LOSS"
+  },
+  "sub_games": [
+    {
+      "cop_points": 0,
+      "llm_tokens": 0,
+      "opponent_log_audit": "FAILED",
+      "our_points": 0,
+      "reason": "opponent unreachable: 'receive_reveal' was rejected by the opponent: reveal for step 13 has no matching commit; a move must be sealed before it is shown (Ch. 5.3.1)",
+      "role": "cop",
+      "steps": 13,
+      "sub_game": 1,
+      "their_points": 0,
+      "thief_points": 0,
+      "verdict": "TECHNICAL_LOSS"
+    },
+    {
+      "cop_points": 0,
+      "llm_tokens": 0,
+      "opponent_log_audit": "not_run",
+      "our_points": 0,
+      "reason": "opponent unreachable: 'receive_reveal' failed: RuntimeError: cannot schedule new futures after shutdown",
+      "role": "thief",
+      "steps": 13,
+      "sub_game": 2,
+      "their_points": 0,
+      "thief_points": 0,
+      "verdict": "TECHNICAL_LOSS"
+    },
+    {
+      "cop_points": 0,
+      "llm_tokens": 0,
+      "opponent_log_audit": "not_run",
+      "our_points": 0,
+      "reason": "opponent unreachable: 'receive_commit' failed: ConnectError: All connection attempts failed",
+      "role": "cop",
+      "steps": 0,
+      "sub_game": 3,
+      "their_points": 0,
+      "thief_points": 0,
+      "verdict": "TECHNICAL_LOSS"
+    },
+    {
+      "cop_points": 0,
+      "llm_tokens": 0,
+      "opponent_log_audit": "not_run",
+      "our_points": 0,
+      "reason": "opponent unreachable: 'connect' failed: RuntimeError: Client failed to connect: cannot schedule new futures after shutdown",
+      "role": "thief",
+      "steps": 0,
+      "sub_game": 4,
+      "their_points": 0,
+      "thief_points": 0,
+      "verdict": "TECHNICAL_LOSS"
+    },
+    {
+      "cop_points": 0,
+      "llm_tokens": 0,
+      "opponent_log_audit": "not_run",
+      "our_points": 0,
+      "reason": "opponent unreachable: 'connect' failed: RuntimeError: Client failed to connect: All connection attempts failed",
+      "role": "cop",
+      "steps": 0,
+      "sub_game": 5,
+      "their_points": 0,
+      "thief_points": 0,
+      "verdict": "TECHNICAL_LOSS"
+    },
+    {
+      "cop_points": 0,
+      "llm_tokens": 0,
+      "opponent_log_audit": "not_run",
+      "our_points": 0,
+      "reason": "opponent unreachable: 'connect' failed: RuntimeError: Client failed to connect: cannot schedule new futures after shutdown",
+      "role": "thief",
+      "steps": 0,
+      "sub_game": 6,
+      "their_points": 0,
+      "thief_points": 0,
+      "verdict": "TECHNICAL_LOSS"
+    }
+  ],
+  "total_llm_tokens": 0,
+  "totals": {
+    "ours": 0,
+    "sub_games_played": 6,
+    "theirs": 0
+  }
+}

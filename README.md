@@ -172,6 +172,8 @@ mandatory pre-match worked example (M#23) is designed to catch.
 | `docs/TODO.md` | Task breakdown by phase, with owner and definition of done |
 | `docs/CONTRADICTIONS.md` | Rulebook contradictions found, choices made, and why |
 | `docs/PROMPT_LOG.md` | The prompts used to build this system |
+| `docs/RESEARCH-REPORT-Performance-Analysis.md` | Dec-POMDP formalism, orchestration design, parameter sensitivity, Nielsen/ISO evaluation |
+| `notebooks/results_analysis.ipynb` | Executed analysis notebook — scent physics, sweep plots, belief snapshot, token cost |
 
 ## Licence and attribution
 

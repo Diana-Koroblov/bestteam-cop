@@ -1338,9 +1338,9 @@ in both repos. If the schedule slips, cut from here — never from Phase 9.
   - [x] 11.1.1.b [D] - Copy `core/ + thief/ + config/thief/` into the thief clone | DoD: Tree correct.
   - [x] 11.1.1.c [D] - Pre-push secret scan; abort on any hit | DoD: **Verified** — a planted Groq key makes publish exit 1 and push nothing to either repo. Six key patterns covered. (M#39)
   - [x] 11.1.1.d [D] - Commit and push both | DoD: Both remotes updated.
-- [ ] 11.1.2 [D] - Verify each repo contains README, `config/`, PRD files, PLAN, TODO | DoD: All five present in both. (M#50)
-- [ ] 11.1.3 [D] - Annotated tag `v1.0-submission` in both repos | DoD: `git tag -a v1.0-submission -m "..."` pushed; `git show` points at the intended commit. (M#41)
-- [ ] 11.1.4 [D] - Share both repos with `rmisegal@gmail.com`, or make public | DoD: Lecturer can access both. (Appendix C)
+- [x] 11.1.2 [D] - Verify each repo contains README, `config/`, PRD files, PLAN, TODO | DoD: All five present in both. (M#50) — **Verified 24/08**, both repos.
+- [x] 11.1.3 [D] - Annotated tag `v1.0-submission` in both repos | DoD: `git tag -a v1.0-submission -m "..."` pushed; `git show` points at the intended commit. (M#41) — **Done 24/08**, cop `e74185d`, thief `4614a0d`.
+- [x] 11.1.4 [D] - Share both repos with `rmisegal@gmail.com`, or make public | DoD: Lecturer can access both. (Appendix C) — **Verified 24/08**, both public on GitHub.
 
 ### 11.2 🧑 USER ACTION — Moodle
 > **PAUSE — I cannot submit on Moodle. Both members must do this separately.**
