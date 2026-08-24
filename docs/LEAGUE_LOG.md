@@ -24,19 +24,20 @@ declaration disqualifies the whole project (M#38).
 | 1 | 2026-08-18 | imreeyal | alternating, cop on odds | 6/6 | 40 | 60 | ☑ | ☑ | ☑ | cop 22e41379 / thief 67e859b6 | config_bestteam-vs-imreeyal_g01-06.json (cca1243e) |
 | 2 | 2026-08-19 | vibecode | alternating, cop on odds | 6/6 | 30 | 90 | ☑ | ☑ | ☐ | cop 6f5a7ed1 / thief a671fe05 | config_bestteam-vs-vibecode_g01-06.json (d16427a2) |
 | 3 | 2026-08-19 | nis-yar1 | alternating, cop on odds | 6/6 | 30 | 90 | ☑ | ☑ | ☑ | cop 1c0e06e8 / thief 5e0e673c | config_bestteam-vs-nis-yar1_g01-06.json |
-| 4 | | | | /6 | | | ☐ | ☐ | ☐ | | |
+| 4 | 2026-08-24 | yanell11 | alternating, cop on odds | 6/6 | 30 | 90 | ☑ | ☑ | ☐ | cop 5b8d1478 / thief 8fec0672 | game_id bestteam-vs-yanell11-counted-1, uid 12ce5257-60ce-184b-cef4-9f627aa572bd |
 | 5 | | | | /6 | | | ☐ | ☐ | ☐ | | |
 | 6 | | | | /6 | | | ☐ | ☐ | ☐ | | |
 | 7 | | | | /6 | | | ☐ | ☐ | ☐ | | |
 | 8 | | | | /6 | | | ☐ | ☐ | ☐ | | |
 
-**Counted matches so far: 3** ← this is the number declared to every new opponent (M#37)
+**Counted matches so far: 4** ← this is the number declared to every new opponent (M#37)
 
-<!-- 2026-08-24: the 22/08 yanell11 counted attempt (was row 4, cop f278849f
-     / thief 844f10a7) was voided by mutual agreement - several report fields
-     disagreed (first_meeting, diversity_reward, github_commit, schema_version,
-     league block) even though the settlement hash matched. Not counted until
-     a replay under label counted-1 actually reconciles. -->
+<!-- 2026-08-24: the 22/08 yanell11 counted attempt was voided by mutual
+     agreement (several report fields disagreed even though the settlement
+     hash matched); the replay under label counted-1 the same day (row 4
+     above) is the one that stands - clean 6/6, all fields cross-checked
+     against yanell11's own predicted values before filing, sha256
+     75fbe9b3fa5123b4e7e7521c9050eb87b202fae65fd8589734aae61181409e03. -->
 
 > ⚠️ **This table is parsed, not just read.** `core/shared/league_log.py` counts the rows whose
 > **Opponent team** cell is filled and refuses to hand the handshake a number when that count
