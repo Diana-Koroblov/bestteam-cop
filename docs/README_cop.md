@@ -202,8 +202,12 @@ mandatory pre-match worked example (M#23) is designed to catch.
 | `docs/TODO.md` | Task breakdown by phase, with owner and definition of done |
 | `docs/CONTRADICTIONS.md` | Rulebook contradictions found, choices made, and why |
 | `docs/PROMPT_LOG.md` | The prompts used to build this system |
-| `docs/RESEARCH-REPORT-Performance-Analysis.md` | Dec-POMDP formalism, orchestration design, parameter sensitivity, Nielsen/ISO evaluation |
-| `notebooks/results_analysis.ipynb` | Executed analysis notebook — scent physics, sweep plots, belief snapshot, token cost |
+| `docs/RESEARCH-REPORT-Performance-Analysis.md` | Dec-POMDP formalism, orchestration design, parameter sensitivity, the measured root cause of the Cop's win rate (§6.4), Nielsen/ISO evaluation |
+| `notebooks/results_analysis.ipynb` | Executed analysis notebook — scent physics, sweep plots, the belief filter's own posterior, win rate by opponent and role, reliability over time, token cost |
+| `docs/TRACEABILITY.md` | Every requirement mapped to the PRD that specifies it, the tasks that implement it, and the rule that mandates it |
+| `docs/LEAGUE_LOG.md` | The evidence base — one row per counted match, with scores, audit state and the artefacts filed |
+| `docs/PARAMETERS.md` | Every binding value, where it comes from, and which are fixed, minimum or negotiable |
+| `docs/KNOWN_ISSUES.md` | Defect log — what was found, what was fixed, and what remains open |
 
 ## Licence and attribution
 

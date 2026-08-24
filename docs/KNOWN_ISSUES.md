@@ -1,8 +1,14 @@
-# Known issues — what broke, what's fixed, what's still open
+# Defect log — resolved, open, and environmental
 
-Working log from the najamjad/yanell11 match-prep sessions (17-18/08). Not a
-permanent doc — a scratch record so we don't re-discover the same thing twice
-or forget something real is still open.
+A running record of every defect found during match preparation and play, what
+was done about it, and what remains open. Entries are dated and name the test or
+artefact that demonstrates them, so a claim here can be checked rather than
+taken on trust.
+
+Open items are listed with the same detail as resolved ones. An issue we have
+measured and understood but not yet fixed is more useful written down than
+quietly dropped — and a defect log that only lists successes is not a defect
+log.
 
 ## Fixed
 
@@ -58,12 +64,11 @@ or forget something real is still open.
   `test_isolation_discounts_a_wall_that_would_leave_a_tiny_pocket` in
   `test_cop_barrier_policy.py`.
 
-  **What this did NOT fix, so nobody assumes otherwise.** Advanced-cop-vs-
-  advanced-thief is still 0/48 captures — self-separation was never the main
-  cause of that number, something deeper in the pursuit itself is. Still
-  open, see below.
+  **Scope of this fix, stated so it is not over-read.** Advanced-cop-vs-
+  advanced-thief remains 0/48 captures: self-separation was never the main
+  cause of that number. The deeper cause is recorded under Open below.
 
-## Open — does NOT block a match from running, affects whether we win
+## Open — affects results, not the ability to complete a match
 
 - **`--gui` does nothing during a league match (24/08).** The Live GUI is
   driven by the native turn loop's `play_with_window` (`core/cli_gui.py`),
@@ -73,23 +78,27 @@ or forget something real is still open.
   reference-protocol, **no league match has ever been watchable live** — the
   belief-map captures in `docs/evidence/` all come from native self-play, which
   is what M#8/Ch. 9.4 actually ask for, so this costs nothing at submission.
-  Fixing it means mirroring `play_with_window` for the compat loop; the
-  threading is the fiddly part. Logged rather than attempted on deadline day.
+  Fixing it means mirroring `play_with_window` for the compat loop, where the
+  thread ownership is the difficult part. Deferred deliberately: the change sits
+  in the live match path, and the evidence the brief requires is already
+  captured by the native route.
 
 - **The advanced Cop still never captures the advanced Thief, 0/48 openings**
   (`test_the_competitive_cell_is_reported_and_not_gated` and
   `test_a_better_cop_is_still_a_harder_cop`, same slow benchmark). Confirmed
   this is a separate, deeper issue from the self-separation bug above — fixing
-  that changed 0 of these 48 outcomes. Not investigated further yet. A lost
-  sub-game still completes and audits cleanly, so this costs points, not
-  participation in tomorrow's match.
+  that changed 0 of these 48 outcomes. Root-caused on 24/08 — see
+  `RESEARCH-REPORT-Performance-Analysis.md` §6.4, which measures the belief
+  peak sitting on a non-sealable cell on 100 % of turns while the Thief is on a
+  sealable one 83 % of the time. A lost sub-game still completes and audits
+  cleanly, so this costs points rather than participation.
 - **The advanced Cop is now slower than the baseline Cop against the baseline
   Thief** (`test_the_advanced_cop_captures_faster_than_the_baseline_one`),
-  the accepted trade-off from the 15/08 barrier-deadlock fix — see that
-  commit and `test_advanced_selfplay.py`'s module docstring. Not a new
-  finding, not re-chased today.
+  the accepted trade-off from the 15/08 barrier-deadlock fix — see that commit
+  and `test_advanced_selfplay.py`'s module docstring. Known and accepted at the
+  time the trade was made, not a regression.
 
-## Operational gotchas learned the hard way tonight (not code bugs)
+## Operational constraints — environment and process, not code defects
 
 - **Playing ANY match — including a rehearsal against the kit's own practice
   bot — overwrites `config/<role>/game.json` in place** with whatever got
@@ -113,8 +122,8 @@ or forget something real is still open.
 - **Free ngrok tunnels fail TLS handshakes under load** (~120 req/min), not a
   clean error — `SSL: UNEXPECTED_EOF_WHILE_READING` on both sides. Repeated
   restarts + curl probing + both sides' retries can trigger this. If it
-  happens, stop everything and let it cool down a few minutes before retrying;
-  don't restart into it.
+  happens, stop all processes and allow several minutes before retrying rather
+  than restarting into the failure.
 - **`scripts/ship.py` / `publish.py` wipes each split repo's `results/`
   folder** with whatever is in `p2p-chase/results/` (which has none of the
   match files, since matches are run from inside `bestteam-cop`/

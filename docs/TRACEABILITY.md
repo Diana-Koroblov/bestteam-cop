@@ -1,7 +1,9 @@
 # Traceability Matrix
 
 Generated from `PRD.md`. Every functional requirement maps to the PRD that specifies it, the TODO
-tasks that implement it, and the rule or parameter that mandates it.
+tasks that implement it, and the rule or parameter that mandates it. Every **non-functional**
+requirement maps to the artefact that demonstrates it, with partial and unproven rows marked as
+such rather than ticked.
 
 `M#n` = mandatory rule (Appendix E) · `F` = binding value (Appendix F) · `X` = excellence guide
 
@@ -38,7 +40,7 @@ tasks that implement it, and the rule or parameter that mandates it.
 | FR-4.8 | Each hint is capped at `[hint word limit]` (15) words, enforced for every p... | `PRD_4_scent_and_belief.md` | 4.1.1 - 4.6.4 | F |
 | FR-4.9 | An `Intent` flag (`truth` / `lie`) is committed alongside the move | `PRD_4_scent_and_belief.md` | 4.1.1 - 4.6.4 | Ch. 5 |
 | FR-4.10 | Optional real-world landmark flavour driven by `[map area]` | `PRD_4_scent_and_belief.md` | 4.1.1 - 4.6.4 | F |
-| FR-5.1 | The local FastMCP server is exposed to the public internet via a tunnel (ng... | `PRD_5_tunnelling.md` | 5.1.1 - 5.3.2 | M#10 |
+| FR-5.1 | The local FastMCP server is exposed to the public internet via a tunnel (ng... | `PRD_5_tunnelling.md` | 5.1.1 - 5.3.2 | M#10, M#39 |
 | FR-5.2 | Tunnel health is a Watchdog input; a dropped tunnel triggers reconnect and ... | `PRD_5_tunnelling.md` | 5.1.1 - 5.3.2 | Ch. 2, Ch. 8 |
 | FR-6.1 | Four-phase protocol per step: `Commit` → `Acknowledge` → `Reveal` → `Final ... | `PRD_6_commit_reveal.md` | 6.1.1 - 6.5.4 | Ch. 5 |
 | FR-6.2 | `H = SHA256(State ‖ Move ‖ Intent ‖ Nonce)` over **canonical JSON** (sorted... | `PRD_6_commit_reveal.md` | 6.1.1 - 6.5.4 | M#17, Ch. 5 |
@@ -57,7 +59,7 @@ tasks that implement it, and the rule or parameter that mandates it.
 | FR-7.7 | Both teams agree the result and **each sends its own report separately** | `PRD_7_reporting.md` | 7.1.1 - 7.5.4 | M#35 |
 | FR-7.8 | Reports go to `rmisegal+uoh26finalgame@gmail.com` | `PRD_7_reporting.md` | 7.1.1 - 7.5.4 | M#51 |
 | FR-7.9 | Gmail access uses OAuth 2.0 with **send-only** scope | `PRD_7_reporting.md` | 7.1.1 - 7.5.4 | M#30 |
-| FR-7.10 | Four JSON artefacts per match: declaration, config, log, result — named fro... | `PRD_7_reporting.md` | 7.1.1 - 7.5.4 | Ch. 9 |
+| FR-7.10 | Four JSON artefacts per match: declaration, config, log, result — named fro... | `PRD_7_reporting.md` | 7.1.1 - 7.5.4 | Ch. 9, M#49 |
 | FR-7.11 | Mutual log audit completed before agreeing the shared result JSON | `PRD_7_reporting.md` | 7.1.1 - 7.5.4 | M#36 |
 | FR-8.1 | Strict game-phase state machine; illegal transitions raise immediately | `PRD_state_machine.md` | 6.4.1 - 6.4.4 | M#4, M#5 |
 | FR-8.2 | Deadline Tracker: every MCP request carries an expiry; expiry is a failure,... | `PRD_state_machine.md` | 6.4.1 - 6.4.4 | M#6 |
@@ -76,6 +78,32 @@ tasks that implement it, and the rule or parameter that mandates it.
 | `PRD_negotiation.md` | Pre-match handshake, config locking, honest game-count declaration | 9.1.1 - 9.1.5 |
 | `PRD_state_machine.md` | Phase transitions, deadline tracking, watchdog | 6.4.1 - 6.4.4 |
 | `PRD_strategy_advanced.md` | Expectimax, barrier-trap planning, scent-aware evasion, unexploitable defaults, opponent profiling, bluff policy | 8.1.1 - 8.3.7 |
+
+## Non-functional requirements
+
+`PRD.md` states seventeen. Each row names the artefact that **demonstrates** it, so a reader can
+check the claim rather than accept it. Three are marked partial or unproven on purpose: a matrix
+that ticks every box is worth less than one whose ticks survive a spot-check.
+
+| NFR | Status | Demonstrated by |
+|---|---|---|
+| NFR-1 Structure | Met | README + `docs/` present in both published repos — TODO 11.1.2, verified 24/08 (M#50) |
+| NFR-2 Architecture | Met where enforced | `test_local_truth.py` walks the AST to prove `core/ui/` reaches nothing below `core/sdk/`; `test_import_graph.py` and `test_process_separation.py` cover module layering. "CLI and Replay contain zero business logic" is reviewed, not machine-checked |
+| NFR-3 OOP | **Not independently evidenced** | No automated duplication check exists. The 150-line limit (NFR-4) is the structural pressure that stands in for it, and ADR-005 records the splits it forced. Stated rather than proven |
+| NFR-4 File size | Met | `scripts/check_file_size.py`, green on every commit; enforced, not inspected |
+| NFR-5 Testing | Met on the measurable half | 1846 tests, coverage 92.17 % against an 85 % gate that **fails the suite** below it. "Every public function has at least one test" is not machine-verified |
+| NFR-6 Linting | Met, one documented deviation | `pyproject.toml` selects exactly `["E","F","W","I","N","UP","B","C4","SIM"]`; `ruff check .` is clean including notebooks. **`E501` is in `ignore`** — line length is set to 100 and enforced by formatting rather than by that rule |
+| NFR-7 Configuration | Met | Shared/negotiated terms in `config/<role>/game.json`, private settings in `game.toml`, rate limits in `config/<role>/rate_limits.json`, constants in `core/shared/constants.py`. *The requirement text said `config/rate_limits.json` until 24/08 — corrected, the role split had moved them* |
+| NFR-8 Secrets | Met | `.gitignore` carries all five patterns (`.env`, `credentials.json`, `token.json`, `*.pem`, `*.key`); `.env-example` committed with dummies; `scripts/scan_secrets.py` aborts a publish on any hit (M#39, M#40) |
+| NFR-9 Packaging | Met | `pyproject.toml` and `uv.lock` both tracked; every documented command runs through `uv run` |
+| NFR-10 Versioning | Met | `core/shared/version.py` `VERSION = "1.00"`; both shipped configs carry `version` and `schema_version`; `ConfigVersionError` refuses an incompatible major at load |
+| NFR-11 Reliability | **Partial — 4 of 5, 1 not applicable** | Opponent disconnect, tunnel drop, hash mismatch and malformed hint all evidenced in `RESEARCH-REPORT` §5 with persisted artefacts. LLM timeout cannot arise in the configuration played — `tokens_total_series` is 0 both sides in every filed series — and is documented as N/A rather than omitted |
+| NFR-12 Computational fairness | Met | Zero API tokens across every counted series, both sides; notebook §5 |
+| NFR-13 Observability | Met | `core/shared/call_logger.py`, wired into `core/shared/gatekeeper.py` |
+| NFR-14 Usability | **Partial** | Nielsen's ten heuristics evaluated against the real implementation — `RESEARCH-REPORT` §7. "Every screen and state screenshotted" is **not** met: six captures exist in `docs/evidence/`, covering the Live GUI with and without the heatmap, the Replay verdict, two disconnect states and the Gmail send test |
+| NFR-15 Reproducibility | Met | Annotated tag `v1.0-submission`; `github_commit` recorded per sub-game, differing by role because the two processes run from different repos (M#41, M#53) |
+| NFR-16 Research | Met | `scripts/sweep.py` one-parameter-at-a-time study, `RESEARCH-REPORT` §6, and `notebooks/results_analysis.ipynb` executed end to end with zero errors |
+| NFR-17 Prompt log | Met | `docs/PROMPT_LOG.md` — entries carry goal, context, prompt, result, problem, iteration and lesson, and the log states its own coverage gap rather than back-filling it |
 
 ## Administrative rules — deliberately not in a layer PRD
 

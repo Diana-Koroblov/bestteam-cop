@@ -1,0 +1,79 @@
+{
+  "code_version": "1.00",
+  "created_utc": "2026-08-19T14:47:48+00:00",
+  "ended_utc": "2026-08-19T14:47:48+00:00",
+  "game_id": "bestteam-vs-nis-yar1",
+  "hardware": {
+    "cpu_cores": 8,
+    "cpu_mhz": 3800,
+    "cpu_model": "AMD Ryzen 7 9700X 8-Core Processor",
+    "cpu_threads": 16,
+    "gpu": "AMD Radeon RX 9070 XT; AMD Radeon(TM) Graphics",
+    "machine": "AMD64",
+    "os": "Windows 11",
+    "python": "3.13.13",
+    "ram_gb": 31.2
+  },
+  "llm_model": "template",
+  "mcp_urls": {
+    "bestteam": "",
+    "nis-yar1": "https://duckling-judgingly-frigidly.ngrok-free.dev/cop/mcp"
+  },
+  "repositories": {
+    "ours_cop": "https://github.com/Diana-Koroblov/bestteam-cop",
+    "ours_thief": "https://github.com/Diana-Koroblov/bestteam-thief",
+    "theirs_cop": "https://github.com/NisoDeri/nis-yar1-cop",
+    "theirs_thief": "https://github.com/NisoDeri/nis-yar1-thief"
+  },
+  "started_utc": "2026-08-19T14:31:08+00:00",
+  "step_zero": {
+    "ours": {
+      "counted_games_played": 2,
+      "github_commit": "5e0e673cbb78018e0d008c541fb56c4aabad0cc3",
+      "group_id": "bestteam",
+      "group_name": "bestteam",
+      "llm_model": "template",
+      "members": [
+        "Itay Malich",
+        "Diana Koroblov"
+      ],
+      "repos": {
+        "cop": "https://github.com/Diana-Koroblov/bestteam-cop",
+        "thief": "https://github.com/Diana-Koroblov/bestteam-thief"
+      }
+    },
+    "theirs": {
+      "counted_games_played": 3,
+      "counted_games_so_far": 3,
+      "counted_matches_played": 3,
+      "ed25519_public_key": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAgIdbjq9v+aujib4F2UnjZyO6BIat/F/K1fqzi5TiTRA=\n-----END PUBLIC KEY-----\n",
+      "github_commit": "f98c797b42841fc2a968d3d7cd172a799e93aaa1",
+      "group_id": "nis-yar1",
+      "group_name": "nis-yar1",
+      "llm_model": "qwen3:14b",
+      "mcp_servers": {
+        "cop": "https://duckling-judgingly-frigidly.ngrok-free.dev/cop/mcp",
+        "thief": "https://duckling-judgingly-frigidly.ngrok-free.dev/thief/mcp"
+      },
+      "members": [
+        "Nissim Deri",
+        "Yarden Tziar"
+      ],
+      "repos": {
+        "cop": "https://github.com/NisoDeri/nis-yar1-cop",
+        "thief": "https://github.com/NisoDeri/nis-yar1-thief"
+      }
+    }
+  },
+  "teams": {
+    "bestteam": [
+      "Itay Malich",
+      "Diana Koroblov"
+    ],
+    "nis-yar1": [
+      "Nissim Deri",
+      "Yarden Tziar"
+    ]
+  },
+  "token_cap": 200000
+}

@@ -207,7 +207,7 @@ Appendix F, `X` = excellence-guide requirement.
 | NFR-4 | **File size** | No source file exceeds 150 lines of code, blanks and comments excluded. Enforced by an automated test (X §3.2) |
 | NFR-5 | **Testing** | TDD; every public function has at least one test; happy path and error path both covered; coverage ≥ 85 %, suite fails below it (X §6) |
 | NFR-6 | **Linting** | Zero `ruff` violations with `select = ["E","F","W","I","N","UP","B","C4","SIM"]` (X §7.1) |
-| NFR-7 | **Configuration** | Zero hardcoded configurable values. Shared/negotiated data in JSON, private per-peer data in TOML, rate limits in `config/rate_limits.json`, immutable constants in `constants.py` (X §7.2, Appendix B) |
+| NFR-7 | **Configuration** | Zero hardcoded configurable values. Shared/negotiated data in JSON, private per-peer data in TOML, rate limits in `config/<role>/rate_limits.json`, immutable constants in `constants.py` (X §7.2, Appendix B) |
 | NFR-8 | **Secrets** | Environment variables only. `.env-example` committed with dummy values; `.gitignore` excludes `.env`, `credentials.json`, `token.json`, `*.pem`, `*.key` (X §7.4, M#39, M#40) |
 | NFR-9 | **Packaging** | `uv` exclusively. `pip`, `venv`, `python -m`, `virtualenv` are forbidden. `pyproject.toml` is the single dependency source of truth; `uv.lock` committed (X §8.4) |
 | NFR-10 | **Versioning** | Code version in `core/shared/version.py`, config version keys in every JSON, all starting at `1.00`. Version compatibility validated at startup (X §8.1) |

@@ -110,8 +110,10 @@ the audit that actually sealed them; sending them to the native verifier was nev
 since it recomputes a different digest per row and would report forgery against two honest teams,
 the one outcome M#19 makes unrecoverable.
 
-All twelve sub-games of both counted series now re-hash off disk, **both sides of each**
-(`docs/evidence/replay-counted-matches.txt`):
+All eighteen sub-games of the three counted series whose artefacts we hold now re-hash off disk,
+**both sides of each** (`docs/evidence/replay-counted-matches.txt`). The fourth, yanell11, was run
+from the other team member's machine and its artefacts were never filed here — recorded as such
+rather than quietly omitted:
 
 ```
 sub-game 01  exit 0  Verified OK - 70 steps re-hashed, no mismatch

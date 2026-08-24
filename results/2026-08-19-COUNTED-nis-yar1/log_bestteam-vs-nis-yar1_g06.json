@@ -1,0 +1,1230 @@
+{
+  "code_version": "1.00",
+  "config_sha256": "d16427a258a6cecaebd4b6f85463aa6d2daa22d1c24c06725140ea1a7b153618",
+  "created_utc": "2026-08-19T14:47:48+00:00",
+  "game_id": "bestteam-vs-nis-yar1",
+  "live_commits": {
+    "nis-yar1": {
+      "1": "e36465d543e03ba272641259c3748065afafea2ff3059e6a824d835384320311",
+      "10": "890d6480f36302e0109637a289cb36bdbf6a710afd5b18b213295c0461c77642",
+      "11": "695305e40afb9e196eb75a385c6d753b87272a05949dce906c3f2f72c2f23be3",
+      "12": "26d24ddd4c25bdd207d027c8d700cbd16b5c8172f5b9c5723496826bd4e7eebd",
+      "13": "cbcec1736728dfa8654d7f7ef8758c1e7265d4871bed278fb5048234f3d1da7d",
+      "14": "1a27b773813cdc21fed5086b7392ef785e5a135d95b99d2b44a6faa024d25553",
+      "15": "61e1b6564aea29f10b71ac75979d8fc916b51e3279c7718f7f7e583d9598a865",
+      "16": "e7d6ce2a3c89e7a481a0d40d000a234c4fd75541d7727d069e50a7fb63b93e90",
+      "17": "be004fff40c2bd24125a1e0ea2acf923890e5bcb74f9364968a315c039f9a2ca",
+      "18": "b9f1cf8bea8b8f1f7a77feeca8424443dbbd72c27f0c6569e67cc8706981da51",
+      "19": "e325df204756e51d5a31564f6af394ab6028701a234fd87685d2545aaeabb8dc",
+      "2": "cb8e408e5e66392c8afb7d2a35f0cbcabe83fe5f62171baa30536d9c2e3704b4",
+      "20": "20c5f4ccb82a83cc80901f79c66d7af4bd89d710faa82946bd9ef7fbd28ef472",
+      "21": "0f1d65da8b2989af319a92e2d9224d9f108674454ac03b3fd4a7c38ed3ffa6c0",
+      "22": "e842ebe4a12de845e88068d146511afee8a2159a874f159e5c7a9475132971ab",
+      "23": "06bc1ca35f806dd9ec0025fbd96552923a3628d3c6fef7b0a8c48e1107199d24",
+      "24": "4780d776d129f57f7250e03d0e92054102603b56125b81b5af57340587736f47",
+      "25": "12843627e3b40cb2405ffb99dbd776dc8d49298b260fca7a9b16b17961385eaf",
+      "26": "b80dc9f5a12ac4569bcbebe42d64671ea509ef063ee9bcb94c5c574bc251d388",
+      "27": "59d48314e53b9ff895b1a81562c488cca1e393d6dcfa506d16922c08bd018eeb",
+      "3": "dd6f950e1dc254c579d734297604cb86a9969d9b389118fd0c5bedcca38f4929",
+      "4": "2cb1826c8ecc42b3d2cb61188777806c5492e9d6da095caacd750dab928139e3",
+      "5": "935f54d95fc0d5d623577087366a4c538ad5c717b66110fa8caa66c917457996",
+      "6": "9b85881eecb32752d2667940ff0683cd289ea7f442b0b03cfab6a93e19e685aa",
+      "7": "50cb27f01a250440fa94f69711c89ed053207afa5c1b7b895e6de16fbb6613ff",
+      "8": "df0e71d6ec43c598a07550405ae55cc9f521d002af605f03f5f812d2dd7ef0d2",
+      "9": "361e1081741bb425ec050730b95b4efb79597bfa72c42abeb1fa5b5066803001"
+    }
+  },
+  "outcome": "capture",
+  "protocol": "reference",
+  "records": {
+    "bestteam": [
+      {
+        "commit": "4a3691f7935a955de7a65df261f639d3aed64dd87904c8434dfa7f33e5e2ee47",
+        "nonce": "38354d518b2fddcf862a3d32eda2d152",
+        "payload": {
+          "github_commit": "5e0e673cbb78018e0d008c541fb56c4aabad0cc3",
+          "hint": "Nothing you have read this turn was worth reading.",
+          "intent": "truth",
+          "move": "STAY",
+          "position": [
+            3,
+            3
+          ],
+          "state": "grid=7x7;self=[3, 3];barriers=[]",
+          "step": 1,
+          "verdict": "truth"
+        }
+      },
+      {
+        "commit": "cdb2f076eeeead616fba4226f2a3bc33594be356408d218e810c98e10e1d1766",
+        "nonce": "990bd6dc60f4aa4967fdebccf2227045",
+        "payload": {
+          "hint": "I am somewhere you have not thought to look.",
+          "intent": "truth",
+          "move": "STAY",
+          "position": [
+            3,
+            3
+          ],
+          "state": "grid=7x7;self=[3, 3];barriers=[]",
+          "step": 2,
+          "verdict": "truth"
+        }
+      },
+      {
+        "commit": "85e47cb8efa8e2a1fd7c7863114dd5aca3abd5faf5f18527bb767d49f613d773",
+        "nonce": "94ebd41c83f8f5607e63820c70ae3b51",
+        "payload": {
+          "hint": "Nothing you have read this turn was worth reading.",
+          "intent": "truth",
+          "move": "E",
+          "position": [
+            3,
+            4
+          ],
+          "state": "grid=7x7;self=[3, 4];barriers=[]",
+          "step": 3,
+          "verdict": "truth"
+        }
+      },
+      {
+        "commit": "694e8cb938708c819368ec24832801431bd4ae02583f9506ed75b26b6c9b9057",
+        "nonce": "32e231ebc7e3f2f4e1b64795065a6a04",
+        "payload": {
+          "hint": "Nothing you have read this turn was worth reading.",
+          "intent": "truth",
+          "move": "E",
+          "position": [
+            3,
+            5
+          ],
+          "state": "grid=7x7;self=[3, 5];barriers=[]",
+          "step": 4,
+          "verdict": "truth"
+        }
+      },
+      {
+        "commit": "4c3e31b4c3823dbf203624df3fcc1eb40dfa1962dd34059e1e904a192c76fb58",
+        "nonce": "0056883f4138fd83ddfde92ae2a32764",
+        "payload": {
+          "hint": "Nothing you have read this turn was worth reading.",
+          "intent": "truth",
+          "move": "S",
+          "position": [
+            4,
+            5
+          ],
+          "state": "grid=7x7;self=[4, 5];barriers=[]",
+          "step": 5,
+          "verdict": "truth"
+        }
+      },
+      {
+        "commit": "1c180bedec092b6e327401494906101eeab090b8964f1b2b1758836b1d9ad09c",
+        "nonce": "aa860537a6b0cce64f97f3c9ae4ebac5",
+        "payload": {
+          "hint": "I am somewhere you have not thought to look.",
+          "intent": "truth",
+          "move": "STAY",
+          "position": [
+            4,
+            5
+          ],
+          "state": "grid=7x7;self=[4, 5];barriers=[]",
+          "step": 6,
+          "verdict": "truth"
+        }
+      },
+      {
+        "commit": "83220cde5a48fcb6c7590a30be94d12616f455152d2d3c7627fb3ed2ac894a9f",
+        "nonce": "bd0cefff7d4e6351575b2aa7f2593a3d",
+        "payload": {
+          "hint": "You are chasing a rumour, not an agent.",
+          "intent": "truth",
+          "move": "E",
+          "position": [
+            4,
+            6
+          ],
+          "state": "grid=7x7;self=[4, 6];barriers=[]",
+          "step": 7,
+          "verdict": "truth"
+        }
+      },
+      {
+        "commit": "5c8c9248c2d211ea076cb2383462bf627e092c95321c5d34d67f7ac37155848d",
+        "nonce": "06377617c5c491caa6faf79ec0777fe1",
+        "payload": {
+          "hint": "You are chasing a rumour, not an agent.",
+          "intent": "truth",
+          "move": "S",
+          "position": [
+            5,
+            6
+          ],
+          "state": "grid=7x7;self=[5, 6];barriers=[]",
+          "step": 8,
+          "verdict": "truth"
+        }
+      },
+      {
+        "commit": "c6689ef50917a289dbc4e6311609e7bd6d6d8f6bde04c60284975295464a0276",
+        "nonce": "f3cfad6275a207c25c955cd641f47c02",
+        "payload": {
+          "hint": "Nothing you have read this turn was worth reading.",
+          "intent": "truth",
+          "move": "S",
+          "position": [
+            6,
+            6
+          ],
+          "state": "grid=7x7;self=[6, 6];barriers=[]",
+          "step": 9,
+          "verdict": "truth"
+        }
+      },
+      {
+        "commit": "4632b715bcc6aa45cd6803e3f74ae4ea6971d6b2a64e178680ecb072df8cd760",
+        "nonce": "4ab5d9a24d049bd4200ab425e6f26d99",
+        "payload": {
+          "hint": "Nothing you have read this turn was worth reading.",
+          "intent": "truth",
+          "move": "W",
+          "position": [
+            6,
+            5
+          ],
+          "state": "grid=7x7;self=[6, 5];barriers=[]",
+          "step": 10,
+          "verdict": "truth"
+        }
+      },
+      {
+        "commit": "c55ffc3be133785d3fed1545f76e64ba0c599b43b3473987eae994358726778d",
+        "nonce": "90206c0a207f321a7fa76b6b065e1de3",
+        "payload": {
+          "hint": "Nothing you have read this turn was worth reading.",
+          "intent": "truth",
+          "move": "E",
+          "position": [
+            6,
+            6
+          ],
+          "state": "grid=7x7;self=[6, 6];barriers=[[5, 5]]",
+          "step": 11,
+          "verdict": "truth"
+        }
+      },
+      {
+        "commit": "1513f86fe868747605ba09c3f869bb5c113350ace9b3267198160d66ec04f6bc",
+        "nonce": "123bffc04acbaed4cfb4b5c5b85f8312",
+        "payload": {
+          "hint": "Nothing you have read this turn was worth reading.",
+          "intent": "truth",
+          "move": "STAY",
+          "position": [
+            6,
+            6
+          ],
+          "state": "grid=7x7;self=[6, 6];barriers=[[5, 5]]",
+          "step": 12,
+          "verdict": "truth"
+        }
+      },
+      {
+        "commit": "14350f7955fb600fd47dbf981246dc225a237fcaae00f15ecadfc3bebfba2c28",
+        "nonce": "9f50ad73a4c940024288e4440dee2e9b",
+        "payload": {
+          "hint": "Nothing you have read this turn was worth reading.",
+          "intent": "truth",
+          "move": "N",
+          "position": [
+            5,
+            6
+          ],
+          "state": "grid=7x7;self=[5, 6];barriers=[[5, 5]]",
+          "step": 13,
+          "verdict": "truth"
+        }
+      },
+      {
+        "commit": "46a58f0a7fb2536a4b7ba0be5aaec6d14a62998f35bd8f170c12757a7535bdcf",
+        "nonce": "99f2a0ebcdcc20d4388804c701ef0dbd",
+        "payload": {
+          "hint": "You are chasing a rumour, not an agent.",
+          "intent": "truth",
+          "move": "N",
+          "position": [
+            4,
+            6
+          ],
+          "state": "grid=7x7;self=[4, 6];barriers=[[5, 5]]",
+          "step": 14,
+          "verdict": "truth"
+        }
+      },
+      {
+        "commit": "a6199a8b3bf4ecea29deab87ee0d90e03c8728b94b85a8061d581a8ea7802360",
+        "nonce": "4f48ad7d21564b0dedff8ff0897975e1",
+        "payload": {
+          "hint": "I am somewhere you have not thought to look.",
+          "intent": "truth",
+          "move": "N",
+          "position": [
+            3,
+            6
+          ],
+          "state": "grid=7x7;self=[3, 6];barriers=[[5, 5]]",
+          "step": 15,
+          "verdict": "truth"
+        }
+      },
+      {
+        "commit": "28985f0d6bfc4b375018d52dc945d3dcce1fc1be1d937d992130abef27130d96",
+        "nonce": "b36f56fc2100f545bc802a0432bf9b07",
+        "payload": {
+          "hint": "You are chasing a rumour, not an agent.",
+          "intent": "truth",
+          "move": "W",
+          "position": [
+            3,
+            5
+          ],
+          "state": "grid=7x7;self=[3, 5];barriers=[[4, 6], [5, 5]]",
+          "step": 16,
+          "verdict": "truth"
+        }
+      },
+      {
+        "commit": "0b5a45088c6a5841bc66da5927bfd6f67fd08b9b4274a528dfdcac304fcced79",
+        "nonce": "d5848fe9b86fe21d12b860eefa38a74d",
+        "payload": {
+          "hint": "You are chasing a rumour, not an agent.",
+          "intent": "truth",
+          "move": "W",
+          "position": [
+            3,
+            4
+          ],
+          "state": "grid=7x7;self=[3, 4];barriers=[[4, 6], [5, 5]]",
+          "step": 17,
+          "verdict": "truth"
+        }
+      },
+      {
+        "commit": "bf3f918c1e86cc5becac1643323f4fb9b19bf0cc0022232a1f8df9c85eb9714a",
+        "nonce": "3a4dabd762c405bc6cd38344305af560",
+        "payload": {
+          "hint": "Nothing you have read this turn was worth reading.",
+          "intent": "truth",
+          "move": "W",
+          "position": [
+            3,
+            3
+          ],
+          "state": "grid=7x7;self=[3, 3];barriers=[[4, 6], [5, 5]]",
+          "step": 18,
+          "verdict": "truth"
+        }
+      },
+      {
+        "commit": "426ca891da8a1388f4c949effc1c4b90a7da532b85ee1bc6f8dbf8efbf31affd",
+        "nonce": "d66829bb01f93eaed43abae28228a4d6",
+        "payload": {
+          "hint": "You are chasing a rumour, not an agent.",
+          "intent": "truth",
+          "move": "W",
+          "position": [
+            3,
+            2
+          ],
+          "state": "grid=7x7;self=[3, 2];barriers=[[4, 6], [5, 5]]",
+          "step": 19,
+          "verdict": "truth"
+        }
+      },
+      {
+        "commit": "1e7d5fe14cf70d829f199c6d0434b625be53e6d4079ecb2014e1032dc8a2c625",
+        "nonce": "2bb8583e39a2ad2be24d6f55b6ca4a33",
+        "payload": {
+          "hint": "I am somewhere you have not thought to look.",
+          "intent": "truth",
+          "move": "W",
+          "position": [
+            3,
+            1
+          ],
+          "state": "grid=7x7;self=[3, 1];barriers=[[4, 6], [5, 5]]",
+          "step": 20,
+          "verdict": "truth"
+        }
+      },
+      {
+        "commit": "bdd6728c5bf30d3265bf6915f5075431023a583dd8aee0dadc55b4a61f2c7659",
+        "nonce": "eddc9bafdd4eabbec7899ec295c839c0",
+        "payload": {
+          "hint": "You are chasing a rumour, not an agent.",
+          "intent": "truth",
+          "move": "N",
+          "position": [
+            2,
+            1
+          ],
+          "state": "grid=7x7;self=[2, 1];barriers=[[4, 6], [5, 5]]",
+          "step": 21,
+          "verdict": "truth"
+        }
+      },
+      {
+        "commit": "99c7b71b4dfd37dedf9adf904d37238390d0fa5f47e0c9d65e18b8a73789afe0",
+        "nonce": "dd4ce5ba8ed33685b03c0359f5ce6914",
+        "payload": {
+          "hint": "I am somewhere you have not thought to look.",
+          "intent": "truth",
+          "move": "STAY",
+          "position": [
+            2,
+            1
+          ],
+          "state": "grid=7x7;self=[2, 1];barriers=[[4, 6], [5, 5]]",
+          "step": 22,
+          "verdict": "truth"
+        }
+      },
+      {
+        "commit": "c67d9f50e1e7b1aa62ebb1d029189fe935cf88d7220a4aeacadb7b796d41867c",
+        "nonce": "bad27bd78c70976232c1944739596544",
+        "payload": {
+          "hint": "Nothing you have read this turn was worth reading.",
+          "intent": "truth",
+          "move": "W",
+          "position": [
+            2,
+            0
+          ],
+          "state": "grid=7x7;self=[2, 0];barriers=[[4, 6], [5, 5]]",
+          "step": 23,
+          "verdict": "truth"
+        }
+      },
+      {
+        "commit": "80f07b5ec234c6d9a646e9c0a360d1a7c1ba5a439f8470575a6c718f1ad25c90",
+        "nonce": "98984ae845498a61c05938820242cf55",
+        "payload": {
+          "hint": "Nothing you have read this turn was worth reading.",
+          "intent": "truth",
+          "move": "N",
+          "position": [
+            1,
+            0
+          ],
+          "state": "grid=7x7;self=[1, 0];barriers=[[4, 6], [5, 5]]",
+          "step": 24,
+          "verdict": "truth"
+        }
+      },
+      {
+        "commit": "e843cadf47b4a6b90a71190f33202573920bc35d2fe6f25e5d559779551595b7",
+        "nonce": "1f92d8117c821147193a0011cb07d3f1",
+        "payload": {
+          "hint": "You are chasing a rumour, not an agent.",
+          "intent": "truth",
+          "move": "N",
+          "position": [
+            0,
+            0
+          ],
+          "state": "grid=7x7;self=[0, 0];barriers=[[4, 6], [5, 5]]",
+          "step": 25,
+          "verdict": "truth"
+        }
+      },
+      {
+        "commit": "1475d6a0321206cb604bf5a9f617ce71c79168610eb4cf8caf6ea122a7438c85",
+        "nonce": "ba6a2c4df06f30eec624209047309a1a",
+        "payload": {
+          "hint": "Nothing you have read this turn was worth reading.",
+          "intent": "truth",
+          "move": "STAY",
+          "position": [
+            0,
+            0
+          ],
+          "state": "grid=7x7;self=[0, 0];barriers=[[4, 6], [5, 5]]",
+          "step": 26,
+          "verdict": "truth"
+        }
+      },
+      {
+        "commit": "736f4410f56cab6343696b91d92a5fc071e20aaed3a173955fb407400989a1f8",
+        "nonce": "8a58c57cfa02c1a7bf9332349223742c",
+        "payload": {
+          "hint": "I am somewhere you have not thought to look.",
+          "intent": "truth",
+          "move": "E",
+          "position": [
+            0,
+            1
+          ],
+          "state": "grid=7x7;self=[0, 1];barriers=[[4, 6], [5, 5]]",
+          "step": 27,
+          "verdict": "truth"
+        }
+      },
+      {
+        "commit": "2ff59b4ed69db0cbd3dfca4361e06e0afefab71fea27db46d07961debc09e9bc",
+        "nonce": "4eaaa5418c13ffaf61c4c054a02051fd",
+        "payload": {
+          "hint": "Nothing you have read this turn was worth reading.",
+          "intent": "truth",
+          "move": "E",
+          "position": [
+            0,
+            2
+          ],
+          "state": "grid=7x7;self=[0, 2];barriers=[[4, 6], [5, 5]]",
+          "step": 28,
+          "verdict": "truth"
+        }
+      }
+    ],
+    "nis-yar1": [
+      {
+        "commit": "a2d35f2df485aaebe1db808657e33889785db0509d3e5438cb896dc2b60359b1",
+        "nonce": "4d9269de90a9528cbfe5d89c15cfb129",
+        "payload": {
+          "code_version": "0.1.0",
+          "counted_games": 3,
+          "github_commit": "f98c797b42841fc2a968d3d7cd172a799e93aaa1",
+          "group_name": "nis-yar1",
+          "model": "qwen3:14b",
+          "public_key": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAgIdbjq9v+aujib4F2UnjZyO6BIat/F/K1fqzi5TiTRA=\n-----END PUBLIC KEY-----\n",
+          "signature": "ed25519:qWK3I1jSYRu/7G+JzMJWn/du9xu7qu/Xx7YQLcrlyvhtMgBxAmrooK5kcUjVMXUuKGPHUtBFCn48iRyXYw2/Bg==",
+          "spec": {
+            "cpu_cores": 16,
+            "cpu_freq_mhz": 2904,
+            "cpu_type": "Intel64 Family 6 Model 165 Stepping 5, GenuineIntel",
+            "gpu_model": "NVIDIA GeForce GTX 1660 Ti",
+            "os": "Windows 10 (10.0.19045)",
+            "ram_gb": 16.0,
+            "vram_gb": 6.0
+          },
+          "step": 0,
+          "sub_game_number": 6,
+          "type": "system_spec"
+        }
+      },
+      {
+        "commit": "e36465d543e03ba272641259c3748065afafea2ff3059e6a824d835384320311",
+        "nonce": "7de75291ace018f8a18103ada2663436",
+        "payload": {
+          "hint": "The net is tightening and you already feel it.",
+          "intent": "truth",
+          "model": "qwen3:14b",
+          "move": "MOVE:S",
+          "position": [
+            1,
+            0
+          ],
+          "prompt_discussion": {
+            "bluff_classification": "truth",
+            "llm_prompt": "",
+            "llm_reasoning": "template bank (truth) for the New York setting; zero tokens"
+          },
+          "random_move": false,
+          "response_seconds": 0.005458900239318609,
+          "state": "grid=7x7;self=[1, 0];barriers=[]",
+          "step": 1,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "verdict": "truth"
+        }
+      },
+      {
+        "commit": "cb8e408e5e66392c8afb7d2a35f0cbcabe83fe5f62171baa30536d9c2e3704b4",
+        "nonce": "5ea50333ac9b87e44cb8815442c32f12",
+        "payload": {
+          "hint": "The walls you fear are the ones I have not built yet.",
+          "intent": "truth",
+          "model": "qwen3:14b",
+          "move": "MOVE:E",
+          "position": [
+            1,
+            1
+          ],
+          "prompt_discussion": {
+            "bluff_classification": "truth",
+            "llm_prompt": "",
+            "llm_reasoning": "template bank (truth) for the New York setting; zero tokens"
+          },
+          "random_move": false,
+          "response_seconds": 0.005999499931931496,
+          "state": "grid=7x7;self=[1, 1];barriers=[]",
+          "step": 2,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "verdict": "truth"
+        }
+      },
+      {
+        "commit": "dd6f950e1dc254c579d734297604cb86a9969d9b389118fd0c5bedcca38f4929",
+        "nonce": "b8d248421503325283974012bf3ea2e4",
+        "payload": {
+          "hint": "The city closes like a hand, finger by finger.",
+          "intent": "truth",
+          "model": "qwen3:14b",
+          "move": "MOVE:E",
+          "position": [
+            1,
+            2
+          ],
+          "prompt_discussion": {
+            "bluff_classification": "truth",
+            "llm_prompt": "",
+            "llm_reasoning": "template bank (truth) for the New York setting; zero tokens"
+          },
+          "random_move": false,
+          "response_seconds": 0.007291199639439583,
+          "state": "grid=7x7;self=[1, 2];barriers=[]",
+          "step": 3,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "verdict": "truth"
+        }
+      },
+      {
+        "commit": "2cb1826c8ecc42b3d2cb61188777806c5492e9d6da095caacd750dab928139e3",
+        "nonce": "89a941b801e346180ba43291ab492e19",
+        "payload": {
+          "hint": "Run all you like; the map is on my side.",
+          "intent": "truth",
+          "model": "qwen3:14b",
+          "move": "MOVE:E",
+          "position": [
+            1,
+            3
+          ],
+          "prompt_discussion": {
+            "bluff_classification": "truth",
+            "llm_prompt": "",
+            "llm_reasoning": "template bank (truth) for the New York setting; zero tokens"
+          },
+          "random_move": false,
+          "response_seconds": 0.006229400169104338,
+          "state": "grid=7x7;self=[1, 3];barriers=[]",
+          "step": 4,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "verdict": "truth"
+        }
+      },
+      {
+        "commit": "935f54d95fc0d5d623577087366a4c538ad5c717b66110fa8caa66c917457996",
+        "nonce": "7a2ef4d8538c0aa13c3f6a42915d937d",
+        "payload": {
+          "hint": "The city closes like a hand, finger by finger.",
+          "intent": "truth",
+          "model": "qwen3:14b",
+          "move": "MOVE:S",
+          "position": [
+            2,
+            3
+          ],
+          "prompt_discussion": {
+            "bluff_classification": "truth",
+            "llm_prompt": "",
+            "llm_reasoning": "template bank (truth) for the New York setting; zero tokens"
+          },
+          "random_move": false,
+          "response_seconds": 0.005419500172138214,
+          "state": "grid=7x7;self=[2, 3];barriers=[]",
+          "step": 5,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "verdict": "truth"
+        }
+      },
+      {
+        "commit": "9b85881eecb32752d2667940ff0683cd289ea7f442b0b03cfab6a93e19e685aa",
+        "nonce": "742d59f82fd7ece1f7e2dea90ae52234",
+        "payload": {
+          "hint": "Paperwork chains me to Grand Central this evening.",
+          "intent": "lie",
+          "model": "qwen3:14b",
+          "move": "MOVE:S",
+          "position": [
+            3,
+            3
+          ],
+          "prompt_discussion": {
+            "bluff_classification": "lie",
+            "llm_prompt": "",
+            "llm_reasoning": "template bank (lie) for the New York setting; zero tokens"
+          },
+          "random_move": false,
+          "response_seconds": 0.004745600279420614,
+          "state": "grid=7x7;self=[3, 3];barriers=[]",
+          "step": 6,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "verdict": "lie"
+        }
+      },
+      {
+        "commit": "50cb27f01a250440fa94f69711c89ed053207afa5c1b7b895e6de16fbb6613ff",
+        "nonce": "a9de7922ea466da91a3cfa64e7296498",
+        "payload": {
+          "hint": "The city closes like a hand, finger by finger.",
+          "intent": "truth",
+          "model": "qwen3:14b",
+          "move": "MOVE:E",
+          "position": [
+            3,
+            4
+          ],
+          "prompt_discussion": {
+            "bluff_classification": "truth",
+            "llm_prompt": "",
+            "llm_reasoning": "template bank (truth) for the New York setting; zero tokens"
+          },
+          "random_move": false,
+          "response_seconds": 0.0037162997759878635,
+          "state": "grid=7x7;self=[3, 4];barriers=[]",
+          "step": 7,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "verdict": "truth"
+        }
+      },
+      {
+        "commit": "df0e71d6ec43c598a07550405ae55cc9f521d002af605f03f5f812d2dd7ef0d2",
+        "nonce": "9bd46a09dfe9ec10ab6986bc866e7666",
+        "payload": {
+          "hint": "The city closes like a hand, finger by finger.",
+          "intent": "truth",
+          "model": "qwen3:14b",
+          "move": "MOVE:S",
+          "position": [
+            4,
+            4
+          ],
+          "prompt_discussion": {
+            "bluff_classification": "truth",
+            "llm_prompt": "",
+            "llm_reasoning": "template bank (truth) for the New York setting; zero tokens"
+          },
+          "random_move": false,
+          "response_seconds": 0.0025182003155350685,
+          "state": "grid=7x7;self=[4, 4];barriers=[]",
+          "step": 8,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "verdict": "truth"
+        }
+      },
+      {
+        "commit": "361e1081741bb425ec050730b95b4efb79597bfa72c42abeb1fa5b5066803001",
+        "nonce": "77fd19aecb20f9b13d5ab360267521fa",
+        "payload": {
+          "hint": "I do not chase; I herd.",
+          "intent": "truth",
+          "model": "qwen3:14b",
+          "move": "MOVE:S",
+          "position": [
+            5,
+            4
+          ],
+          "prompt_discussion": {
+            "bluff_classification": "truth",
+            "llm_prompt": "",
+            "llm_reasoning": "template bank (truth) for the New York setting; zero tokens"
+          },
+          "random_move": false,
+          "response_seconds": 0.0017427001148462296,
+          "state": "grid=7x7;self=[5, 4];barriers=[]",
+          "step": 9,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "verdict": "truth"
+        }
+      },
+      {
+        "commit": "890d6480f36302e0109637a289cb36bdbf6a710afd5b18b213295c0461c77642",
+        "nonce": "2a4be600a924399b7abe8bcc96b58a9b",
+        "payload": {
+          "hint": "Every step you take costs you a street.",
+          "intent": "truth",
+          "model": "qwen3:14b",
+          "move": "BARRIER:E",
+          "position": [
+            5,
+            4
+          ],
+          "prompt_discussion": {
+            "bluff_classification": "truth",
+            "llm_prompt": "",
+            "llm_reasoning": "template bank (truth) for the New York setting; zero tokens"
+          },
+          "random_move": false,
+          "response_seconds": 0.00013859989121556282,
+          "state": "grid=7x7;self=[5, 4];barriers=[[5, 5]]",
+          "step": 10,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "verdict": "truth"
+        }
+      },
+      {
+        "commit": "695305e40afb9e196eb75a385c6d753b87272a05949dce906c3f2f72c2f23be3",
+        "nonce": "8c5db40bb802fe768a86afe2d528a77f",
+        "payload": {
+          "hint": "Paperwork chains me to the Village this evening.",
+          "intent": "lie",
+          "model": "qwen3:14b",
+          "move": "MOVE:S",
+          "position": [
+            6,
+            4
+          ],
+          "prompt_discussion": {
+            "bluff_classification": "lie",
+            "llm_prompt": "",
+            "llm_reasoning": "template bank (lie) for the New York setting; zero tokens"
+          },
+          "random_move": false,
+          "response_seconds": 0.0011215000413358212,
+          "state": "grid=7x7;self=[6, 4];barriers=[[5, 5]]",
+          "step": 11,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "verdict": "lie"
+        }
+      },
+      {
+        "commit": "26d24ddd4c25bdd207d027c8d700cbd16b5c8172f5b9c5723496826bd4e7eebd",
+        "nonce": "cb7f022f956ea6f67c9c71925086e63b",
+        "payload": {
+          "hint": "Each barrier is a promise I intend to keep.",
+          "intent": "truth",
+          "model": "qwen3:14b",
+          "move": "MOVE:E",
+          "position": [
+            6,
+            5
+          ],
+          "prompt_discussion": {
+            "bluff_classification": "truth",
+            "llm_prompt": "",
+            "llm_reasoning": "template bank (truth) for the New York setting; zero tokens"
+          },
+          "random_move": false,
+          "response_seconds": 0.001050999853760004,
+          "state": "grid=7x7;self=[6, 5];barriers=[[5, 5]]",
+          "step": 12,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "verdict": "truth"
+        }
+      },
+      {
+        "commit": "cbcec1736728dfa8654d7f7ef8758c1e7265d4871bed278fb5048234f3d1da7d",
+        "nonce": "01aab1879e90bed699b46eaac85fd325",
+        "payload": {
+          "hint": "Run all you like; the map is on my side.",
+          "intent": "truth",
+          "model": "qwen3:14b",
+          "move": "MOVE:E",
+          "position": [
+            6,
+            6
+          ],
+          "prompt_discussion": {
+            "bluff_classification": "truth",
+            "llm_prompt": "",
+            "llm_reasoning": "template bank (truth) for the New York setting; zero tokens"
+          },
+          "random_move": false,
+          "response_seconds": 0.0010159001685678959,
+          "state": "grid=7x7;self=[6, 6];barriers=[[5, 5]]",
+          "step": 13,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "verdict": "truth"
+        }
+      },
+      {
+        "commit": "1a27b773813cdc21fed5086b7392ef785e5a135d95b99d2b44a6faa024d25553",
+        "nonce": "b5f4dbc3f855f3dd0c26d9e389c6f46c",
+        "payload": {
+          "hint": "I do not chase; I herd.",
+          "intent": "truth",
+          "model": "qwen3:14b",
+          "move": "MOVE:N",
+          "position": [
+            5,
+            6
+          ],
+          "prompt_discussion": {
+            "bluff_classification": "truth",
+            "llm_prompt": "",
+            "llm_reasoning": "template bank (truth) for the New York setting; zero tokens"
+          },
+          "random_move": false,
+          "response_seconds": 0.00142659991979599,
+          "state": "grid=7x7;self=[5, 6];barriers=[[5, 5]]",
+          "step": 14,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "verdict": "truth"
+        }
+      },
+      {
+        "commit": "61e1b6564aea29f10b71ac75979d8fc916b51e3279c7718f7f7e583d9598a865",
+        "nonce": "fcbde073e5a59a4f840d6b34d97128b4",
+        "payload": {
+          "hint": "The walls you fear are the ones I have not built yet.",
+          "intent": "truth",
+          "model": "qwen3:14b",
+          "move": "BARRIER:N",
+          "position": [
+            5,
+            6
+          ],
+          "prompt_discussion": {
+            "bluff_classification": "truth",
+            "llm_prompt": "",
+            "llm_reasoning": "template bank (truth) for the New York setting; zero tokens"
+          },
+          "random_move": false,
+          "response_seconds": 7.889978587627411e-05,
+          "state": "grid=7x7;self=[5, 6];barriers=[[4, 6], [5, 5]]",
+          "step": 15,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "verdict": "truth"
+        }
+      },
+      {
+        "commit": "e7d6ce2a3c89e7a481a0d40d000a234c4fd75541d7727d069e50a7fb63b93e90",
+        "nonce": "0f44a65eec20c604a48fc46c339977b9",
+        "payload": {
+          "hint": "The clock is my partner and it never takes bribes.",
+          "intent": "truth",
+          "model": "qwen3:14b",
+          "move": "MOVE:S",
+          "position": [
+            6,
+            6
+          ],
+          "prompt_discussion": {
+            "bluff_classification": "truth",
+            "llm_prompt": "",
+            "llm_reasoning": "template bank (truth) for the New York setting; zero tokens"
+          },
+          "random_move": false,
+          "response_seconds": 0.0022259997203946114,
+          "state": "grid=7x7;self=[6, 6];barriers=[[4, 6], [5, 5]]",
+          "step": 16,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "verdict": "truth"
+        }
+      },
+      {
+        "commit": "be004fff40c2bd24125a1e0ea2acf923890e5bcb74f9364968a315c039f9a2ca",
+        "nonce": "d0b5d39eecbe7cee8bc432613d8025b2",
+        "payload": {
+          "hint": "The city closes like a hand, finger by finger.",
+          "intent": "truth",
+          "model": "qwen3:14b",
+          "move": "MOVE:W",
+          "position": [
+            6,
+            5
+          ],
+          "prompt_discussion": {
+            "bluff_classification": "truth",
+            "llm_prompt": "",
+            "llm_reasoning": "template bank (truth) for the New York setting; zero tokens"
+          },
+          "random_move": false,
+          "response_seconds": 0.0033994000405073166,
+          "state": "grid=7x7;self=[6, 5];barriers=[[4, 6], [5, 5]]",
+          "step": 17,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "verdict": "truth"
+        }
+      },
+      {
+        "commit": "b9f1cf8bea8b8f1f7a77feeca8424443dbbd72c27f0c6569e67cc8706981da51",
+        "nonce": "bbbcc580bd66d982a8c1df8b1859cb53",
+        "payload": {
+          "hint": "I am doubling back toward Wall Street as we speak.",
+          "intent": "lie",
+          "model": "qwen3:14b",
+          "move": "MOVE:W",
+          "position": [
+            6,
+            4
+          ],
+          "prompt_discussion": {
+            "bluff_classification": "lie",
+            "llm_prompt": "",
+            "llm_reasoning": "template bank (lie) for the New York setting; zero tokens"
+          },
+          "random_move": false,
+          "response_seconds": 0.003983700182288885,
+          "state": "grid=7x7;self=[6, 4];barriers=[[4, 6], [5, 5]]",
+          "step": 18,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "verdict": "lie"
+        }
+      },
+      {
+        "commit": "e325df204756e51d5a31564f6af394ab6028701a234fd87685d2545aaeabb8dc",
+        "nonce": "7a0ced7e225fdc57272343e6a7ad5cd4",
+        "payload": {
+          "hint": "I lost your scent somewhere around Central Park.",
+          "intent": "lie",
+          "model": "qwen3:14b",
+          "move": "MOVE:N",
+          "position": [
+            5,
+            4
+          ],
+          "prompt_discussion": {
+            "bluff_classification": "lie",
+            "llm_prompt": "",
+            "llm_reasoning": "template bank (lie) for the New York setting; zero tokens"
+          },
+          "random_move": false,
+          "response_seconds": 0.005410799756646156,
+          "state": "grid=7x7;self=[5, 4];barriers=[[4, 6], [5, 5]]",
+          "step": 19,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "verdict": "lie"
+        }
+      },
+      {
+        "commit": "20c5f4ccb82a83cc80901f79c66d7af4bd89d710faa82946bd9ef7fbd28ef472",
+        "nonce": "669600f706b9d5fb6c3765aef06ba8f5",
+        "payload": {
+          "hint": "Every step you take costs you a street.",
+          "intent": "truth",
+          "model": "qwen3:14b",
+          "move": "MOVE:W",
+          "position": [
+            5,
+            3
+          ],
+          "prompt_discussion": {
+            "bluff_classification": "truth",
+            "llm_prompt": "",
+            "llm_reasoning": "template bank (truth) for the New York setting; zero tokens"
+          },
+          "random_move": false,
+          "response_seconds": 0.004525099880993366,
+          "state": "grid=7x7;self=[5, 3];barriers=[[4, 6], [5, 5]]",
+          "step": 20,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "verdict": "truth"
+        }
+      },
+      {
+        "commit": "0f1d65da8b2989af319a92e2d9224d9f108674454ac03b3fd4a7c38ed3ffa6c0",
+        "nonce": "cf2cf4d280c0ac9362d0ccc265ab4f4a",
+        "payload": {
+          "hint": "The walls you fear are the ones I have not built yet.",
+          "intent": "truth",
+          "model": "qwen3:14b",
+          "move": "MOVE:N",
+          "position": [
+            4,
+            3
+          ],
+          "prompt_discussion": {
+            "bluff_classification": "truth",
+            "llm_prompt": "",
+            "llm_reasoning": "template bank (truth) for the New York setting; zero tokens"
+          },
+          "random_move": false,
+          "response_seconds": 0.005288099870085716,
+          "state": "grid=7x7;self=[4, 3];barriers=[[4, 6], [5, 5]]",
+          "step": 21,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "verdict": "truth"
+        }
+      },
+      {
+        "commit": "e842ebe4a12de845e88068d146511afee8a2159a874f159e5c7a9475132971ab",
+        "nonce": "69787048adfd96e78f60d078b1ee88e2",
+        "payload": {
+          "hint": "I lost your scent somewhere around Grand Central.",
+          "intent": "lie",
+          "model": "qwen3:14b",
+          "move": "MOVE:N",
+          "position": [
+            3,
+            3
+          ],
+          "prompt_discussion": {
+            "bluff_classification": "lie",
+            "llm_prompt": "",
+            "llm_reasoning": "template bank (lie) for the New York setting; zero tokens"
+          },
+          "random_move": false,
+          "response_seconds": 0.0044236998073756695,
+          "state": "grid=7x7;self=[3, 3];barriers=[[4, 6], [5, 5]]",
+          "step": 22,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "verdict": "lie"
+        }
+      },
+      {
+        "commit": "06bc1ca35f806dd9ec0025fbd96552923a3628d3c6fef7b0a8c48e1107199d24",
+        "nonce": "5e701eaded36c8dd311602a3a3621bcb",
+        "payload": {
+          "hint": "Your options are thinner than yesterday's alibi.",
+          "intent": "truth",
+          "model": "qwen3:14b",
+          "move": "MOVE:W",
+          "position": [
+            3,
+            2
+          ],
+          "prompt_discussion": {
+            "bluff_classification": "truth",
+            "llm_prompt": "",
+            "llm_reasoning": "template bank (truth) for the New York setting; zero tokens"
+          },
+          "random_move": false,
+          "response_seconds": 0.004055699799209833,
+          "state": "grid=7x7;self=[3, 2];barriers=[[4, 6], [5, 5]]",
+          "step": 23,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "verdict": "truth"
+        }
+      },
+      {
+        "commit": "4780d776d129f57f7250e03d0e92054102603b56125b81b5af57340587736f47",
+        "nonce": "c675ea7f1616869c2109d82bf076dd2f",
+        "payload": {
+          "hint": "The clock is my partner and it never takes bribes.",
+          "intent": "truth",
+          "model": "qwen3:14b",
+          "move": "MOVE:N",
+          "position": [
+            2,
+            2
+          ],
+          "prompt_discussion": {
+            "bluff_classification": "truth",
+            "llm_prompt": "",
+            "llm_reasoning": "template bank (truth) for the New York setting; zero tokens"
+          },
+          "random_move": false,
+          "response_seconds": 0.002293600235134363,
+          "state": "grid=7x7;self=[2, 2];barriers=[[4, 6], [5, 5]]",
+          "step": 24,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "verdict": "truth"
+        }
+      },
+      {
+        "commit": "12843627e3b40cb2405ffb99dbd776dc8d49298b260fca7a9b16b17961385eaf",
+        "nonce": "3bfbca9fe3241bbdc3f9f6e3f37100ac",
+        "payload": {
+          "hint": "Run all you like; the map is on my side.",
+          "intent": "truth",
+          "model": "qwen3:14b",
+          "move": "MOVE:N",
+          "position": [
+            1,
+            2
+          ],
+          "prompt_discussion": {
+            "bluff_classification": "truth",
+            "llm_prompt": "",
+            "llm_reasoning": "template bank (truth) for the New York setting; zero tokens"
+          },
+          "random_move": false,
+          "response_seconds": 0.0015833997167646885,
+          "state": "grid=7x7;self=[1, 2];barriers=[[4, 6], [5, 5]]",
+          "step": 25,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "verdict": "truth"
+        }
+      },
+      {
+        "commit": "b80dc9f5a12ac4569bcbebe42d64671ea509ef063ee9bcb94c5c574bc251d388",
+        "nonce": "7fb25bafc9f5fd148404611001499f86",
+        "payload": {
+          "hint": "The clock is my partner and it never takes bribes.",
+          "intent": "truth",
+          "model": "qwen3:14b",
+          "move": "MOVE:W",
+          "position": [
+            1,
+            1
+          ],
+          "prompt_discussion": {
+            "bluff_classification": "truth",
+            "llm_prompt": "",
+            "llm_reasoning": "template bank (truth) for the New York setting; zero tokens"
+          },
+          "random_move": false,
+          "response_seconds": 0.0013170000165700912,
+          "state": "grid=7x7;self=[1, 1];barriers=[[4, 6], [5, 5]]",
+          "step": 26,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "verdict": "truth"
+        }
+      },
+      {
+        "commit": "59d48314e53b9ff895b1a81562c488cca1e393d6dcfa506d16922c08bd018eeb",
+        "nonce": "7231aa8af880c2a1ba70d630a14c1d2a",
+        "payload": {
+          "hint": "I am searching Grand Central block by block.",
+          "intent": "lie",
+          "model": "qwen3:14b",
+          "move": "MOVE:N",
+          "position": [
+            0,
+            1
+          ],
+          "prompt_discussion": {
+            "bluff_classification": "lie",
+            "llm_prompt": "",
+            "llm_reasoning": "template bank (lie) for the New York setting; zero tokens"
+          },
+          "random_move": false,
+          "response_seconds": 4.79002483189106e-05,
+          "state": "grid=7x7;self=[0, 1];barriers=[[4, 6], [5, 5]]",
+          "step": 27,
+          "tokens_step": 0,
+          "tokens_total": 0,
+          "verdict": "lie"
+        }
+      }
+    ]
+  },
+  "roles": {
+    "bestteam": "thief",
+    "nis-yar1": "police"
+  },
+  "step_count": {
+    "bestteam": 28,
+    "nis-yar1": 28
+  },
+  "sub_game": 6
+}

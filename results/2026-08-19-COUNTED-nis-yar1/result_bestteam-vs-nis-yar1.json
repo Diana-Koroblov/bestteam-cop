@@ -1,0 +1,253 @@
+{
+  "_schema": "Final series result (book section 9.3.3). Email the compact canonical bytes, not this pretty-print.",
+  "schema_version": "1.1",
+  "report_type": "final_game_result",
+  "game_id": "bestteam-vs-nis-yar1",
+  "game_uid": "828ad3e4-36e0-e094-e648-0db15d297de1",
+  "links": {
+    "declaration": "declaration_bestteam-vs-nis-yar1.json",
+    "config": "config_bestteam-vs-nis-yar1_g<NN>.json",
+    "log": "log_bestteam-vs-nis-yar1_g<NN>.json",
+    "result": "result_bestteam-vs-nis-yar1.json",
+    "github": {
+      "bestteam": {
+        "cop": "https://github.com/Diana-Koroblov/bestteam-cop",
+        "thief": "https://github.com/Diana-Koroblov/bestteam-thief"
+      },
+      "nis-yar1": {
+        "cop": "https://github.com/NisoDeri/nis-yar1-cop",
+        "thief": "https://github.com/NisoDeri/nis-yar1-thief"
+      }
+    }
+  },
+  "timezone": "Asia/Jerusalem",
+  "groups": [
+    "bestteam",
+    "nis-yar1"
+  ],
+  "num_sub_games": 6,
+  "sub_games": [
+    {
+      "sub_game_number": 1,
+      "roles": {
+        "bestteam": "police",
+        "nis-yar1": "thief"
+      },
+      "started_at": "2026-08-19T14:31:02+00:00",
+      "ended_at": "2026-08-19T14:32:40+00:00",
+      "result": "survival",
+      "winner_group": "nis-yar1",
+      "tie": false,
+      "github_commit": {
+        "bestteam": "1c0e06e82d84f264e7377e60cae2dc10e97665da",
+        "nis-yar1": "36a81261f5dc17aaaae994359c6e5669cc74b728"
+      },
+      "tokens": {
+        "bestteam": 0,
+        "nis-yar1": 0
+      },
+      "score": {
+        "bestteam": 5,
+        "nis-yar1": 10
+      },
+      "log_files": {
+        "bestteam": "log_bestteam-vs-nis-yar1_g01.json",
+        "nis-yar1": "log_bestteam-vs-nis-yar1_g01.json"
+      },
+      "audit": {
+        "log_verified": true,
+        "tampered": false
+      }
+    },
+    {
+      "sub_game_number": 2,
+      "roles": {
+        "bestteam": "thief",
+        "nis-yar1": "police"
+      },
+      "started_at": "2026-08-19T14:31:08+00:00",
+      "ended_at": "2026-08-19T14:34:17+00:00",
+      "result": "capture",
+      "winner_group": "nis-yar1",
+      "tie": false,
+      "github_commit": {
+        "bestteam": "5e0e673cbb78018e0d008c541fb56c4aabad0cc3",
+        "nis-yar1": "f98c797b42841fc2a968d3d7cd172a799e93aaa1"
+      },
+      "tokens": {
+        "bestteam": 0,
+        "nis-yar1": 0
+      },
+      "score": {
+        "bestteam": 5,
+        "nis-yar1": 20
+      },
+      "log_files": {
+        "bestteam": "log_bestteam-vs-nis-yar1_g02.json",
+        "nis-yar1": "log_bestteam-vs-nis-yar1_g02.json"
+      },
+      "audit": {
+        "log_verified": true,
+        "tampered": false
+      }
+    },
+    {
+      "sub_game_number": 3,
+      "roles": {
+        "bestteam": "police",
+        "nis-yar1": "thief"
+      },
+      "started_at": "2026-08-19T14:32:40+00:00",
+      "ended_at": "2026-08-19T14:39:31+00:00",
+      "result": "survival",
+      "winner_group": "nis-yar1",
+      "tie": false,
+      "github_commit": {
+        "bestteam": "1c0e06e82d84f264e7377e60cae2dc10e97665da",
+        "nis-yar1": "36a81261f5dc17aaaae994359c6e5669cc74b728"
+      },
+      "tokens": {
+        "bestteam": 0,
+        "nis-yar1": 0
+      },
+      "score": {
+        "bestteam": 5,
+        "nis-yar1": 10
+      },
+      "log_files": {
+        "bestteam": "log_bestteam-vs-nis-yar1_g03.json",
+        "nis-yar1": "log_bestteam-vs-nis-yar1_g03.json"
+      },
+      "audit": {
+        "log_verified": true,
+        "tampered": false
+      }
+    },
+    {
+      "sub_game_number": 4,
+      "roles": {
+        "bestteam": "thief",
+        "nis-yar1": "police"
+      },
+      "started_at": "2026-08-19T14:34:18+00:00",
+      "ended_at": "2026-08-19T14:40:52+00:00",
+      "result": "capture",
+      "winner_group": "nis-yar1",
+      "tie": false,
+      "github_commit": {
+        "bestteam": "5e0e673cbb78018e0d008c541fb56c4aabad0cc3",
+        "nis-yar1": "f98c797b42841fc2a968d3d7cd172a799e93aaa1"
+      },
+      "tokens": {
+        "bestteam": 0,
+        "nis-yar1": 0
+      },
+      "score": {
+        "bestteam": 5,
+        "nis-yar1": 20
+      },
+      "log_files": {
+        "bestteam": "log_bestteam-vs-nis-yar1_g04.json",
+        "nis-yar1": "log_bestteam-vs-nis-yar1_g04.json"
+      },
+      "audit": {
+        "log_verified": true,
+        "tampered": false
+      }
+    },
+    {
+      "sub_game_number": 5,
+      "roles": {
+        "bestteam": "police",
+        "nis-yar1": "thief"
+      },
+      "started_at": "2026-08-19T14:39:31+00:00",
+      "ended_at": "2026-08-19T14:43:40+00:00",
+      "result": "survival",
+      "winner_group": "nis-yar1",
+      "tie": false,
+      "github_commit": {
+        "bestteam": "1c0e06e82d84f264e7377e60cae2dc10e97665da",
+        "nis-yar1": "36a81261f5dc17aaaae994359c6e5669cc74b728"
+      },
+      "tokens": {
+        "bestteam": 0,
+        "nis-yar1": 0
+      },
+      "score": {
+        "bestteam": 5,
+        "nis-yar1": 10
+      },
+      "log_files": {
+        "bestteam": "log_bestteam-vs-nis-yar1_g05.json",
+        "nis-yar1": "log_bestteam-vs-nis-yar1_g05.json"
+      },
+      "audit": {
+        "log_verified": true,
+        "tampered": false
+      }
+    },
+    {
+      "sub_game_number": 6,
+      "roles": {
+        "bestteam": "thief",
+        "nis-yar1": "police"
+      },
+      "started_at": "2026-08-19T14:40:53+00:00",
+      "ended_at": "2026-08-19T14:47:48+00:00",
+      "result": "capture",
+      "winner_group": "nis-yar1",
+      "tie": false,
+      "github_commit": {
+        "bestteam": "5e0e673cbb78018e0d008c541fb56c4aabad0cc3",
+        "nis-yar1": "f98c797b42841fc2a968d3d7cd172a799e93aaa1"
+      },
+      "tokens": {
+        "bestteam": 0,
+        "nis-yar1": 0
+      },
+      "score": {
+        "bestteam": 5,
+        "nis-yar1": 20
+      },
+      "log_files": {
+        "bestteam": "log_bestteam-vs-nis-yar1_g06.json",
+        "nis-yar1": "log_bestteam-vs-nis-yar1_g06.json"
+      },
+      "audit": {
+        "log_verified": true,
+        "tampered": false
+      }
+    }
+  ],
+  "final_result": {
+    "total_score": {
+      "bestteam": 30,
+      "nis-yar1": 90
+    },
+    "sub_games_won": {
+      "bestteam": 0,
+      "nis-yar1": 6
+    },
+    "ties": 0,
+    "winner_group": "nis-yar1",
+    "series_tie": false,
+    "tokens_total_series": {
+      "bestteam": 0,
+      "nis-yar1": 0
+    },
+    "games_played_including_this": {
+      "bestteam": 3,
+      "nis-yar1": 4
+    },
+    "first_meeting_between_groups": true,
+    "diversity_reward_applied": {
+      "bestteam": false,
+      "nis-yar1": true
+    }
+  },
+  "mutual_agreement": {
+    "sha256": "a6785c8d7e5c81a5664d81bab72015189855e6f852393a5a2167d4b7d1a117d1",
+    "confirmed": true
+  }
+}
