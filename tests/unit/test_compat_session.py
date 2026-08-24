@@ -55,6 +55,15 @@ def test_agreement_message_carries_the_new_pairing_fields() -> None:
     assert terms == terms_from_config(session.config)
 
 
+def test_agreement_message_mirrors_the_commit_at_the_top_level() -> None:
+    """yanell11, 24/08: a fallback for their reader if the sealed Step-0
+    record does not carry one - same top-level-mirror pattern as group_id."""
+    session = _session(Role.COP, sub_game=1)
+    session.identity["github_commit"] = "c" * 40
+    message, _terms = session.agreement_message()
+    assert message["step0_commit"] == "c" * 40
+
+
 def test_agreement_message_puts_the_group_id_at_the_top_level() -> None:
     """najamjad §9.8: a group id only inside `identity` cannot bind a session.
 

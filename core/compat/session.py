@@ -173,6 +173,7 @@ class ReferenceSession:
             "sender": ours_id,
             "group_id": ours_id,
             "games_played": self.identity.get("counted_games_played", 0),
+            "step0_commit": self.identity.get("github_commit", ""),
             "terms": terms,
             "nonce": nonce,
             "signature": sealing.commit_of(terms, nonce),
@@ -344,6 +345,5 @@ class ReferenceSession:
     def _end(self, result: str, winner: str, detail: str = "") -> str:
         """Record the verdict, keeping the first one that arrived."""
         if not self.result:
-            self.result = f"{result} ({detail})" if detail else result
-            self.winner = winner
+            self.result, self.winner = (f"{result} ({detail})" if detail else result), winner
         return self.result
