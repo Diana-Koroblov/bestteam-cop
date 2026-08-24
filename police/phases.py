@@ -46,11 +46,12 @@ from enum import Enum
 from typing import Any
 
 from core.domain.belief import entropy
+from core.domain.board import Board, Position
 from core.domain.brain_base import Observation
 from core.domain.connectivity import exit_count, region_size
 from core.domain.opponent_profile import MovementStyle, OpponentProfile
 
-__all__ = ["Phase", "PhaseSettings", "classify"]
+__all__ = ["Phase", "PhaseSettings", "classify", "believed_exit_count"]
 
 
 class Phase(str, Enum):
@@ -102,6 +103,31 @@ class PhaseSettings:
         )
 
 
+def believed_exit_count(
+    belief: dict[Position, float], barriers: frozenset[Position], board: Board
+) -> float:
+    """Return the probability-weighted exit count over the whole belief, not one cell.
+
+    `most_likely_opponent()` is a single point estimate, and the recursive
+    filter's peak can sit a ring inside the true cell for several turns running
+    against a Thief that hugs the board's edge (predict() spreads mass toward
+    the interior every turn just as fast as evidence can pull it back to the
+    boundary) — so `exit_count(peak, ...)` reads 4 (an interior cell) turn
+    after turn while the real Thief sits on a 2- or 3-exit edge cell the whole
+    time, and SEAL never fires. Measured live: the 22/08 match logs show entropy
+    staying under `confident_bits` (i.e. we are confident) for the full 34
+    steps of every Cop sub-game while barriers stayed at zero throughout.
+
+    Averaging over the whole posterior fixes exactly that failure mode without
+    touching the filter itself: a peak that has drifted one ring inward still
+    sits beside a good deal of mass genuinely on the edge, and the average
+    reflects that even when the single argmax cell does not. For a belief that
+    is a delta on one cell — every fixture in `test_cop_phases.py` — this is
+    identical to `exit_count(peak, ...)`, so nothing already measured changes.
+    """
+    return sum(mass * exit_count(cell, barriers, board) for cell, mass in belief.items())
+
+
 def classify(
     observation: Observation, profile: OpponentProfile, settings: PhaseSettings
 ) -> Phase:
@@ -135,6 +161,22 @@ def classify(
     # converges, so against it the barriers have to come out early.
     strict = style is MovementStyle.FLEE_GREEDY
     threshold = settings.seal_exits - 1 if strict else settings.seal_exits
-    if style is MovementStyle.ORBITER or exit_count(target, barriers, board) <= threshold:
+    if style is MovementStyle.ORBITER or (
+        believed_exit_count(observation.belief, barriers, board) <= threshold
+    ):
+        return Phase.SEAL
+
+    # Once at least one wall is down this sub-game, do not hand the phase back
+    # to HERD just because the target's exit count ticked back up one turn —
+    # a wall is permanent and abandoning a cage mid-build does not un-spend the
+    # turns already paid for it. Measured live (imreeyal, 18/08, g01/g03/g05):
+    # the Cop built 5-8 walls early, then reverted to HERD for up to 16 straight
+    # turns before scrambling to finish in the last few, and ran out of steps
+    # every time. Safe rather than reckless: this only widens *when* a
+    # placement is considered, not *whether* one is taken — `best_barrier`
+    # still runs every one of its four refusals (uncertainty, separation,
+    # futility, unfinishable cuts) before building anything, so a genuinely bad
+    # wall is refused exactly as it always was.
+    if barriers:
         return Phase.SEAL
     return Phase.HERD

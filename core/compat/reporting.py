@@ -76,7 +76,8 @@ async def _send(
 ) -> str:
     our_group = sdk.team_name
     out = Path(args.out)
-    gid = league_report.game_id(our_group, their_group)
+    label = str(getattr(args, "series_label", "") or "")
+    gid = league_report.game_id(our_group, their_group, label)
     path = out / f"result_{gid}.json"
     counted = bool(getattr(args, "counted", False)) and their_group != our_group
     terms = terms_from_config(sdk.runtime.orchestrator.config)
@@ -85,7 +86,7 @@ async def _send(
     # ours. The **timestamp**, not the date — two series against one opponent
     # on one afternoon share a calendar day, and merging them silently is what
     # a date-only check would miss (`league_merge.SERIES_WINDOW`).
-    uid = league_report.game_uid(terms, our_group, their_group)
+    uid = league_report.game_uid(terms, our_group, their_group, label)
     began = str(rows[0].get("started_at", "")) if rows else ""
     merged = league_merge.merge_rows(
         league_merge.load_rows(path, uid, began), rows
@@ -101,6 +102,7 @@ async def _send(
         games_played=_games_played(our_group, their_group, their_identity, counted),
         first_meeting=_first_meeting(their_group),
         tie_score=int(sdk.runtime.orchestrator.config.require("scoring.tie_score")),
+        label=label,
     )
     write(result, out, f"result_{gid}.json")
 

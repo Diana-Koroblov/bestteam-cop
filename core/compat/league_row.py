@@ -29,11 +29,15 @@ def row_from_session(
     their_group: str,
     their_commit: str,
     our_commit: str,
+    label: str = "",
 ) -> dict[str, Any]:
     """Return one finished sub-game's row, scored and dated, from a live session.
 
     Args:
         our_commit: The head we **declared**, passed in rather than read here.
+        label: Must match the series label the artefact was actually filed
+            under (yanell11, 24/08), or this row names a log file that a
+            different, unlabelled `game_id` wrote.
 
     🐛 **This file used to call `commit_hash(Path.cwd())`.** The declaration
     reads `REPO_ROOT` (`core/reference_identity.py`), so the same series could
@@ -49,7 +53,7 @@ def row_from_session(
     the one field that says which code ran.
     """
     our_group = sdk.team_name
-    gid = game_id(our_group, their_group or "opponent")
+    gid = game_id(our_group, their_group or "opponent", label)
     log_name = f"log_{gid}_g{number:02d}.json"
     keyword = raw_result.split(" (", 1)[0].strip().lower()
     # Three states, not two: a clean audit, a genuinely mismatched record, and

@@ -48,6 +48,19 @@ def test_a_clean_capture_is_scored_and_marks_the_winner_group() -> None:
     assert row["audit"] == {"log_verified": True, "tampered": False}
 
 
+def test_a_label_names_the_log_file_a_replay_actually_wrote() -> None:
+    """yanell11, 24/08: the row must name the SAME filename the labelled
+    filing wrote, or the row points a reader at a log that does not exist."""
+    session = _Session(Role.COP, winner="cop")
+    row = row_from_session(
+        sdk=_SDK(), session=session, number=1, raw_result="capture",
+        verdict={"passed": True, "received": True}, started="t0", ended="t1",
+        their_group="imreeyal", their_commit="b" * 40, our_commit="a" * 40,
+        label="counted-2",
+    )
+    assert row["log_files"]["bestteam"] == "log_bestteam-vs-imreeyal-counted-2_g01.json"
+
+
 def test_our_thief_survival_credits_the_thief_score_to_our_group() -> None:
     session = _Session(Role.THIEF, winner="thief")
     row = row_from_session(

@@ -71,17 +71,18 @@ def close_sub_game(
     was wrong or absent.
     """
     group = their_group or "opponent"
+    label = str(getattr(args, "series_label", "") or "")
     rows.append(row_from_session(
         sdk=sdk, session=session, number=number, raw_result=result, verdict=verdict,
         started=started, ended=ended, their_group=group,
         their_commit=str(
             getattr(args, "their_commit", "") or their_identity.get("github_commit", "") or ""
         ),
-        our_commit=str(our_identity.get("github_commit", "") or ""),
+        our_commit=str(our_identity.get("github_commit", "") or ""), label=label,
     ))
     try:
         written.extend(file_sub_game(
-            out=Path(args.out), game_identifier=game_id(sdk.team_name, group),
+            out=Path(args.out), game_identifier=game_id(sdk.team_name, group, label),
             session=session, sdk=sdk, number=number, outcome=result,
             our_group=sdk.team_name, their_group=group,
             role_split=str(getattr(args, "role_split", "") or ""),
@@ -114,7 +115,9 @@ async def close_series(
         try:
             written.append(file_declaration(
                 out=Path(args.out),
-                game_identifier=game_id(sdk.team_name, their_group),
+                game_identifier=game_id(sdk.team_name, their_group, str(
+                    getattr(args, "series_label", "") or ""
+                )),
                 sdk=sdk, our_identity=our_identity, their_identity=their_identity,
                 their_group=their_group, their_url=str(getattr(args, "opponent", "") or ""),
                 started_utc=opened, ended_utc=utc_now(),

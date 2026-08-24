@@ -129,8 +129,11 @@ class ReferenceSession:
         """The negotiated configuration."""
         return self.orchestrator.config
 
-    def agreement_message(self) -> tuple[dict, dict]:
+    def agreement_message(self, label: str = "") -> tuple[dict, dict]:
         """Return what we send, and the terms we are signing.
+
+        Args:
+            label: A series label (yanell11, 24/08) — see `league_report.game_id`.
 
         Sending it is the gateway's job. A peer that has not started yet is a
         transport failure to retry, not a disagreement about the game, and
@@ -164,7 +167,7 @@ class ReferenceSession:
         nonce = secrets.token_hex(16)
         ours_id = str(self.identity.get("group_id", ""))
         theirs_id = next((name for name in self.config.agreed_between if name != ours_id), "")
-        uid = league_report.game_uid(terms, ours_id, theirs_id) if theirs_id else ""
+        uid = league_report.game_uid(terms, ours_id, theirs_id, label) if theirs_id else ""
         model = str(self.config.get("pheromones.decay_model", "multiplicative"))
         return {
             "sender": ours_id,

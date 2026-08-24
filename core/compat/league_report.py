@@ -43,21 +43,35 @@ _AGGREGATE_KEYS = ("total_score", "sub_games_won", "ties", "winner_group", "seri
 _ROW_KEYS = ("sub_game_number", "roles", "result", "winner_group", "score")
 
 
-def game_id(group_a: str, group_b: str) -> str:
-    """Return the sorted-pair match id both sides derive with nothing to negotiate."""
-    return "-vs-".join(sorted([group_a, group_b]))
+def game_id(group_a: str, group_b: str, label: str = "") -> str:
+    """Return the sorted-pair match id both sides derive with nothing to negotiate.
+
+    Args:
+        label: Appended when a series must be distinguishable from an earlier
+            one against the same opponent under the same terms (yanell11,
+            24/08) — without it, a voided attempt and its replay share one
+            filename and the second mail silently overwrites the first in
+            anyone's inbox view.
+    """
+    base = "-vs-".join(sorted([group_a, group_b]))
+    return f"{base}-{label}" if label else base
 
 
-def game_uid(terms: dict[str, Any], group_a: str, group_b: str) -> str:
+def game_uid(terms: dict[str, Any], group_a: str, group_b: str, label: str = "") -> str:
     """Return the id both peers reproduce without a round-trip.
 
     ``uuid(sha256(canonical(terms) + "|" + "|".join(sorted([a, b])))[:16])`` —
     the kit's own formula (`vectors/game_uid.json`), reproduced against
     `verify_vectors.py` on this tree before this function was written. Derived
     from the FLAT terms only, never the whole `game.json` (WARNINGS §2).
+
+    Labelled, the seed's tail is the WHOLE labelled `game_id`, not the bare
+    joined pair — verified byte-for-byte against yanell11's own derivation
+    (24/08) — so a replay never collides with its own unlabelled predecessor.
     """
     pair = sorted([group_a, group_b])
-    seed = f"{canonical_json(terms)}|{'|'.join(pair)}"
+    tail = game_id(group_a, group_b, label) if label else "|".join(pair)
+    seed = f"{canonical_json(terms)}|{tail}"
     return str(uuid.UUID(bytes=sha256(seed.encode()).digest()[:16]))
 
 
@@ -122,14 +136,18 @@ def build_result(
     games_played: dict[str, int | None],
     first_meeting: bool,
     tie_score: int = 0,
+    label: str = "",
 ) -> dict[str, Any]:
     """Assemble ``result_<game_id>.json`` in the league's schema, hash included.
 
     Args:
         tie_score: The signed ``scoring.tie_score``, added to BOTH totals when
             the series ends level. Zero leaves the raw sums untouched.
+        label: Must match whatever the caller filed under (yanell11, 24/08) —
+            this ``game_id`` names the artefact's own ``links`` block, so a
+            mismatch here names files beside it that were never written.
     """
-    gid = game_id(our_group, their_group)
+    gid = game_id(our_group, their_group, label)
     total_score: dict[str, int] = {}
     tokens_total: dict[str, int] = {}
     wins = {our_group: 0, their_group: 0}
@@ -162,9 +180,7 @@ def build_result(
         their_group: bool(counted and first_meeting and winner == their_group),
     }
     result: dict[str, Any] = {
-        "_schema": "Final series result (book section 9.3.3). Email the compact "
-        "canonical bytes, not this pretty-print.",
-        "schema_version": "1.2",
+        "schema_version": "1.1",
         "report_type": "final_game_result",
         "game_id": gid,
         "game_uid": game_uid_value,
@@ -195,18 +211,17 @@ def build_result(
         "sha256": consensus_sha256(result),
         "confirmed": all_settled(sub_games),
     }
-    if not counted:
-        # **Friendly only.** A counted file goes to the lecturer template-pure,
-        # and a top-level key of our own invention there is an unexplained diff
-        # against every other team's artefact for a grader to puzzle over
-        # (imreeyal, 16/08). On a friendly it earns its place: it is the record
-        # of *why* this series does not count, which is the one thing an
-        # uncounted artefact most needs to say about itself.
-        result["league"] = {
-            "authority": "book App. E rule 52 - one counted series per pairing",
-            "counted": False,
-            "reason": "friendly",
-        }
+    # 🐛 **Used to be friendly-only.** Omitted on a counted file because an
+    # invented top-level key there was once an unexplained diff against
+    # another team's artefact (imreeyal, 16/08) — but yanell11's own counted
+    # reports carry this block too (24/08), so omitting it is now the
+    # unexplained diff. Both shapes state the one thing their own kind of
+    # artefact most needs to say about itself: why it does, or does not, count.
+    result["league"] = {
+        "authority": "book App. E rule 52 - one counted series per pairing",
+        "counted": counted,
+        "reason": "counted" if counted else "friendly",
+    }
     return result
 
 

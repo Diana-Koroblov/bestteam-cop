@@ -94,6 +94,18 @@ def test_agreement_message_derives_game_uid_from_agreed_between() -> None:
     assert message["game_uid"] == game_uid(terms, theirs, "bestteam")
 
 
+def test_agreement_message_carries_a_labelled_game_uid_when_given_one() -> None:
+    """yanell11, 24/08: a replay must not share its predecessor's game_uid."""
+    from core.compat.league_report import game_uid
+
+    session = _session()
+    theirs = next(name for name in session.config.agreed_between if name != "bestteam")
+    labelled, terms = session.agreement_message("counted-2")
+    plain, _ = session.agreement_message()
+    assert labelled["game_uid"] == game_uid(terms, "bestteam", theirs, "counted-2")
+    assert labelled["game_uid"] != plain["game_uid"]
+
+
 def test_game_uid_is_empty_when_the_opponent_is_not_yet_named() -> None:
     """A one-name agreed_between (a proposal, not yet a signed contract) must
     not crash the message it would otherwise be able to send."""

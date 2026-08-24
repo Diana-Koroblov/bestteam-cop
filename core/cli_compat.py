@@ -153,7 +153,7 @@ async def _series(
             runtime=sdk.runtime, client=sdk.opponent, inboxes=inboxes,
             identity=identity, sub_game_number=number,
         )
-        message, _ = session.agreement_message()
+        message, _ = session.agreement_message(str(getattr(args, "series_label", "") or ""))
         started = utc_now()
         try:
             # Waits for an agreement stamped for THIS sub-game, re-sending ours

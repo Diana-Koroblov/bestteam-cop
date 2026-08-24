@@ -46,6 +46,28 @@ def test_game_uid_changes_when_the_terms_do() -> None:
     assert game_uid(_TERMS, "a", "b") != game_uid(other, "a", "b")
 
 
+def test_a_label_distinguishes_a_replay_from_its_own_predecessor() -> None:
+    """yanell11, 24/08: without a label, a voided series and its replay share
+    one game_id, one game_uid, and one settlement hash if the score matches -
+    the replay overwrites the first attempt in a grader's inbox view."""
+    assert game_id("bestteam", "imreeyal", "counted-2") == "bestteam-vs-imreeyal-counted-2"
+    assert game_uid(_TERMS, "a", "b", "x") != game_uid(_TERMS, "a", "b")
+
+
+def test_a_labelled_game_uid_matches_yanell11s_own_independent_derivation() -> None:
+    """Cross-checked byte-for-byte against yanell11's own computation, not just
+    self-consistent with ours (22/08 taught us that lesson the hard way)."""
+    terms = {
+        "axis_origin_corner": "top-left", "axis_start_index": 0, "barriers_max": 14,
+        "board_size": 7, "cop_start": [0, 0], "decay_per_step": 0.1, "emit_intensity": 0.9,
+        "hint_max_words": 15, "max_steps": 35, "min_center_intensity": 0.5, "num_games": 6,
+        "setting": "Haifa", "smell_grid_size": 5, "thief_start": [3, 3],
+    }
+    assert game_uid(terms, "bestteam", "yanell11", "counted-2") == (
+        "106fb655-03e9-56ff-94d7-894efde40d16"
+    )
+
+
 def _row(number: int, result: str, winner: str, our_points: int, their_points: int) -> dict:
     return build_sub_game_row(
         number=number, our_group="bestteam", their_group="imreeyal",
@@ -146,6 +168,24 @@ def test_a_friendly_never_claims_the_diversity_reward_even_when_won() -> None:
         "authority": "book App. E rule 52 - one counted series per pairing",
         "counted": False, "reason": "friendly",
     }
+
+
+def test_a_counted_series_also_carries_a_league_block_now() -> None:
+    """🐛 Used to be friendly-only, omitted on a counted file to avoid an
+    unexplained diff (imreeyal, 16/08) - but yanell11's own counted reports
+    carry this block too (24/08), so omitting it became the unexplained diff."""
+    rows = [_row(1, "capture", "bestteam", 20, 5)]
+    result = build_result(
+        counted=True, our_group="bestteam", their_group="imreeyal", sub_games=rows,
+        game_uid_value="uid-1", timezone="Asia/Jerusalem",
+        repos={}, games_played={"bestteam": 1, "imreeyal": None}, first_meeting=True,
+    )
+    assert result["league"] == {
+        "authority": "book App. E rule 52 - one counted series per pairing",
+        "counted": True, "reason": "counted",
+    }
+    assert result["schema_version"] == "1.1"
+    assert "_schema" not in result
 
 
 def test_consensus_envelope_carries_no_records_and_names_its_own_claim() -> None:

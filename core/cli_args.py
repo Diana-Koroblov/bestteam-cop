@@ -63,6 +63,9 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     match.add_argument("--out", type=Path, help="Where the four artefacts go. Omit to file none.")
     match.add_argument("--role-split", default="3-3", help="The negotiated block plan (N17).")
     match.add_argument(
+        "--series-label", default="", help="Distinguishes a replay's game_id/game_uid (reference)."
+    )
+    match.add_argument(
         "--wait", type=float, default=120.0, help="Seconds to keep retrying the handshake."
     )
     match.add_argument(
