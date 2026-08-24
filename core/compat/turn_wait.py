@@ -138,6 +138,7 @@ async def push_agreement(
     deadline = time.monotonic() + seconds
     while True:
         try:
+            print(f"  > outbound negotiate games_played={message.get('games_played')!r}")
             await client.call("negotiate", message, argument="message")
             return client
         except (TransportError, RemoteToolError):
